@@ -1,0 +1,18 @@
+//*******************************************************************************************************************//
+// Authors: Imrul Qais (TU Delft), Chayan Bhawal (IIT Guwahati), and Debasattam Pal (IIT Bombay).
+//
+// Citation: Imrul Qais, Chayan Bhawal, and Debasattam Pal, 
+//"Singular LQR optimal control of DAEs: A feedback solution", Under Review, 2023.
+//
+// Funding Agency for the software package: Science and Engineering Research Board (SERB), Govt. of India 
+// Project ID: SRG/2021/000721
+// Project Duration: 31-Dec-2021 to 30-Dec-2023 
+//
+// Created on: 29 December 2023
+//*******************************************************************************************************************//
+
+-- SCILAB Users: OPEN THE SCILAB FOLDER AND READ THE README FILE.
+
+-- MATLAB AND PYTHON USERS: COMPATIBLE CODES WILL BE UPLOADED SOON.
+
+-- In case of any bugs: Mail to - bhawal[at]iitg.ac.in and drchayanbhawal[at]gmail.com
