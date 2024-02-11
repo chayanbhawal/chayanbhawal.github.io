@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EE250 Jan 2023</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    header {
+        background-color: #0c1898;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    nav {
+        background-color: #f4f4f4;
+        overflow: hidden;
+    }
+    nav a {
+        float: left;
+        display: block;
+        color: #333;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    nav a:hover {
+        background-color: #ddd;
+    }
+    .container {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .about-me {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .about-me h2 {
+        color: #333;
+    }
+    .about-me p {
+        line-height: 1.6;
+    }
+    .picture {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .picture img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    .research-interests {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .research-interests h2 {
+        color: #333;
+    }
+    .research-interests ul {
+        list-style-type: square;
+        padding-left: 20px;
+    }
+    .center {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+    th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    th {
+    background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EE250 Control System Jan 2023</h1>
+    </header>
+    <nav>
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Student</a>
+    </nav>
+    <div class="center">
+<br> Syllabus: <a href="https://iitg.ac.in/acad/CourseStructure/Btech2018/EE/EE250.htm">Link</a> 
+
+
+<h2>Video Lectures</h2>
+
+<table>
+<thead>
+  <tr>
+    <th><center>Lecture</center></th>
+    <th><center>Topic</center></th>
+    <th><center>Video Download Link</center></th>
+    <th><center>Lecture Notes</center></th>
+    <th><center>Date</center></th>	  
+  </tr>
+</thead>
+<tbody>
+<tr>
+    <td><center>39</center></td>
+    <td><center>Compensator design using Bode plot & Conclusion</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-39%20Compensator%20Design%20using%20Bode%20plots%20-%20Conclusion.mkv?csf=1&web=1&e=BU6HBt">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:p:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-39%20Design%20of%20Compensators%20using%20Bode%20Plot%20and%20Conclusion.pptx?d=wac6a8eea5de74abc8e631c342bd9ecde&csf=1&web=1&e=EV55BJ">Link</a></center></td>
+    <td><center>02-May-2023</center></td>	
+</tr>
+<tr>
+    <td><center>38</center></td>
+    <td><center>Compensator design continued</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-38%20Compensator%20design%20continued.mkv?csf=1&web=1&e=Y37IiG">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-38%20Compensator%20design%20continued.pdf?csf=1&web=1&e=ce70u9">Link</a></center></td>
+    <td><center>27-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>37</center></td>
+    <td><center>Designing compensators using Root Locus</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-37%20Designing%20Compensators%20using%20Root%20Locus.mkv?csf=1&web=1&e=yBxKHx">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-37%20Design%20of%20Compensators%20using%20Root%20Locus.pdf?csf=1&web=1&e=L6mkWp">Link</a></center></td>
+    <td><center>27-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>36</center></td>
+    <td><center>Controllability and Observability</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-36%20Controllability%20and%20Observability.mkv?csf=1&web=1&e=EVyxEk">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-36%20Controllability%20and%20Observability.pdf?csf=1&web=1&e=48vRB4">Link</a></center></td>
+    <td><center>26-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>35</center></td>
+    <td><center>Compensators - Introduction to state-feedback</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-35%20Compensators%20-%20Intro%20to%20state%20feedback.mkv?csf=1&web=1&e=pnnE0l">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-35%20Compensators%20-%20Intro%20to%20state-feedback.pdf?csf=1&web=1&e=eK3ZaX">Link</a></center></td>
+    <td><center>25-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>34</center></td>
+    <td><center>PID Issues - Intro to Compensator</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-34%20PID%20Issues-%20Intro%20to%20Compensators.mkv?csf=1&web=1&e=yUTQcv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:p:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-34%20PID%20Problems%20-%20Intro%20to%20compensators.pptx?d=wa59bff58b28541a6a1a773e1d50e765e&csf=1&web=1&e=8GgFCX">Link</a></center></td>
+    <td><center>24-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>33</center></td>
+    <td><center>PID Tunning Continued</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-33%20PID%20Tuning%20Continued.mkv?csf=1&web=1&e=gcsGSd">Link</a></center></td>
+    <td><center>No notes</center></td>
+    <td><center>20-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>32</center></td>
+    <td><center>Tuning of PID Controller</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-32%20Tuning%20of%20PID%20controllers.mkv?csf=1&web=1&e=OHWKZY">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-32%20Tuning%20of%20PID%20Controller.pdf?csf=1&web=1&e=ecuseb">Link</a></center></td>
+    <td><center>19-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>31</center></td>
+    <td><center>PID Controller</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-31%20PID%20Controller.mkv?csf=1&web=1&e=AVAZsI">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-31%20PID%20Controllers.pdf?csf=1&web=1&e=BNI1Y0">Link</a></center></td>
+    <td><center>18-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>30</center></td>
+    <td><center>Margins, Bode and Nyquist Plot</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-30%20Margins,%20Bode%20and%20Nyquist%20Plot.mkv?csf=1&web=1&e=w1Rw2H">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-30%20Margins,%20Bode%20and%20Nyquist%20Plot.pdf?csf=1&web=1&e=uC8YRD">Link</a></center></td>
+    <td><center>12-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>29</center></td>
+    <td><center>Gain and Phase margin</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-29%20Gain%20and%20Phase%20Margin.mkv?csf=1&web=1&e=gpxLNA">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-29%20Gain%20and%20Phase%20Margin.pdf?csf=1&web=1&e=q7d9Xy">Link</a></center></td>
+    <td><center>11-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>28</center></td>
+    <td><center>Nyquist plot</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-28%20Nyquist%20Plot.mkv?csf=1&web=1&e=476yT4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-28%20Nyquist%20Plot.pdf?csf=1&web=1&e=lSyREg">Link</a></center></td>
+    <td><center>10-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>27</center></td>
+    <td><center>Polar plot</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-27%20Polar%20plots.mkv?csf=1&web=1&e=SkACEs">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-27%20Polar%20plot.pdf?csf=1&web=1&e=8IMvsL">Link</a></center></td>
+    <td><center>06-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>26</center></td>
+    <td><center>Bode Plot cont</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-26%20Bode%20Plot%20contd.mkv?csf=1&web=1&e=1GN0Va">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-26%20Bode%20Plot%20cont.pdf?csf=1&web=1&e=IMZLm7">Link</a></center></td>
+    <td><center>05-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>25</center></td>
+    <td><center>Bode Plot</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-25%20Bode%20Plot.pdf?csf=1&web=1&e=9JLD8H">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-25%20Bode%20Plot.mkv?csf=1&web=1&e=TThb8w">Link</a></center></td>
+    <td><center>03-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>24</center></td>
+    <td><center>Frequency Response</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-24%20Frequency%20Response.mkv?csf=1&web=1&e=o2GJdg">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-24%20Frequency%20Response.pdf?csf=1&web=1&e=AcbHnf">Link</a></center></td>
+    <td><center>29-Mar-2023</center></td>	
+</tr>
+<tr>
+    <td><center>23</center></td>
+    <td><center>Root Locus and Dominant Poles</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-23%20Dominant%20poles%20and%20root%20locus.mkv?csf=1&web=1&e=gPxRXZ">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-23%20Dominant%20Poles%20and%20Root%20Locus.pdf?csf=1&web=1&e=SMDGTW">Link</a></center></td>
+    <td><center>28-Mar-2023</center></td>	
+</tr>
+<tr>
+    <td><center>22</center></td>
+    <td><center>Generalized Root Locus</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-22%20Generalized%20root%20locus.mkv?csf=1&web=1&e=DMjbzj">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-22%20Generalized%20Root%20Locus.pdf?csf=1&web=1&e=HDMOA2">Link</a></center></td>
+    <td><center>27-Mar-2023</center></td>	
+</tr>
+<tr>
+    <td><center>21</center></td>
+    <td><center>Root Locus contd.</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-21%20Root%20Locus%20Continued.mkv?csf=1&web=1&e=KmUwC7">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-21%20Root%20Locus%20Contd..pdf?csf=1&web=1&e=N4mAJY">Link</a></center></td>
+    <td><center>22-Mar-2023</center></td>	
+</tr>
+<tr>
+    <td><center>20</center></td>
+    <td><center>Introduction to Root Locus</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture20%20Introduction%20to%20Root%20Locus.mkv?csf=1&web=1&e=sAXNQO">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-20%20Introduction%20to%20Root%20Locus.pdf?csf=1&web=1&e=u3Bd7F">Link</a></center></td>
+    <td><center>23-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>19</center></td>
+    <td><center>Routh Hurwitz Criterion</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-19%20Routh%20Hurwitz%20Stability.mkv?csf=1&web=1&e=j5BDAU">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:p:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-19%20Routh%20Hurwitz%20Criterion.ppsx?d=w512d39fde5d04b148420ab5f85d306e1&csf=1&web=1&e=kxpgJE">Link</a></center></td>
+    <td><center>21-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>18</center></td>
+    <td><center>Stability</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-18%20Stability.mkv?csf=1&web=1&e=hazZ7W">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:p:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-18%20Stability.ppsx?d=wa6acb89836a24523bb23e60e7d9a028d&csf=1&web=1&e=eRdpI6">Link</a></center></td>
+    <td><center>20-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>17</center></td>
+    <td><center>Introduction to sensitivity</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-17%20Introduction%20to%20Sensitivity.mkv?csf=1&web=1&e=hkbSmS">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-17%20Introduction%20to%20sensitivity.pdf?csf=1&web=1&e=90LYTm">Link</a></center></td>
+    <td><center>15-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>16</center></td>
+    <td><center>System type and static error constants</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-16%20Type%20of%20system%20and%20error%20constants.mkv?csf=1&web=1&e=XkTBdU">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-16%20Type%20of%20system%20and%20error%20constants.pdf?csf=1&web=1&e=NazPmf">Link</a></center></td>
+    <td><center>14-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>15</center></td>
+    <td><center>Steady state error</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-15%20Steady%20state%20error.mkv?csf=1&web=1&e=VpIxPL">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-15%20Steady%20state%20error.pdf?csf=1&web=1&e=jjjtub">Link</a></center></td>
+    <td><center>13-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>14</center></td>
+    <td><center>Dominant poles</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-14%20Dominant%20Poles.mkv?csf=1&web=1&e=ZORIxZ">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-14%20Dominant%20Poles.pdf?csf=1&web=1&e=Z5XynL">Link</a></center></td>
+    <td><center>08-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>13</center></td>
+    <td><center>Time-domain specifications</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-13%20Time-domain%20specifications.mkv?csf=1&web=1&e=DmqhIP">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-13%20Time-domain%20Specifications.pdf?csf=1&web=1&e=hx3jW4">Link</a></center></td>
+    <td><center>07-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>12</center></td>
+    <td><center>Second order system</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-12%20Second%20Order%20System.mkv?csf=1&web=1&e=mORca3">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-12%20Second%20Order%20System.pdf?csf=1&web=1&e=vU3x5a">Link</a></center></td>
+    <td><center>06-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>11</center></td>
+    <td><center>First order system</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-11%20First%20order%20system.mkv?csf=1&web=1&e=YSG3MO">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-11%20First%20order%20system.pdf?csf=1&web=1&e=m8cs1K">Link</a></center></td>
+    <td><center>02-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>10</center></td>
+    <td><center>Signal flow graph contd.</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-10%20Signal%20Flow%20Graph%20Contd..mkv?csf=1&web=1&e=7JePcM">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:p:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-10%20Signal%20Flow%20Graph%20Contd.pptx?d=w6929ffcf14ec4fc9bc9174a5f29bd0d8&csf=1&web=1&e=pl0L0A">Link</a></center></td>
+    <td><center>30-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>09</center></td>
+    <td><center>Signal flow graph</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-09%20Signal%20Flow%20Graph.mkv?csf=1&web=1&e=CPu4TZ">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-09%20Signal%20Flow%20Graph.pdf?csf=1&web=1&e=OPkvdo">Link</a></center></td>
+    <td><center>25-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>08</center></td>
+    <td><center>Block reduction</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-08%20Block%20Diagram%20Reduction.mkv?csf=1&web=1&e=QwjQFr">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-08%20Block%20Diagram%20Reduction.pdf?csf=1&web=1&e=Rx2fKZ">Link</a></center></td>
+    <td><center>24-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>07</center></td>
+    <td><center>Modeling in time domain</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-07%20Modeling%20in%20Time%20Domain.mkv?csf=1&web=1&e=hcamF7">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-07%20Modeling%20in%20Time%20%20Domain.pdf?csf=1&web=1&e=YuvCe2">Link</a></center></td>
+    <td><center>23-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>06</center></td>
+    <td><center>Analogies with electrical circuits</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-06%20Analogies%20with%20Electrical%20Circuits.mkv?csf=1&web=1&e=curcme">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-06%20Analogy%20with%20Electrical%20circuits.pdf?csf=1&web=1&e=eDVdbs">Link</a></center></td>
+    <td><center>18-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>05</center></td>
+    <td><center>Mathematical Modelling Contd.</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-05%20Mathematical%20Modelling%20Contd..mkv?csf=1&web=1&e=h8Arz1">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-05%20Mathematical%20Modelling%20Contd..pdf?csf=1&web=1&e=9WnBuT">Link</a></center></td>
+    <td><center>17-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>04</center></td>
+    <td><center>Mathematical Modelling</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-04%20Mathematical%20Modelling.mkv?csf=1&web=1&e=VkdP32">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-04%20Mathematical%20Modelling.pdf?csf=1&web=1&e=n5C18V">Link</a></center></td>
+    <td><center>16-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>03</center></td>
+    <td><center>Position control system - An introduction</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-03%20Position%20Control%20System%20-%20An%20introduction.mkv?csf=1&web=1&e=qkfIQ0">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-03%20Position%20Control%20System%20-%20An%20Introduction.pdf?csf=1&web=1&e=DgKTCP">Link</a></center></td>
+    <td><center>11-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>02</center></td>
+    <td><center>Open and closed loop structure</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-02%20Open%20and%20closed%20loop%20structure.mkv?csf=1&web=1&e=JFSen5">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-02%20Open%20and%20closed%20loop%20structure.pdf?csf=1&web=1&e=V9Fffv">Link</a></center></td>
+    <td><center>10-Jan-2023</center></td>	
+</tr>
+<tr>
+    <td><center>01</center></td>
+    <td><center>Introduction</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Videos/Lecture-01%20Introduction.mkv?csf=1&web=1&e=9K6QPB">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:p:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Lecture%20Notes/Lecture-01%20Introduction.pptx?d=w41a9203332d74d259496fe96da2ecb0b&csf=1&web=1&e=HSP1mr">Link</a></center></td>
+    <td><center>09-Jan-2023</center></td>	
+</tr>
+</tbody>
+</table>
+
+<h2>Tutorial Sets</h2>
+
+<table>
+<thead>
+  <tr>
+    <th><center>Tutorial Set</center></th>
+    <th><center>Set Link</center></th>
+    <th><center>Solution Link</center></th>
+    <th><center>Date</center></th>	  
+ </tr>
+</thead>
+<tbody>
+<tr>
+    <td><center>05</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-05.pdf?csf=1&web=1&e=LFZFfF">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-05_Solution.pdf?csf=1&web=1&e=QnjRdE">Link</a></center></td>
+    <td><center>13-Apr-2023</center></td>	
+</tr>
+<tr>
+    <td><center>04</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-04.pdf?csf=1&web=1&e=yOf7u3">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-04_Solution.pdf?csf=1&web=1&e=nMFHRi">Link</a></center></td>
+    <td><center>29-Mar-2023</center></td>	
+</tr>
+<tr>
+    <td><center>03</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-03.pdf?csf=1&web=1&e=07jnWZ">Link</a></center></td>
+    <td><center><a href="">Link</a></center></td>
+    <td><center>16-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>02</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-02.pdf?csf=1&web=1&e=m1fEHh">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-02_Solution.pdf?csf=1&web=1&e=3SEtLG">Link</a></center></td>
+    <td><center>08-Feb-2023</center></td>	
+</tr>
+<tr>
+    <td><center>01</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-01.pdf?csf=1&web=1&e=xmhaqP">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Tutorial%20Set/Tut-01_Solution.pdf?csf=1&web=1&e=buT7iJ">Link</a></center></td>
+    <td><center>19-Jan-2023</center></td>	
+</tr>
+</tbody>
+</table>
+
+
+<h2>Problem Sets</h2>
+
+<table>
+<thead>
+  <tr>
+    <th><center>Problem Set</center></th>
+    <th><center>Set Link</center></th>
+    <th><center>Answer Key</center></th>
+    <th><center>Date</center></th>	  
+ </tr>
+</thead>
+<tbody>
+<tr>
+    <td><center>06</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS06.pdf?csf=1&web=1&e=7ddVZ4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS06-Solution.pdf?csf=1&web=1&e=dZKLNb">Link</a></center></td>
+    <td><center>28-04-2023</center></td> 	
+</tr>
+  <tr>
+    <td><center>05</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS05.pdf?csf=1&web=1&e=Wsvunl">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS05.pdf?csf=1&web=1&e=Wsvunl">Link</a></center></td>
+    <td><center>12-04-2023</center></td> 	
+</tr>
+  <tr>
+    <td><center>04</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS04.pdf?csf=1&web=1&e=VeWQJU">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS04_Solution.pdf?csf=1&web=1&e=PkJwbC">Link</a></center></td>
+    <td><center>02-04-2023</center></td> 	
+</tr>
+  <tr>
+    <td><center>03</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS03.pdf?csf=1&web=1&e=SJdLhh">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS03_Solution.pdf?csf=1&web=1&e=OMcZ72">Link</a></center></td>
+    <td><center>23-02-2023</center></td> 	
+</tr>
+<tr>
+    <td><center>02</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS02.pdf?csf=1&web=1&e=4kCKns">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS02-Solution.pdf?csf=1&web=1&e=SaZqnu">Link</a></center></td>
+    <td><center>22-02-2023</center></td> 	
+</tr>
+<tr>
+    <td><center>01</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS01.pdf?csf=1&web=1&e=4kCKns">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Problem%20Set/EE250-PS01-Solution.pdf?csf=1&web=1&e=SaZqnu">Link</a></center></td>
+    <td><center>27-01-2023</center></td> 	
+</tr>
+</tbody>
+</table>
+
+<h2>Weightage</h2>
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th><center>Expected Date</center></th>
+    <th><center>Weightage</center></th>
+    <th><center>Status/Solution</center></th>
+  </tr>
+</thead>
+<tbody>
+   <tr>
+    <td>Quiz-1</td>
+    <td><center>31-Jan-2023</center></td>
+    <td><center>10%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Examination/Quiz01-Solution.pdf?csf=1&web=1&e=31wL3w">Link</a></center></td>
+  </tr>
+   <tr>
+    <td>Mid-Semester</td>
+    <td><center>01-Mar-2023</center></td>
+    <td><center>20%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Examination/EE250%20Mid%20Semester%202023%20Solution.pdf?csf=1&web=1&e=nXtgkF">Link</a></center></td>
+  </tr>
+    <tr>
+    <td>Quiz-2</td>
+    <td><center>15-Apr-2023</center></td>
+    <td><center>20%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Examination/Quiz02-Solution.pdf?csf=1&web=1&e=EwUbci">Link</a></center></td>
+  </tr>
+    <tr>
+    <td>Quiz-3</td>
+    <td><center>29-Apr-2023</center></td>
+    <td><center>20%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Examination/Quiz03-Solution.mkv?csf=1&web=1&e=W2Ezma">Video Link</a></center></td>
+  </tr>
+    <tr>
+    <td>End-Semester</td>
+    <td><center>09-May-2023</center></td>
+    <td><center>30%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE250_2022715/Shared%20Documents/General/Examination/EE250%20End%20Semester%202023%20Solution.pdf?csf=1&web=1&e=tAP4ak">Link</a></center></td>
+  </tr>
+</tbody>
+</table>
+
+<br> Access to the links have been provided only to students registered in the course. 
+If you are not registered and want to access the links, then mail me (bhawal[AT]iitg.ac.in).
+</div>
+</body>
+</html>
