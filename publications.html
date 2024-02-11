@@ -28,6 +28,8 @@
         text-align: center;
         padding: 14px 20px;
         text-decoration: none;
+        justify-content: center;
+        align-items: center;
     }
     nav a:hover {
         background-color: #ddd;
@@ -69,13 +71,38 @@
         list-style-type: square;
         padding-left: 20px;
     }
+    .center {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    }
+    ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style for list items */
+li {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+li:hover {
+  background-color: #e0e0e0;
+}
 </style>
 </head>
 <body>
 
-    <header>
-        <h1>Publications</h1>
-    </header>
+<header>
+    <h1>Publications</h1>
+</header>
+
+<div class="center">
        
 <h2>Journals (published/accepted/under review)</h2>
 <ul>
@@ -112,6 +139,6 @@
 <ul>
     <li>Chayan Bhawal, Generalized Riccati theory: A Hamiltonian system approach, <i>Department of Electrical Engineering, Indian Institute of Technology Bombay</i>, 2019 <a href="mailto:your_email@example.com">[E-mail me for the thesis]</a></li>
 </ul>
-
+</div>
 </body>
 </html>
