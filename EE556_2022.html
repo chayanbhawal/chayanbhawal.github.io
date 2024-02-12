@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EE556 Linear Algebra Jul 2022</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    header {
+        background-color: #0c1898;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    nav {
+        background-color: #f4f4f4;
+        overflow: hidden;
+    }
+    nav a {
+        float: left;
+        display: block;
+        color: #333;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    nav a:hover {
+        background-color: #ddd;
+    }
+    .container {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .about-me {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .about-me h2 {
+        color: #333;
+    }
+    .about-me p {
+        line-height: 1.6;
+    }
+    .picture {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .picture img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    .research-interests {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .research-interests h2 {
+        color: #333;
+    }
+    .research-interests ul {
+        list-style-type: square;
+        padding-left: 20px;
+    }
+    .center {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+    th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    th {
+    background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EE556 Linear Algebra Jul 2022</h1>
+    </header>
+    <nav>
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Student</a>
+    </nav>
+    <div class="center">
+
+<br> Syllabus: <a href="https://www.iitg.ac.in/eee/Syllabus_SCA_2022.html#EE556">Link</a> 
+
+<h2>Video Lectures</h2>
+
+<table>
+<thead>
+  <tr>
+    <th><center>Lecture</center></th>
+    <th>Topic</th>
+    <th><center>Video Download Link</center></th>
+    <th><center>Lecture Notes</center></th>
+    <th><center>Date</center></th>	  
+  </tr>
+</thead>
+<tbody>
+<tr>
+    <td><center>41</center></td>
+    <td><center>QR decomposition, SVD and its applications</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-41%20SVD%20and%20its%20applications.mkv?csf=1&web=1&e=nVCiIU">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-41%20SVD%20and%20its%20Applications.pdf?csf=1&web=1&e=yFhZy9">Link</a></center></td>
+    <td><center>16-Nov-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>40</center></td>
+    <td><center>Condition no. and Matrix norm</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-40%20Matrix%20norms%20and%20SVD.mkv?csf=1&web=1&e=02aHrg">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-40%20Matrix%20Norm%20and%20SVD.pdf?csf=1&web=1&e=fjFuP7">Link</a></center></td>
+    <td><center>15-Nov-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>39</center></td>
+    <td><center>LU decomposition</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-39%20Condition%20Number.mkv?csf=1&web=1&e=omRdzm">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-39%20Condition%20Number.pdf?csf=1&web=1&e=qbYuUP">Link</a></center></td>
+    <td><center>14-Nov-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>38</center></td>
+    <td><center>Flop count and Gaussian elimination</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-38%20Flop%20count%20and%20Gaussian%20Elimination.mkv?csf=1&web=1&e=gehPAx">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-38%20Flop%20count%20and%20Gaussian%20Elimination%20Method.pdf?csf=1&web=1&e=ccg5lr">Link</a></center></td>
+    <td><center>09-Nov-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>37</center></td>
+    <td><center>Transformation for Jordan canonical form</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-37%20Transformation%20matrix%20for%20Jordan%20Form.mkv?csf=1&web=1&e=iK8Q3Y">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-37%20Transformation%20matrix%20for%20Jordan%20Form.pdf?csf=1&web=1&e=DVOaXc">Link</a></center></td>
+    <td><center>07-Nov-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>36</center></td>
+    <td><center>Jordan canonical form</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-36%20Jordan%20Canonical%20Form.mkv?csf=1&web=1&e=8n42Vh">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-36%20Jordan%20Canonical%20Form.pdf?csf=1&web=1&e=EebXMC">Link</a></center></td>
+    <td><center>02-Nov-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>35</center></td>
+    <td><center>Minimal polynomials</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-35%20Minimal%20Polynomial.mkv?csf=1&web=1&e=SRSpHG">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-35%20Minimal%20Polynomial.pdf?csf=1&web=1&e=2Ak2UU">Link</a></center></td>
+    <td><center>02-Nov-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>34</center></td>
+    <td><center>Annihilating polynomials</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-34%20Annihilating%20Polynomials.mkv?csf=1&web=1&e=vokp3C">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-34%20Annihilating%20Polynomial.pdf?csf=1&web=1&e=EHphyb">Link</a></center></td>
+    <td><center>01-Nov-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>33</center></td>
+    <td><center>Invariant subspaces</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-33%20Invariant%20subspaces.mkv?csf=1&web=1&e=clpP5I">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-33%20Invariant%20subspaces.pdf?csf=1&web=1&e=pd5LDk">Link</a></center></td>
+    <td><center>31-Oct-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>32</center></td>
+    <td><center>Multiplicity of eigenvalues</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-32%20Multiplicity%20of%20eigenvalues.mkv?csf=1&web=1&e=3wdwOi">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-32%20Multiplicity%20of%20eigenvalues.pdf?csf=1&web=1&e=yGTBg0">Link</a></center></td>
+    <td><center>26-Oct-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>31</center></td>
+    <td><center>ODE and matrices</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-31%20ODE%20and%20Matrices.mkv?csf=1&web=1&e=ffFHc7">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-31%20ODE%20and%20Matrices.pdf?csf=1&web=1&e=QxrANf">Link</a></center></td>
+    <td><center>25-Oct-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>30</center></td>
+    <td><center>Definite matrices</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-30%20Definite%20Matrices.mkv?csf=1&web=1&e=3ej9kX">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-30%20Definite%20Matrices.pdf?csf=1&web=1&e=fvSfBr">Link</a></center></td>
+    <td><center>19-Oct-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>29</center></td>
+    <td><center>Orthogonality of fundamental subspaces</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-29%20Orthogonality%20of%20fundamental%20subspaces.mp4?csf=1&web=1&e=BPHfkg">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-29%20Orthogonality%20of%20fundamental%20subspaces.pdf?csf=1&web=1&e=yuthFq">Link</a></center></td>
+    <td><center>18-Oct-2022</center></td>	
+</tr> 
+<tr>
+    <td><center>28</center></td>
+    <td><center>Orthogonal complement</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-28%20Orthogonal%20complement.mkv?csf=1&web=1&e=TAhRmx">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-28%20Orthogonal%20Complement.pdf?csf=1&web=1&e=baxFw4">Link</a></center></td>
+    <td><center>17-Oct-2022</center></td>	
+</tr> 
+<tr>
+    <td><center></center></td>
+    <td><center>DCS-IV</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Doubt%20clearing%20session%20IV.mkv?csf=1&web=1&e=ZftYag">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/DCS-IV.pdf?csf=1&web=1&e=gJrR7c">Link</a></center></td>
+    <td><center>12-Oct-2022</center></td>	
+</tr>
+<tr>
+    <td><center>27</center></td>
+    <td><center>Best approximation contd.</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-27%20Best%20approximate%20contd..mkv?csf=1&web=1&e=1e2edS">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-27%20Best%20approximation%20contd..pdf?csf=1&web=1&e=28LFDF">Link</a></center></td>
+    <td><center>12-Oct-2022</center></td>	
+</tr>
+<tr>
+    <td><center>26</center></td>
+    <td><center>Best approximation</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-26%20Best%20approximation.mkv?csf=1&web=1&e=VEhLtk">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-26%20Best%20approximation.pdf?csf=1&web=1&e=gzd85w">Link</a></center></td>
+    <td><center>11-Oct-2022</center></td>	
+</tr>
+<tr>
+    <td><center>25</center></td>
+    <td><center>Gram Schmidt Orthogonalization</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-25%20Gram%20Schmidt%20Orthogonalization.mkv?csf=1&web=1&e=gnIoT8">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-25%20Gram%20Schmidt%20Orthogonalization.pdf?csf=1&web=1&e=0Cz9dK">Link</a></center></td>
+    <td><center>10-Oct-2022</center></td>	
+</tr>
+<tr>
+    <td><center>24</center></td>
+    <td><center>Orthogonality</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-24%20Orthogonality.mkv?csf=1&web=1&e=68W7vF">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-24%20Orthogonality.pdf?csf=1&web=1&e=M5Kznl">Link</a></center></td>
+    <td><center>28-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>23</center></td>
+    <td><center>Inner products</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-23%20Inner%20Products.mkv?csf=1&web=1&e=1fk4oX">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-23%20Inner%20Products.pdf?csf=1&web=1&e=3TcxCb">Link</a></center></td>
+    <td><center>27-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>22</center></td>
+    <td><center>Matrix Representation of Maps contd.</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-22%20Matrix%20Representation%20of%20LT%20contd..mkv?csf=1&web=1&e=n41ncE">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-22%20Matrix%20Representation%20of%20LT%20contd.pdf?csf=1&web=1&e=Y72bg2">Link</a></center></td>
+    <td><center>26-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>21</center></td>
+    <td><center>Matrix Representation of Maps</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-21%20Matrix%20representation%20of%20maps.mkv?csf=1&web=1&e=96dTbc">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-21%20Matrix%20Representation%20of%20maps.pdf?csf=1&web=1&e=3RUjEG">Link</a></center></td>
+    <td><center>14-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>20</center></td>
+    <td><center>Isomorphism</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-20%20Isomorphism.mkv?csf=1&web=1&e=D6dk7q">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-20%20Isomorphism.pdf?csf=1&web=1&e=gokdpH">Link</a></center></td>
+    <td><center>14-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>19</center></td>
+    <td><center>Injection and Surjection</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-19%20Injection%20and%20Surjection.mkv?csf=1&web=1&e=Lu4fiw">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-19%20Injection%20and%20Surjection.pdf?csf=1&web=1&e=mbuKlt">Link</a></center></td>
+    <td><center>13-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>18</center></td>
+    <td><center>Rank Nullity Theorem</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-18%20Rank%20Nullity%20Theorem.mkv?csf=1&web=1&e=AxfrNm">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-18%20Rank%20Nullity%20Theorem.pdf?csf=1&web=1&e=0XALAK">Link</a></center></td>
+    <td><center>12-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>17</center></td>
+    <td><center>Linear Transformation</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-17%20Linear%20Transformation.pdf?csf=1&web=1&e=jS9hux">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-17%20Linear%20Transformation.mkv?csf=1&web=1&e=Rcutl3">Link</a></center></td>
+    <td><center>10-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>16</center></td>
+    <td><center>Basis of fundamental subspaces and RRE</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-16%20Basis%20of%20fundamental%20subspaces%20and%20RRE.mkv?csf=1&web=1&e=EtY46F">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-16%20Basis%20of%20fundamental%20subspaces%20and%20RRE.pdf?csf=1&web=1&e=51NOGf">Link</a></center></td>
+    <td><center>07-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>15</center></td>
+    <td><center>Construction of a basis</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-15%20Construction%20of%20a%20basis.mkv?csf=1&web=1&e=NU1zVo">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-15%20Construction%20of%20a%20basis.pdf?csf=1&web=1&e=jKKP5m">Link</a></center></td>
+    <td><center>06-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>14</center></td>
+    <td><center>Coordinates of a vector</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-14%20Coordinates%20of%20a%20vector.mkv?csf=1&web=1&e=M259E8">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-14%20Coordinates%20of%20a%20vector.pdf?csf=1&web=1&e=MspQEM">Link</a></center></td>
+    <td><center>05-Sept-2022</center></td>	
+</tr>
+<tr>
+    <td><center>13</center></td>
+    <td><center>Basis of a vector space</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-13%20Basis%20of%20a%20vector%20space.mkv?csf=1&web=1&e=PeRi33">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-13%20Basis%20of%20a%20vector%20space.pdf?csf=1&web=1&e=3s6lZ6">Link</a></center></td>
+    <td><center>31-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>12</center></td>
+    <td><center>Linear independence of set</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-12%20Linear%20independence%20of%20set.mkv?csf=1&web=1&e=z5ZV9s">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-12%20Linear%20Independence%20of%20set.pdf?csf=1&web=1&e=H80d7M">Link</a></center></td>
+    <td><center>30-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>11</center></td>
+    <td><center>Intersection of subspaces</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-11%20Intersection%20of%20subspaces.mkv?csf=1&web=1&e=T1RSHq">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-11%20Intersection%20of%20subspaces.pdf?csf=1&web=1&e=oRT8yj">Link</a></center></td>
+    <td><center>29-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>10</center></td>
+    <td><center>Fundamental subspaces</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-10%20Fundamental%20Subspaces.mkv?csf=1&web=1&e=HbmK0h">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-10%20Fundamental%20Subspaces.pdf?csf=1&web=1&e=UuXFGY">Link</a></center></td>
+    <td><center>27-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>09</center></td>
+    <td><center>More on subspace</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-09%20More%20on%20subspace.mkv?csf=1&web=1&e=UgWxzo">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-09%20More%20on%20subspace.pdf?csf=1&web=1&e=VBoSSt">Link</a></center></td>
+    <td><center>24-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>08</center></td>
+    <td><center>Subspace</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-08%20Subspace.mkv?csf=1&web=1&e=WSXhGR">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-08%20Subspace.pdf?csf=1&web=1&e=kpPnk4">Link</a></center></td>
+    <td><center>23-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>07</center></td>
+    <td><center>Vector Space</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-07%20Vector%20Space.mkv?csf=1&web=1&e=OuGGNt">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-07%20Vector%20Space.pdf?csf=1&web=1&e=M7GyVy">Link</a></center></td>
+    <td><center>22-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>06</center></td>
+    <td><center>Fields</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-06%20Fields.mkv?csf=1&web=1&e=gOtAJ5">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-06%20Fields.pdf?csf=1&web=1&e=UYT71o">Link</a></center></td>
+    <td><center>16-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>05</center></td>
+    <td><center>Introduction to fields</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-05%20Introduction%20to%20Fields.mp4?csf=1&web=1&e=CiwpQC">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-05%20Introduction%20to%20Fields.pdf?csf=1&web=1&e=9RN0Ou">Link</a></center></td>
+    <td><center>10-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>04</center></td>
+    <td><center>RRE Form contd</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-04%20RRE%20Form%20contd.pdf?csf=1&web=1&e=dfLb9X">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-04%20RRE%20Form%20continued.mkv?csf=1&web=1&e=pfCizb">Link</a></center></td>
+    <td><center>08-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>03</center></td>
+    <td><center>RRE Form</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-03%20RRE%20Form.mkv?csf=1&web=1&e=U8Pg3s">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-03%20RRE%20Form.pdf?csf=1&web=1&e=5MhObz">Link</a></center></td>
+    <td><center>03-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>02</center></td>
+    <td><center>Equivalent system of equations</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-02%20Equivalent%20system%20of%20equations.mkv?csf=1&web=1&e=tFDfFG">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-02%20Equivalent%20systems%20of%20equation.pdf?csf=1&web=1&e=Sm3dn4">Link</a></center></td>
+    <td><center>02-Aug-2022</center></td>	
+</tr>
+<tr>
+    <td><center>01</center></td>
+    <td><center>Introductory class</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Video%20Lectures/Lecture-01%20Introduction.mkv?csf=1&web=1&e=jlagH8">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Lecture%20Notes/Lecture-01%20Introduction.pdf?csf=1&web=1&e=8k7DXf">Link</a></center></td>
+    <td><center>01-Aug-2022</center></td>	
+</tr>
+</tbody>
+</table>
+
+<h2>Problem Sets</h2>
+
+<table>
+<thead>
+  <tr>
+    <th><center>Problem Set</center></th>
+    <th><center>Set Link</center></th>
+    <th><center>Solution Link</center></th>
+    <th><center>Date</center></th>	  
+ </tr>
+</thead>
+<tbody>
+<tr>
+    <td><center>Problem Set 09</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-09.pdf?csf=1&web=1&e=qTdBg9">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-09_Solution.pdf?csf=1&web=1&e=N5MnbX">Link</a></center></td>
+    <td><center>17-11-2022</center></td>
+</tr>
+<tr>
+    <td><center>Problem Set 08</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-08.pdf?csf=1&web=1&e=oLAdUH">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-08_Solution.pdf?csf=1&web=1&e=sXFom5">Link</a></center></td>
+    <td><center>01-11-2022</center></td>
+</tr>
+<tr>
+    <td><center>Problem Set 07</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-07.pdf?csf=1&web=1&e=JBg3sh">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-07_Solution.pdf?csf=1&web=1&e=Egyxsf">Link</a></center></td>
+    <td><center>20-10-2022</center></td>
+</tr>
+<tr>
+    <td><center>Problem Set 06</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-06.pdf?csf=1&web=1&e=CLPePQ">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-06_Solution.pdf?csf=1&web=1&e=zWf7al">Link</a></center></td>
+    <td><center>28-09-2022</center></td>
+</tr>
+<tr>
+    <td><center>Problem Set 05</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-05.pdf?csf=1&web=1&e=Fr496H">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-05_Solution.pdf?csf=1&web=1&e=jAdhsY">Link</a></center></td>
+    <td><center>14-09-2022</center></td>
+</tr>
+<tr>
+    <td><center>Problem Set 04</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-04.pdf?csf=1&web=1&e=edYPuX">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-04%20Solution.pdf?csf=1&web=1&e=p2KtkJ">Link</a></center></td>
+    <td><center>10-09-2022</center></td>
+</tr>
+<tr>
+    <td><center>Problem Set 03</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-03.pdf?csf=1&web=1&e=1CTBkb">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-03_Solution.pdf?csf=1&web=1&e=MkHaJd">Link</a></center></td>
+    <td><center>31-08-2022</center></td>
+</tr>
+<tr>
+    <td><center>Problem Set 02</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-02.pdf?csf=1&web=1&e=sbgJcf">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-02_Solution.pdf?csf=1&web=1&e=AHhZZU">Link</a></center></td>
+    <td><center>25-08-2022</center></td>
+</tr>
+<tr>
+    <td><center>Problem Set 01</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-01.pdf?csf=1&web=1&e=mDhDnt">Link</a> </center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/PS-01_Solution.pdf?csf=1&web=1&e=kZZhX0">Link</a></center></td>
+    <td><center>05-08-2022</center></td>
+</tr>
+</tbody>
+</table>
+
+<h2>Weightage</h2>
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th><center>Expected Date</center></th>
+    <th><center>Weightage</center></th>
+    <th><center>Status/Solution</center></th>
+  </tr>
+</thead>
+<tbody>
+   <tr>
+    <td>Quiz-1</td>
+    <td><center>03 September</center></td>
+    <td><center>15%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/Quiz_01_Solution.pdf?csf=1&web=1&e=aCTQ01">Link</a></center></td>
+  </tr>
+  <tr>
+    <td>Mid-Semester</td>
+    <td><center>19 September</center></td>
+    <td><center>20%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/Mid_Semester_Solution.pdf?csf=1&web=1&e=OQXy87">Link</a></center></td>
+  </tr>
+  <tr>
+    <td>Make-up Quiz Mid-Semester</td>
+    <td><center>12 October</center></td>
+    <td><center>20% (Best of two)</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/Mid_Semester_Makeup_Solution.pdf?csf=1&web=1&e=cIKvHp">Link</a></center></td>
+  </tr>
+  <tr>
+    <td>Quiz-2</td>
+    <td><center>05 November</center></td>
+    <td><center>15%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/Quiz02_Solution.pdf?csf=1&web=1&e=zdXSCH">Link</a></center></td>
+  </tr>
+  <tr>
+    <td>End-Semester</td>
+    <td><center>23 November</center></td>
+    <td><center>50%</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE556LinearAlgebra/Shared%20Documents/General/Problem%20Set/End_Semester_Solution.pdf?csf=1&web=1&e=UOPZZU">Link</a></center></td>
+  </tr>
+</tbody>
+</table>
+<br> Access to the links have been provided only to students registered in the course. 
+If you are not registered and want to access the links, then mail me (bhawal[AT]iitg.ac.in).
+    </div>
+</body>
+</html>
