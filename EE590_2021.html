@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EE590 Linear Algebra and Optimization 2021</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #0c1898;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
+        .container {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .about-me {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .about-me h2 {
+            color: #333;
+        }
+        .about-me p {
+            line-height: 1.6;
+        }
+        .picture {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .picture img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .research-interests {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .research-interests h2 {
+            color: #333;
+        }
+        .research-interests ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        .center {
+        margin: auto;
+        width: 80%;
+        padding: 20px;
+        }
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+        th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        white-space: nowrap;
+        }
+        th {
+        background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+        tr:hover {
+          background-color: #66d2de;
+        }
+        </style>
+    </head>
+<body>
+    <header>
+        <h1>EE590 Linear Algebra and Optimization 2021</h1>
+    </header>
+    <nav>
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Student</a>
+    </nav>
+    <div class="center">
+
+<br> Syllabus: <a href="https://iitg.ac.in/eee/Syllabus_CE_2013.html#EE590">Link</a> 
+
+
+<h2>Video Lectures</h2>
+
+<table>
+<thead>
+  <tr>
+    <th><center>Lecture</center></th>
+    <th>Topic</th>
+    <th><center>MS-Stream Link</center></th>
+    <th><center>Download Link</center></th>
+    <th><center>Lecture Notes</center></th>
+    <th><center>Date</center></th>	  
+ </tr>
+</thead>
+<tbody>
+<tr>
+    <td><center>38</center></td>
+    <td>Least squares and SVD</td>
+    <td><center><a href="https://web.microsoftstream.com/video/62d66ab6-7c04-446f-a91c-6f2311e1179a">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-38%20Least%20squares%20and%20SVD.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-38%20Least%20squares%20and%20SVD.pdf">Link</a></center></td>
+    <td><center>18 Nov</center></td>	
+</tr>
+<tr>
+    <td><center></center></td>
+    <td>Doubt Clearing Session V</td>
+    <td><center><a href="https://web.microsoftstream.com/video/bf1b131b-aabe-45f3-9a92-5ad49761fa7b">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Doubt%20Clearing%20Session%20-%20V.mp4">Link</a></center></td>
+    <td><center><a href="">No Notes</a></center></td>
+    <td><center>15 Nov</center></td>	
+</tr>
+<tr>
+    <td><center>37</center></td>
+    <td>Gradient descent method</td>
+    <td><center><a href="https://web.microsoftstream.com/video/e5e60fd6-7202-4d2e-9ce2-ced8e6639a53">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-37%20Gradient%20descent%20method.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-37%20Gradient%20descent%20method.pdf">Link</a></center></td>
+    <td><center>12 Nov</center></td>	
+</tr>
+<tr>
+    <td><center>36</center></td>
+    <td>Conditions for Local Minimizers</td>
+    <td><center><a href="https://web.microsoftstream.com/video/29d4c4e6-b3db-49b8-a7ef-568d89471775">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-36%20Conditions%20for%20Local%20Minimizers.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-36%20Conditions%20for%20Local%20Minimizers.pdf">Link</a></center></td>
+    <td><center>10 Nov</center></td>	
+</tr>
+<tr>
+    <td><center>35</center></td>
+    <td>Minimizers and Feasible Direction</td>
+    <td><center><a href="https://web.microsoftstream.com/video/67d5213e-2942-4dc8-a7a0-3f92e43304f9">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-35%20Minimizers%20and%20Feasible%20Direction.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-35%20Minimizers%20and%20Feasible%20Direction.pdf">Link</a></center></td>
+    <td><center>10 Nov</center></td>	
+</tr>
+<tr>
+    <td><center>34</center></td>
+    <td>Preliminaries for Optimization</td>
+    <td><center><a href="https://web.microsoftstream.com/video/c558d372-99b7-41b9-8f78-b90a62398f6e">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-34%20Preliminaries%20for%20Optimization.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-34%20Preliminaries%20for%20Optimization.pdf">Link</a></center></td>
+    <td><center>03 Nov</center></td>	
+</tr>
+<tr>
+    <td><center></center></td>
+    <td>Doubt Clearing Session IV</td>
+    <td><center><a href="https://web.microsoftstream.com/video/ce49b206-4122-40c7-bf83-ef0cb2e868f7">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Doubt%20Clearing%20Session%20-%20IV.mp4">Link</a></center></td>
+    <td><center>No Notes</center></td>
+    <td><center>01 Nov</center></td>	
+</tr>
+<tr>
+    <td><center>33</center></td>
+    <td>Introduction to Optimization</td>
+    <td><center><a href="https://web.microsoftstream.com/video/7785e6ee-47eb-4c75-8676-048c2cbb4b52">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-33%20Introduction%20to%20optimization.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-33%20Introduction%20to%20optimization.pdf">Link</a></center></td>
+    <td><center>29 Oct</center></td>	
+</tr>
+<tr>
+    <td><center></center></td>
+    <td>Addendum to Lecture-32</td>
+    <td><center><a href="https://web.microsoftstream.com/video/fa93357c-2d9c-408b-ac62-3fc12f2e10f5">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Addendum%20to%20Lecture-32.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Addendum%20to%20Lecture-32.pdf">Link</a></center></td>
+    <td><center></center></td>	
+</tr>
+<tr>
+    <td><center>32</center></td>
+    <td>Canonical Forms</td>
+    <td><center><a href="https://web.microsoftstream.com/video/f5edcbe7-f36c-412b-85d4-5cac2b367e94">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-32%20Canonical%20Forms.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-32%20Canonical%20Forms.pdf">Link</a></center></td>
+    <td><center>27 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>31</center></td>
+    <td>Minimal Polynomial</td>
+    <td><center><a href="https://web.microsoftstream.com/video/669212f2-5c90-401f-878d-0b7beda9ab36">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-31%20Minimal%20Polynomial.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-31%20Minimal%20Polynomial.pdf">Link</a></center></td>
+    <td><center>26 Oct</center></td>	
+</tr>
+
+<tr>
+    <td><center></center></td>
+    <td>Doubt Clearing Session - III</td>
+    <td><center><a href="https://web.microsoftstream.com/video/b8422c44-55a3-4127-9c32-da555ea0b740">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Doubt%20Clearing%20Session%20-%20III.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Doubt%20Clearing%20Session%20III.pdf">Link</a></center></td>
+    <td><center>22 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>30</center></td>
+    <td>Invariant Subspace</td>
+    <td><center><a href="https://web.microsoftstream.com/video/6ccaa128-dd34-477b-8e80-368d9854c470">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-30%20Invariant%20Subspace.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-30%20Invariant%20Subspace.pdf">Link</a></center></td>
+    <td><center>22 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>29</center></td>
+    <td>Algebraic and Geometric multiplicity</td>
+    <td><center><a href="https://web.microsoftstream.com/video/3113c98e-ddcd-476c-a2ae-90576d7497c0">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-29%20Algebraic%20and%20Geometric%20Multiplicity.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-29%20Algebraic%20and%20Geometric%20Multiplicity.pdf">Link</a></center></td>
+    <td><center>21 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>28</center></td>
+    <td>Eigenvectors and eigenvalues</td>
+    <td><center><a href="https://web.microsoftstream.com/video/0a9e7334-96c8-4014-9fe5-446d95564eaf">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-28%20Eigenvectors%20and%20eigenvalues.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-28%20Eigenvectors%20and%20eigenvalues.pdf">Link</a></center></td>
+    <td><center>20 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>27</center></td>
+    <td>Projection Map</td>
+    <td><center><a href="https://web.microsoftstream.com/video/41f27a2f-e983-4025-b73f-22034db89560">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-27%20Projection%20map.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-27%20Projection%20map.pdf">Link</a></center></td>
+    <td><center>14 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>26</center></td>
+    <td>Applications of best approximation</td>
+    <td><center><a href="https://web.microsoftstream.com/video/47c6ebdf-bf53-422d-86a0-3f8677c48763">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-26%20Applications%20of%20best%20approximation.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-26%20Application%20of%20best%20approximation.pdf">Link</a></center></td>
+    <td><center>13 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>25</center></td>
+    <td>A Recap of Lecture 22 - 24</td>
+    <td><center><a href="https://web.microsoftstream.com/video/9ea8e030-0611-4a67-a404-3577b7cfb0a9">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-25%20A%20Recap%20of%20Lecture%2022-23.mp4">Link</a></center></td>
+    <td><center>No notes</center></td>
+    <td><center>08 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>24</center></td>
+    <td>Best Approximation</td>
+    <td><center><a href="https://web.microsoftstream.com/video/ad235565-4d3c-4fa0-8eac-2e84baf89fc7">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-24%20Best%20Approximation.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-24%20Best%20Approximation.pdf">Link</a></center></td>
+    <td><center>08 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>23</center></td>
+    <td>Orthogonal Set</td>
+    <td><center><a href="https://web.microsoftstream.com/video/da7a56ef-6441-48c8-a4a3-eb776e3a683f">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-23%20Orthogonal%20Set.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-23%20Orthogonal%20Sets.pdf">Link</a></center></td>
+    <td><center>07 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>22</center></td>
+    <td>Inner Product</td>
+    <td><center><a href="https://web.microsoftstream.com/video/fd8237c3-ad30-4582-ab81-b896b3fcaa70">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-22%20Inner%20Products.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-22%20Inner%20Product.pdf">Link</a></center></td>
+    <td><center>06 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>21</center></td>
+    <td>Matrix and Linear Transformation</td>
+    <td><center><a href="https://web.microsoftstream.com/video/661fdf9c-3f9c-4653-ac45-b4b2431d7894">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-21%20Matrix%20and%20Linear%20Transformation.mkv">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-21%20Matrices%20and%20Linear%20Transformation.pdf">Link</a></center></td>
+    <td><center>01 Oct</center></td>	
+</tr>
+<tr>
+    <td><center>20</center></td>
+    <td>Matrix Representation of LT cont</td>
+    <td><center><a href="https://web.microsoftstream.com/video/1c6d154f-5e57-4e07-b018-b7ea08c684ff">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-20%20Matrix%20Representation%20of%20LT%20contd.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-20%20Matrix%20Representation%20of%20LT%20contd.pdf">Link</a></center></td>
+    <td><center>30 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>19</center></td>
+    <td>Matrix Representation of LT</td>
+    <td><center><a href="https://web.microsoftstream.com/video/48de06dd-8931-4e0e-a770-5cb7fe6d6863">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-19%20Matrix%20Representation%20of%20LT.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-19%20Matrix%20Representation%20of%20LT.pdf">Link</a></center></td>
+    <td><center>29 Sept</center></td>	
+</tr>
+<tr>
+    <td><center></center></td>
+    <td>DCS-II</td>
+    <td><center><a href="https://web.microsoftstream.com/video/077fabb0-2247-4fb0-aff1-3a6351497579">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Doubt%20Clearing%20Session%20-%20II.mp4">Link</a></center></td>
+    <td><center>No notes</center></td>
+    <td><center>23 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>18</center></td>
+    <td>Injective Surjective Linear Map</td>
+    <td><center><a href="https://web.microsoftstream.com/video/5ee5aad5-0292-42eb-922d-53c1912c2203">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-18%20Injective%20Surjective%20Linear%20Map.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-18%20Injective_Surjective%20Linear%20Map.pdf">Link</a></center></td>
+    <td><center>17 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>17</center></td>
+    <td>Rank Nullity Theorem</td>
+    <td><center><a href="https://web.microsoftstream.com/video/47c47e88-2f9a-4dd6-b52c-914e0bf48ddf">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-17%20Rank%20Nullity%20Theorem.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-17%20Rank%20Nullity%20Theorem.pdf">Link</a></center></td>
+    <td><center>16 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>16</center></td>
+    <td>Linear Transformation</td>
+    <td><center><a href="https://web.microsoftstream.com/video/03700e0c-6066-4bc7-b42b-fbe94123bd61">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-16%20Linear%20Transformation.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-16%20Linear%20Transformation.pdf">Link</a></center></td>
+    <td><center>15 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>15</center></td>
+    <td>Fundamental Subspaces</td>
+    <td><center><a href="https://web.microsoftstream.com/video/e22bb48b-436d-4f36-9ba3-ef3e76e63c57">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-15%20Fundamental%20Subspaces.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-15%20Fundamental%20Subspaces.pdf">Link</a></center></td>
+    <td><center>10 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>14</center></td>
+    <td>Co-ordinates</td>
+    <td><center><a href="https://web.microsoftstream.com/video/8319702d-6dc6-4376-bdc0-8f5af1588ac6">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture%2014%20Co-ordinates.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-14%20Co-ordinates.pdf">Link</a></center></td>
+    <td><center>09 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>13</center></td>
+    <td>More on dimension</td>
+    <td><center><a href="https://web.microsoftstream.com/video/40fc9a4a-320e-4811-870d-a488f8cadbf8">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-13%20More%20on%20dimension.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-13%20More%20on%20dimension.pdf">Link</a></center></td>
+    <td><center>08 Sept</center></td>	
+</tr>
+<tr>
+    <td><center></center></td>
+    <td>DCS-I</td>
+    <td><center><a href="https://web.microsoftstream.com/video/a9a36780-a268-4dd8-903d-de43fc9f9c12">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Doubt%20Clearing%20Session%20-%20I.mp4">Link</a></center></td>
+    <td><center>No notes</center></td>
+    <td><center>01 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>12</center></td>
+    <td>Basis vectors</td>
+    <td><center><a href="https://web.microsoftstream.com/video/df540605-b026-4043-9aaf-f30e7007c8ad">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-12%20Basis%20Vectors.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-12%20Basis%20vectors.pdf">Link</a></center></td>
+    <td><center>01 Sept</center></td>	
+</tr>
+<tr>
+    <td><center>11</center></td>
+    <td>Linearly dependent vectors</td>
+    <td><center><a href="https://web.microsoftstream.com/video/c04849d0-64a0-48ca-b77c-3720ea8dad43">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-11%20Linearly%20dependent%20vectors.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-11%20Linearly%20dependent%20vectors.pdf">Link</a></center></td>
+    <td><center>27 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>10</center></td>
+    <td>Span of a set</td>
+    <td><center><a href="https://web.microsoftstream.com/video/018d20ef-1d6d-44a1-a404-71687eb4b3c2">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-10%20Span%20of%20a%20set.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-10%20Span%20of%20a%20set.pdf">Link</a></center></td>
+    <td><center>26 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>09</center></td>
+    <td>Nullspace</td>
+    <td><center><a href="https://web.microsoftstream.com/video/e2290112-a273-49b4-b6f4-e8170496c959">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-09%20Nullspace.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-09%20Nullspace.pdf">Link</a></center></td>
+    <td><center>25 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>08</center></td>
+    <td>Subspaces</td>
+    <td><center><a href="https://web.microsoftstream.com/video/dd9b711d-9997-4da2-b747-913dd4710dac">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-08%20Subspaces.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-08%20Subspaces.pdf">Link</a></center></td>
+    <td><center>20 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>07</center></td>
+    <td>Vector Space and Subspace</td>
+    <td><center><a href="https://web.microsoftstream.com/video/6aa6fcda-e2d2-465b-8eb6-7eb6abb89774">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-07%20Vector%20Space%20and%20Subspace.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-07%20Vector%20Space%20and%20Subspace.pdf">Link</a></center></td>
+    <td><center>18 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>06</center></td>
+    <td>Fields and Vector Space</td>
+    <td><center><a href="https://web.microsoftstream.com/video/89e3380d-08e8-4bd4-8d7c-d4d2309743e2">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-06%20Fields%20and%20Vector%20Space.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-06%20Fields%20and%20Vector%20Space.pdf">Link</a></center></td>
+    <td><center>13 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>05</center></td>
+    <td>RRE Continued</td>
+    <td><center><a href="https://web.microsoftstream.com/video/4ba3ff88-ec87-4934-a580-ce575d583963">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-05%20RRE%20Continued.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-05%20RRE%20Continued.pdf">Link</a></center></td>
+    <td><center>12 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>04</center></td>
+    <td>RRE Form</td>
+    <td><center><a href="https://web.microsoftstream.com/video/22bc95c5-6b92-4515-8589-ed63df26ec5c">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-04%20RRE%20Form.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-04%20RRE%20Form.pdf">Link</a></center></td>
+    <td><center>11 Aug</center></td>	
+</tr>
+
+
+<tr>
+    <td><center>03</center></td>
+    <td>Row equivalence</td>
+    <td><center><a href="https://web.microsoftstream.com/video/e2c3f4dc-1888-4682-900a-7eb20078c9a3">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-03%20Row%20Equivalence.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-03%20Row%20equivalence.pdf">Link</a></center></td>
+    <td><center>06 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>02</center></td>
+    <td>Equivalent system of equations</td>
+    <td><center><a href="https://web.microsoftstream.com/video/836c8f39-7e22-49af-8f09-edbbd17b7709">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-02%20Equivalent%20system%20of%20equations.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-02%20Equivalent%20system%20of%20equations.pdf">Link</a></center></td>
+    <td><center>05 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>01</center></td>
+    <td>Motivation</td>
+    <td><center><a href="https://web.microsoftstream.com/video/42f135d1-5e70-4e1d-9691-7329a878af3e">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-01%20Motivation.mp4">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Class%20Materials/Lecture-01%20Motivation.pdf">Link</a></center></td>
+    <td><center>04 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>00</center></td>
+    <td>Introductory Lecture</td>
+    <td><center><a href="https://web.microsoftstream.com/video/6deb0d6f-0f7e-4d23-b13c-e60462227b3c">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Recordings/Lecture-00%20Introductory%20class.mp4">Link</a></center></td>
+    <td><center>No notes</center></td>
+    <td><center>29 Jul</center></td>	
+</tr>
+</tbody>
+</table>
+
+<h2>Practice Problem Set</h2>
+
+<table>
+<thead>
+  <tr>
+    <th><center>Problem Set</center></th>
+    <th><center>Set Link</center></th>
+    <th><center>Solution Link</center></th>
+    <th><center>Date</center></th>	  
+ </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><center>08</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS08.pdf">Link</a></center></td>
+  <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS08_Solution.pdf">Link</a></center></td>
+    <td><center>19 Oct</center></td>	
+</tr>
+  <tr>
+    <td><center>07</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS07.pdf">Link</a></center></td>
+  <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS07_Solution.pdf">Link</a></center></td>
+    <td><center>27 Oct</center></td>	
+</tr>
+  <tr>
+    <td><center>06</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS06.pdf">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS06_Solution.pdf">Link</a></center></td>
+    <td><center>17 Oct</center></td>	
+</tr>
+  <tr>
+    <td><center>05</center></td>
+    <td><center><a href="https://yutsumura.com/tag/linear-transformation/">Link</a></center></td>
+    <td><center><a href="https://yutsumura.com/tag/linear-transformation/">Link</a></center></td>
+    <td><center>02 Oct</center></td>	
+</tr>
+  <tr>
+    <td><center>04</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS04.pdf">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS04_Solution.pdf">Link</a></center></td>
+    <td><center>19 Sept</center></td>	
+</tr>
+  <tr>
+    <td><center>03</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS03.pdf">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS03_Solution.pdf">Link</a></center></td>
+    <td><center>11 Sept</center></td>	
+</tr>
+  <tr>
+    <td><center>02</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS02.pdf">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS02_Solution.pdf">Link</a></center></td>
+    <td><center>29 Aug</center></td>	
+</tr>
+<tr>
+    <td><center>01</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS01.pdf">Link</a></center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/PS01_Solution.pdf">Link</a></center></td>
+    <td><center>21 Aug</center></td>	
+</tr>
+</tbody>
+</table>
+
+
+<h2>Weightage</h2>
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th><center>Expected Date</center></th>
+    <th><center>Weightage</center></th>
+    <th><center>Status/Solution</center></th>
+  </tr>
+</thead>
+<tbody>
+   <tr>
+    <td>Quiz-1</td>
+    <td><center>02nd Sept</center></td>
+    <td><center>10 %</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/Quiz01_Solution.pdf">Link</a></center></td>
+  </tr>
+  <tr>
+    <td>Mid-Semester</td>
+    <td><center>24th Sept</center></td>
+    <td><center>25 %</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/Midsem_Solution.pdf">Link</a></center></td>
+  </tr>
+  <tr>
+    <td>Quiz-2</td>
+    <td><center>02nd Nov</center></td>
+    <td><center>15 %</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/Quiz02_Solution.pdf">Link</a></center></td>
+  </tr>
+  <tr>
+    <td>End-Semester</td>
+    <td><center>24th Nov</center></td>
+    <td><center>50 %</center></td>
+    <td><center><a href="https://iitgoffice.sharepoint.com/sites/Grp_EE590LinearAlgerbraandOptimizationJul-Nov2021/Shared%20Documents/General/Problem%20Set/EE590_End_Semester_Solution.pdf">Link</a></center></td>
+  </tr>
+</tbody>
+</table>
+    </div>
+</body>
+</html>
