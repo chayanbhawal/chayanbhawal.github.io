@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scilab Tutorial</title>
-    <style>
+    <title>Tutorials</title>
+<style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 80%;
+        max-width: 800px;
+        margin: 50px auto; /* Centering the container */
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
     }
     header {
         background-color: #0c1898;
@@ -28,16 +43,11 @@
         text-align: center;
         padding: 14px 20px;
         text-decoration: none;
+        justify-content: center;
+        align-items: center;
     }
     nav a:hover {
         background-color: #ddd;
-    }
-    .container {
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
     }
     .about-me {
         flex: 1;
@@ -74,26 +84,29 @@
     width: 80%;
     padding: 20px;
     }
-    table {
-    border-collapse: collapse;
-    width: 100%;
+    ul {
+    list-style-type: none;
+    padding: 0;
     }
-    th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+
+    /* Style for list items */
+    li {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    th {
-    background-color: #f2f2f2;
+
+    /* Hover effect */
+    li:hover {
+    background-color: #66d2de;
     }
-    tr:nth-child(even) {
-    background-color: #f2f2f2;
-    }
-    </style>
+</style>
 </head>
 <body>
     <header>
-        <h1>EE656 Robust Control Jan 2022</h1>
+        <h1>Tutorials</h1>
     </header>
     <nav>
         <a href="https://chayanbhawal.github.io/">Home</a>
@@ -105,30 +118,15 @@
         <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
     </nav>
     <div class="center">
-        <h2>Prepared by Chayan Bhawal and P Sunthar, IIT Bombay</h2>
-
-
-        These tutorials are meant for any beginner to quickly understand and 
-        carry out some frequently employed tasks with [Scilab](https://www.scilab.org).
-        They are aimed at teachers and students in STEM (Science, Technology,
-        Engineering, and Mathematics).
-
-
-        These tutorial files have been prepared by
-        the [FOSSEE team](https://fossee.in) of [IIT
-        Bombay](http://www.iitb.ac.in). The tutorial files 
-        can be found here: [FOSSEE Scilab Tutorial Codes](https://github.com/FOSSEE/scilab-tutorials). These files 
-        are to be used in
-        conjuction with the tutorial slides which can be viewed
-        here: [FOSSEE Scilab Tutorial Slides](https://drive.google.com/open?id=1PMu__9KHSy1CaeCSzE0xRxskEKQRxA9s).
-
-        On successful completion of the tutorials you should be able to
-        * carry out elementary matrix operations
-        * create scientific plots (of publication quality)
-        * solve simple algebraic and differential equations
-
-        Expected time to complete the tutorials: Six to Eight hours
+    <ul>
+        <li> <a href="https://chayanbhawal.github.io/tutorials_scilab_beginners">FOSSEE Scilab Tutorial for beginners</a></li>
+        <li> <a href="https://chayanbhawal.github.io/tutorials_scilab_interm">Data fitting, Optimization, and ODEs with Scilab</a></li>
+        <li> <a href="https://chayanbhawal.github.io/tutorials_linear_algebra">Linear Algebra</a></li>
+        <li> <a href="https://github.com/chayanbhawal/chayanbhawal.github.io/blob/master/files/Vector%20calculus.pdf">Vector Calculus - Basics</a> </li>
+        <li> <a href="https://chayanbhawal.github.io/tutorials_complex_analysis">Complex Analysis - Basics</a></li>
+    </ul>
     </div>
-    </body>
+</body>
 </html>
+
 
