@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EE351 Control and Robotics Lab Jul 2022</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    header {
+        background-color: #0c1898;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    nav {
+        background-color: #f4f4f4;
+        overflow: hidden;
+    }
+    nav a {
+        float: left;
+        display: block;
+        color: #333;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    nav a:hover {
+        background-color: #ddd;
+    }
+    .container {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .about-me {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .about-me h2 {
+        color: #333;
+    }
+    .about-me p {
+        line-height: 1.6;
+    }
+    .picture {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .picture img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    .research-interests {
+        flex: 1;
+        padding: 0 20px;
+    }
+    .research-interests h2 {
+        color: #333;
+    }
+    .research-interests ul {
+        list-style-type: square;
+        padding-left: 20px;
+    }
+    .center {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+    th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    th {
+    background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EE351 Control and Robotics Lab Jul 2022</h1>
+    </header>
+    <nav>
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Student</a>
+        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+    </nav>
+    <div class="center">
+
+    <h2>Division Details</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Division</th>
+                <th>Day</th>
+                <th>Faculty-in-charge</th>
+                <th>Staff-in-charge</th>
+                <th>Teaching Assistants</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>I</td>
+                <td>Tues</td>
+                <td>HN</td>
+                <td>S Sonowal</td>
+                <td>Paraj, Vamsi, Yogesh, Shahbaz, Somnath</td>
+            </tr>
+            <tr>
+                <td>II</td>
+                <td>Wed</td>
+                <td>CB</td>
+                <td>S Boro</td>
+                <td>Hitesh, Sanasam, Arya, Chanukya, Bharath</td>
+            </tr>
+            <tr>
+                <td>III</td>
+                <td>Thurs</td>
+                <td>IK</td>
+                <td>J Rabha</td>
+                <td>Gangadari, Minakshi, Rajeshkumar, Jithu, Rajarshi</td>
+            </tr>
+        </tbody>
+    </table>
+            
+    <h2>Modules</h2>
+    <table>
+    <thead>
+    <tr>
+        <th><center>Sl.No.</center></th>
+        <th><center>Module Name</center></th>
+        <th><center>Download Link</center></th>
+        <th><center>Date</center></th>	  
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><center>01</center></td>
+        <td><center>Game of numbers</center></td>
+        <td><center><a href="">Link</a></center></td>
+        <td><center>26-07-2024</center></td>
+    </tr>
+    <tr>
+        <td><center>02</center></td>
+        <td><center>Dino can jump</center></td>
+        <td><center></td>
+        <td><center></center></td>
+    </tr>
+    <tr>
+        <td><center>03</center></td>
+        <td><center>Keep your distance (DC Motor ON-OFF Control)</center></td>
+        <td><center></center></td>
+        <td><center></center></td>
+    </tr>
+    <tr>
+        <td><center>04</center></td>
+        <td><center>Sluice Gate Control System (DC Motor Speed Control)</center></td>
+        <td><center></center></td>
+        <td><center></center></td>
+    </tr>
+    <tr>
+        <td><center>05</center></td>
+        <td><center>Antenna Positioning System (DC Motor Position Control) </center></td>
+        <td><center></center></td>
+        <td><center></center></td>
+    </tr>
+    <tr>
+        <td><center>06</center></td>
+        <td><center>Ball Beam Balance</center></td>
+        <td><center></center></td>
+        <td><center></center></td>
+    </tr>
+    </tbody>
+    </table>
+
+    <h2>Class Dates for Divisions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Div-I (Tues)</th>
+                    <th>Div-II (Wed)</th>
+                    <th>Div-III (Thurs)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>30-Jul</td>
+                    <td>31-Jul</td>
+                    <td>1-Aug</td>
+                </tr>
+                <tr>
+                    <td>6-Aug</td>
+                    <td>7-Aug</td>
+                    <td>8-Aug</td>
+                </tr>
+                <tr>
+                    <td>13-Aug</td>
+                    <td>14-Aug</td>
+                    <td>22-Aug</td>
+                </tr>
+                <tr>
+                    <td>20-Aug</td>
+                    <td>21-Aug</td>
+                    <td>29-Aug</td>
+                </tr>
+                <tr>
+                    <td>27-Aug</td>
+                    <td>28-Aug</td>
+                    <td>5-Sep</td>
+                </tr>
+                <tr>
+                    <td>3-Sep</td>
+                    <td>4-Sep</td>
+                    <td>12-Sep</td>
+                </tr>
+                <tr>
+                    <td>10-Sep</td>
+                    <td>11-Sep</td>
+                    <td>26-Sep</td>
+                </tr>
+                <tr>
+                    <td>24-Sep</td>
+                    <td>25-Sep</td>
+                    <td>3-Oct</td>
+                </tr>
+                <tr>
+                    <td>1-Oct</td>
+                    <td>9-Oct</td>
+                    <td>17-Oct</td>
+                </tr>
+                <tr>
+                    <td>8-Oct</td>
+                    <td>16-Oct</td>
+                    <td>22-Oct*</td>
+                </tr>
+                <tr>
+                    <td>15-Oct</td>
+                    <td>23-Oct</td>
+                    <td>24-Oct</td>
+                </tr>
+                <tr>
+                    <td>29-Oct</td>
+                    <td>30-Oct</td>
+                    <td>28-Oct</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align:center; background-color:#f2f2f2;"><strong>END SEM</strong></td>
+                </tr>
+                <tr>
+                    <td>5-Nov</td>
+                    <td>6-Nov</td>
+                    <td>7-Nov</td>
+                </tr>
+            </tbody>
+        </table>
+
+    <h2>Evaluation Criteria</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Evaluation</th>
+                <th>Percentage</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Viva and Lab Performance</td>
+                <td>40%</td>
+                <td>End of each class evaluation will be done</td>
+            </tr>
+            <tr>
+                <td>Module Completion</td>
+                <td>5%</td>
+                <td>On completion of each module, you get 5 marks</td>
+            </tr>
+            <tr>
+                <td>Reports</td>
+                <td>5%</td>
+                <td>Each report carries 10 marks</td>
+            </tr>
+            <tr>
+                <td>Attendance</td>
+                <td>10%</td>
+                <td>0 attendance if not showed up to lab by 9:10 am</td>
+            </tr>
+            <tr>
+                <td>End-Semester Performance</td>
+                <td>40%</td>
+                <td>Practical exam</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
