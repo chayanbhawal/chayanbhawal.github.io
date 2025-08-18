@@ -153,16 +153,11 @@
 
     .research-section > ul,
     .research-section ul ul {
-      list-style-type: disc; /* disc for top-level, can override for nested */
-      list-style-position: outside; /* bullet outside content */
-      padding-left: 30px; /* space for bullet */
-      margin-left: 0;
-      text-indent: -10px; /* create hanging indent by pulling first line left */
+      list-style: disc inside;
     }
     .research-section ul ul {
       list-style-type: circle;
-      padding-left: 40px; /* larger indent for nested lists */
-      text-indent: -10px;
+      margin-left: 24px;
     }
 
     .research-section li {
@@ -334,7 +329,7 @@
     display: inline-block;
     white-space: nowrap;
     padding-left: 100%;
-    animation: ticker-scroll 30s linear infinite;
+    animation: ticker-scroll 3s linear infinite;
     will-change: transform;
   }
 
