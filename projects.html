@@ -105,28 +105,30 @@
 
     /* Container for the table */
     .center {
-      margin: 50px auto;
-      padding: 25px 30px;
-      max-width: 900px;
-      background-color: var(--text-light);
-      border-radius: 10px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-      overflow-x: auto;
-    }
+        margin: 50px auto;
+        padding: 25px 30px;
+        max-width: 900px;
+        background-color: var(--text-light);
+        border-radius: 10px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+        overflow-x: auto; /* enable horizontal scrolling if needed */
+        }
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      font-family: 'Roboto', sans-serif;
-      font-size: 1rem;
-      white-space: nowrap;
-    }
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+        }
 
-    th, td {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 12px 15px;
-    }
+        th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 12px 15px;
+        white-space: normal;   /* changed to allow wrapping */
+        word-wrap: break-word; /* allow long words to break */
+        max-width: 350px;      /* limit max width per cell */
+        }
 
     th {
       background-color: var(--secondary);
