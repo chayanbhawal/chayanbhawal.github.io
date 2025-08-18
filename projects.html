@@ -1,104 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Projects</title>
-        <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        header {
-            background-color: #0c1898;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav {
-            background-color: #f4f4f4;
-            overflow: hidden;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-        }
-        .container {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        .about-me {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .about-me h2 {
-            color: #333;
-        }
-        .about-me p {
-            line-height: 1.6;
-        }
-        .picture {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .picture img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        .research-interests {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .research-interests h2 {
-            color: #333;
-        }
-        .research-interests ul {
-            list-style-type: square;
-            padding-left: 20px;
-        }
-        .center {
-        margin: auto;
-        width: 80%;
-        padding: 20px;
-        }
-        table {
-        border-collapse: collapse;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #f4f4f4;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 54px;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1.2px;
+    }
+
+    /* Responsive Navigation */
+    .nav-container {
+      position: relative;
+      background: var(--secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 20;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      background: inherit;
+      padding: 0;
+      position: relative;
+    }
+
+    nav a {
+      flex: none;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Container for the table */
+    .center {
+      margin: 50px auto;
+      padding: 25px 30px;
+      max-width: 900px;
+      background-color: var(--text-light);
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 12px 15px;
+    }
+
+    th {
+      background-color: var(--secondary);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9faff;
+    }
+
+    tr:hover {
+      background-color: #66d2de;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Responsive Style */
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 45px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
         width: 100%;
-        }
-        th, td {
-        border: 1px solid #dddddd;
+        background-color: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
         text-align: left;
-        padding: 8px;
-        }
-        th {
-        background-color: #f2f2f2;
-        }
-        tr:nth-child(even) {
-        background-color: #f2f2f2;
-        }
-        tr:hover {
-          background-color: #66d2de;
-        }
-        </style>
-    </head>
+        border-radius: 0;
+      }
+      .center {
+        width: 95%;
+        margin: 30px auto;
+        padding: 15px;
+      }
+      table {
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
+      }
+      th, td {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
 <body>
-    <header>
-        <h1>Projects</h1>
-    </header>
+  <header>
+    <h1>Projects</h1>
+  </header>
+
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
     <nav>
+      <div class="nav-links" id="mainNavLinks">
         <a href="https://chayanbhawal.github.io/">Home</a>
         <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
         <a href="https://chayanbhawal.github.io/publications">Publications</a>
@@ -106,54 +222,71 @@
         <a href="https://chayanbhawal.github.io/projects">Projects</a>
         <a href="https://chayanbhawal.github.io/students">Student</a>
         <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+      </div>
     </nav>
-    <div class="center">
+  </div>
+
+  <div class="center">
     <table>
-    <thead>
-      <tr>
-        <th>Sl.No.</th>
-        <th>Name of Project</th>
-        <th>Starting</th>
-        <th>Ending</th>
-        <th>Funding Agency/Scheme</th> 	
-        <th>Status</th>
-        <th>Codes</th>
-        <th>Reports</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>3</td>
-        <td>Design & Development of a Motion Planning and Control Scheme for an AUV swarm with Application to Underwater Surveillance</td>
-        <td>26 Dec 2023</td>
-        <td>Ongoing</td>
-        <td>TIH IITG</td>
-        <td>Dr. P. Bhowmick (PI) and Dr. Anirban Dasgupta (Co-PI)</td>
-        <td>Ongoing</td>
-        <td>Ongoing</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>On feedback controllers for LQR control of multi-input index-1 DAE systems</td>
-        <td>31 Dec 2021</td>
-        <td>30 Dec 2023</td>
-        <td>SERB</td>
-        <td>Completed</td>
-        <td><center><a href="https://github.com/chayanbhawal/chayanbhawal.github.io/tree/master/files/LQR_Problem">Link</a></center></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Testbed for vision-based control of unmanned vehicles</td>
-        <td>08 Aug 2020</td>
-        <td>07 Aug 2022</td>
-        <td>IIT Guwahati (Institute Start-up Grant)</td>
-        <td>Completed</td>
-      <td></td>
-      <td></td>
-      </tr>
-    </tbody>
+      <thead>
+        <tr>
+          <th>Sl.No.</th>
+          <th>Name of Project</th>
+          <th>Starting</th>
+          <th>Ending</th>
+          <th>Funding Agency/Scheme</th>
+          <th>Status</th>
+          <th>Codes</th>
+          <th>Reports</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3</td>
+          <td>Design & Development of a Motion Planning and Control Scheme for an AUV swarm with Application to Underwater Surveillance</td>
+          <td>26 Dec 2023</td>
+          <td>Ongoing</td>
+          <td>TIH IITG</td>
+          <td>Dr. P. Bhowmick (PI) and Dr. Anirban Dasgupta (Co-PI)</td>
+          <td>Ongoing</td>
+          <td>Ongoing</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>On feedback controllers for LQR control of multi-input index-1 DAE systems</td>
+          <td>31 Dec 2021</td>
+          <td>30 Dec 2023</td>
+          <td>SERB</td>
+          <td>Completed</td>
+          <td style="text-align:center;"><a href="https://github.com/chayanbhawal/chayanbhawal.github.io/tree/master/files/LQR_Problem" target="_blank">Link</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Testbed for vision-based control of unmanned vehicles</td>
+          <td>08 Aug 2020</td>
+          <td>07 Aug 2022</td>
+          <td>IIT Guwahati (Institute Start-up Grant)</td>
+          <td>Completed</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
     </table>
-     </div>
+  </div>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
