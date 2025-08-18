@@ -158,23 +158,107 @@
       header h1 { font-size: 1.4rem; }
       .tab-buttons { flex-wrap: wrap; }
     }
+
+    /* Add responsive/hamburger nav styling */
+  .nav-container {
+    position: relative;
+    background: var(--text-light, #fff);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: inherit;
+    padding: 0;
+  }
+  nav a {
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--primary, #0c1898);
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  nav a:hover {
+    background: var(--primary, #0c1898);
+    color: var(--text-light, #fff);
+    border-radius: 4px;
+  }
+
+  /* Hamburger button */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--primary, #0c1898);
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 21;
+  }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Responsive styling for mobile */
+  @media (max-width: 850px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background: var(--text-light, #fff);
+      margin-top: 45px;
+      border-top: 1px solid #eee;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      position: absolute;
+      left: 0; right: 0; top: 0;
+      z-index: 20;
+    }
+    .nav-links.active {
+      display: flex;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    nav a {
+      width: 100%;
+      padding: 14px 0 14px 24px;
+      text-align: left;
+      border-radius: 0;
+    }
+  }
   </style>
 </head>
+
+
 <body>
   <header>
     <h1>EE351: Control and Robotics Lab (Jul 2025)</h1>
   </header>
-
-  <nav>
-    <a href="https://chayanbhawal.github.io/">Home</a>
-    <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
-    <a href="https://chayanbhawal.github.io/publications">Publications</a>
-    <a href="https://chayanbhawal.github.io/courses">Courses</a>
-    <a href="https://chayanbhawal.github.io/projects">Projects</a>
-    <a href="https://chayanbhawal.github.io/students">Students</a>
-    <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
-  </nav>
-
+    <div class="nav-container">
+        <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
+        <nav>
+            <div class="nav-links" id="mainNavLinks">
+            <a href="https://chayanbhawal.github.io/">Home</a>
+            <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+            <a href="https://chayanbhawal.github.io/publications">Publications</a>
+            <a href="https://chayanbhawal.github.io/courses">Courses</a>
+            <a href="https://chayanbhawal.github.io/projects">Projects</a>
+            <a href="https://chayanbhawal.github.io/students">Students</a>
+            <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+            </div>
+        </nav>
+    </div>
   <main>
     <section>
       <p>
@@ -277,5 +361,19 @@
       evt.currentTarget.classList.add('active');
     }
   </script>
+
+  <script>
+  function toggleNav() {
+    document.getElementById("mainNavLinks").classList.toggle("active");
+  }
+  // Optional: Close menu if user taps elsewhere, for good UX
+  document.addEventListener('click', function (e) {
+    const nav = document.getElementById("mainNavLinks");
+    const btn = document.querySelector('.nav-toggle');
+    if (!nav.contains(e.target) && e.target !== btn) {
+      nav.classList.remove('active');
+    }
+  });
+</script>
 </body>
 </html>
