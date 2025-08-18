@@ -321,7 +321,7 @@
     white-space: nowrap;
     overflow: hidden;
     flex: 1 1 auto; /* take remaining space */
-    animation: notifier-scroll 22s linear infinite;
+    animation: notifier-scroll 70s linear infinite;
   }
   @keyframes notifier-scroll {
     0%   { transform: translate3d(100%,0,0);}
@@ -334,8 +334,9 @@
   body { padding-bottom: 54px; } /* Prevent overlapping content */
 </style>
 
- <div class="notification-bar">
-    <span class="notify-title">Recent Highlights:</span>
+<div class="notification-bar" role="region" aria-label="Recent Highlights">
+  <span class="notify-title">Recent Highlights:</span>
+  <div class="notify-ticker-wrapper" aria-live="polite" aria-atomic="true" tabindex="0">
     <span class="notify-ticker">
       Delivered invited lecture on Drones @ FDP Advances in Control Engineering - EICT, NIT Patna &nbsp;|&nbsp;
       Delivered invited lecture on Quadrotors @ KIIT Bhubaneswar &nbsp;|&nbsp;
@@ -343,5 +344,73 @@
       Paper accepted and presented at GCON 2025, NERIST, Arunachal Pradesh
     </span>
   </div>
+</div>
+
+<style>
+.notification-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary, #0c1898), #3d74e6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 12px 1rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1rem;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.notify-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #ffe082;
+  white-space: nowrap;
+  flex-shrink: 0; /* prevent shrinking */
+  padding-right: 10px;
+}
+
+.notify-ticker-wrapper {
+  flex: 1 1 auto;
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+.notify-ticker {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: ticker-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.notify-ticker-wrapper:hover .notify-ticker {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+body {
+  padding-bottom: 54px; /* prevent page content overlap */
+}
+
+@media (max-width: 600px) {
+  .notification-bar {
+    font-size: 0.85rem;
+    padding: 10px 0.5rem;
+  }
+  .notify-title {
+    margin-right: 0.5rem;
+  }
+}
+</style>
 </body>
 </html>
