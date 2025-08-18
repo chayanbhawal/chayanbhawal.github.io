@@ -30,28 +30,28 @@
       color: var(--text-dark);
       line-height: 1.6;
       min-height: 100vh;
-      padding-bottom: 50px; /* spacing for bottom */
+      padding-bottom: 54px; /* space for notification bar */
     }
 
     header {
-      background-color: var(--primary);
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
       color: var(--text-light);
-      padding: 1rem;
+      padding: 2rem 1rem 1.5rem 1rem;
       text-align: center;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
     }
 
     header h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       letter-spacing: 1.2px;
     }
 
     /* Responsive Navigation (Hamburger) */
     .nav-container {
       position: relative;
-      background-color: var(--secondary);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background: var(--text-light);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
       z-index: 20;
     }
 
@@ -69,7 +69,7 @@
       flex: none;
       padding: 14px 20px;
       text-decoration: none;
-      color: #333;
+      color: var(--primary);
       font-weight: 500;
       font-family: 'Poppins', sans-serif;
       font-size: 1rem;
@@ -103,7 +103,6 @@
       width: 100%;
     }
 
-    /* Container */
     .container {
       background-color: var(--text-light);
       border-radius: 10px;
@@ -112,6 +111,8 @@
       margin: 50px auto;
       width: 90%;
       max-width: 800px;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     h2 {
@@ -120,6 +121,7 @@
       padding-bottom: 10px;
       margin-bottom: 25px;
       font-family: 'Poppins', sans-serif;
+      font-weight: 500;
     }
 
     h3 {
@@ -130,7 +132,6 @@
 
     .work-item {
       margin-bottom: 20px;
-      font-size: 1rem;
     }
 
     .work-item h4,
@@ -159,7 +160,6 @@
     }
 
     /* Responsive */
-
     @media (max-width: 850px) {
       nav {
         flex-direction: column;
@@ -299,7 +299,6 @@
       const nav = document.getElementById('mainNavLinks');
       nav.classList.toggle('active');
     }
-    // Close nav if clicked outside menu
     document.addEventListener('click', function (e) {
       const nav = document.getElementById('mainNavLinks');
       const btn = document.querySelector('.nav-toggle');
