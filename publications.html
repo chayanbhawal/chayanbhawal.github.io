@@ -1,165 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Publications</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #f4f4f4;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 54px; /* for fixed elements if any */
     }
-    .container {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        width: 80%;
-        max-width: 800px;
-        margin: 50px auto; /* Centering the container */
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
+
     header {
-        background-color: #0c1898;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
     }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1.2px;
+    }
+
+    /* Responsive Navigation */
+    .nav-container {
+      position: relative;
+      background: var(--secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 20;
+    }
+
     nav {
-        background-color: #f4f4f4;
-        overflow: hidden;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+      position: relative;
+      background: inherit;
     }
+
     nav a {
-        float: left;
-        display: block;
-        color: #333;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
-        justify-content: center;
-        align-items: center;
+      flex: none;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     nav a:hover {
-        background-color: #ddd;
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
     }
-    .about-me {
-        flex: 1;
-        padding: 0 20px;
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
     }
-    .about-me h2 {
-        color: #333;
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
     }
-    .about-me p {
-        line-height: 1.6;
-    }
-    .picture {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .picture img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-    .research-interests {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .research-interests h2 {
-        color: #333;
-    }
-    .research-interests ul {
-        list-style-type: square;
-        padding-left: 20px;
-    }
+
+    /* Content Container */
     .center {
-    margin: auto;
-    width: 80%;
-    padding: 20px;
-    }
-    ul {
-    list-style-type: none;
-    padding: 0;
-    }
-
-    /* Style for list items */
-    li {
-    background-color: #f4f4f4;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 50px auto;
+      padding: 25px 30px;
+      max-width: 900px;
+      background-color: var(--text-light);
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      line-height: 1.45;
     }
 
-    /* Hover effect */
-    li:hover {
-    background-color: #66d2de;
+    h2 {
+      color: var(--primary);
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
     }
-</style>
+
+    ul.publications-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.publications-list li {
+      background-color: #f9faff;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+      transition: background-color 0.3s ease;
+    }
+
+    ul.publications-list li:hover {
+      background-color: #66d2de;
+      color: #fff;
+    }
+
+    ul.publications-list li a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 5px;
+      transition: color 0.3s;
+    }
+
+    ul.publications-list li:hover a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 45px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
+        text-align: left;
+        border-radius: 0;
+      }
+      .center {
+        margin: 40px auto;
+        width: 95%;
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<header>
+  <header>
     <h1>Publications</h1>
-</header>
-<nav>
-    <a href="https://chayanbhawal.github.io/">Home</a>
-    <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
-    <a href="https://chayanbhawal.github.io/publications">Publications</a>
-    <a href="https://chayanbhawal.github.io/courses">Courses</a>
-    <a href="https://chayanbhawal.github.io/projects">Projects</a>
-    <a href="https://chayanbhawal.github.io/students">Student</a>
-    <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
-</nav>
-<div class="center">
-       
-<h2>Journals (published/accepted)</h2>
-<ul>
-    <li>Imrul Qais, Chayan Bhawal, and Debasattam Pal, Singular LQR optimal control of DAEs: A feedback solution, <i>Automatica</i>, vol. 173, 2025. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0005109824005533">[Link]</a></li>
-    <li>Imrul Qais, Chayan Bhawal, and Debasattam Pal, Optimal singular LQR problem: A PD feedback solution, <i>SIAM Journal on Control and Optimization (SICON)</i>, vol. 61, no. 4, pages 2655 - 2681, 2023. <a href="https://epubs.siam.org/doi/10.1137/22M1496414">[Link]</a></li>
-    <li>Ashish Kothyari, Chayan Bhawal, Madhu N Belur, and Debasattam Pal, Imaginary axis eigenvalues of Hamiltonian matrix: controllability, defectiveness and the epsilon-characteristic, <i>International Journal of Control</i>, vol. 96, no. 12, pages 2958 - 2975, 2022. <a href="https://www.tandfonline.com/doi/full/10.1080/00207179.2022.2120081">[Link]</a></li>
-    <li>Chayan Bhawal, Debasattam Pal, and Madhu N Belur, Closed form solutions of singular KYP lemma: strongly passive systems, and fast lossless trajectories, <i>International Journal of Control</i>, vol. 93, no. 5, pages 1204 - 1217, 2020 (Published online Jul 2018). <a href="https://www.tandfonline.com/doi/full/10.1080/00207179.2018.1500039">[Link]</a></li>
-    <li>Chayan Bhawal and Debasattam Pal, Almost every single-input LQR optimal control problem admits a PD feedback solution, <i>IEEE Control Systems Letters</i>, vol. 3, no. 2, pages 452 - 457, 2019. <a href="https://ieeexplore.ieee.org/document/8637786">[Link]</a></li>
-    <li>Chayan Bhawal, Imrul Qais, and Debasattam Pal, Constrained generalized continuous algebraic Riccati equations (CGCAREs) are generically unsolvable, <i>IEEE Control Systems Letters</i>, vol. 3, no. 1, 2019. <a href="https://ieeexplore.ieee.org/document/8458230">[Link]</a></li>
-    <li>Chayan Bhawal, Debasattam Pal, Sandeep Kumar, and Madhu N Belur, New results and techniques for computation of stored energy in lossless/all-pass systems, <i>IEEE Transactions on Circuits and Systems I: Regular Papers</i>, vol. 64, no. 1, pages 72-85, 2017. <a href="https://ieeexplore.ieee.org/abstract/document/7588105">[Link]</a></li>
-</ul>
+  </header>
 
-<h2>Conferences</h2>
-<ul>
-    <li>Paraj Ganchaudhuri and Chayan Bhawal, Least energy trajectory generation for quadrotors using rotor acceleration as control inputs, <i>International Conference on Control, Decision and Information Technologies (CoDIT)</i>, Split, Croatia, July 15 - July 18, 2025.</li>
-    <li>Paraj Ganchaudhuri and Chayan Bhawal, Maneuver based dynamic power consumption model of a hover-linearized quadcopter, <i>IEEE Guwahati Subsection Conference (GCON)</i>, NERIST, Arunachal Pradesh, June 18 - June 20, 2025.</li>
-    <li>Gangadari Varaprasad, Chayan Bhawal and Indrani Kar, A distributed algorithm for assigning UAVs to multiple heterogeneous positions of interest, <i>Indian Control Conference (ICC)</i>, IISER Bhopal, December 09 - December 11, 2024.</li>
-    <li>Biswanath Paul, Parijat Bhowmick, and Chayan Bhawal, A dynamic consensus control scheme for heterogeneous DC/DC buck converter systems utilizing ‘mixed’ negative imaginary technique, <i>IEEE Conference on Decision and Control (CDC)</i>, Milan, Italy, December 16 - December 19, 2024. </li>
-    <li>Paraj Ganchaudhuri and Chayan Bhawal, Power consumption of a quadrotor based on maneuvers, <i>IEEE Guwahati Subsection Conference (GCON)</i>, Guwahati, India, June 23 - June 25, 2023.</li>
-    <li>Chayan Bhawal, Debasattam Pal, and Madhu N Belur, Lossless trajectories of singularly passive systems, <i>Mathematical Theory of Networks and Systems (MTNS)</i>, Bayreuth, Germany, September 12 - September 16, 2022.</li>
-    <li>Imrul Qais, Chayan Bhawal, and Debasattam Pal, A Hamiltonian system based approach for the computation of the maximal rank-minimizing solution of the LMI arising from a singular LQR problem, <i>European Control Conference (ECC)</i>, London, UK, July 12 - July 15, 2022. <a href="http://chayanbhawal.github.io/files/2020QaiPBIFAC.pdf">[Link]</a></li>
-    <li>Imrul Qais, Debasattam Pal, and Chayan Bhawal, A geometric characterization of the slow space of the Hamiltonian system arising from the singular LQR problem, <i>IFAC World Congress</i>, July 12 - July 17, 2020. <a href="http://chayanbhawal.github.io/files/2020QaiPBIFAC.pdf">[Link]</a></li>
-    <li>Chayan Bhawal, Jan Heiland, and Peter Benner, PD controllers to solve single-input, index-1 DAE based LQR problems, <i>European Control Conference (ECC)</i>, Saint Petersburg, Russia, May 12 ‑ May 15, 2020. <a href="http://chayanbhawal.github.io/files/2020BhaHeiECC.pdf">[Link]</a></li>
-    <li>Chayan Bhawal, Debasattam Pal, and Madhu N. Belur, On circulant Lyapunov operators, two-variable polynomials, and DFT, <i>Indian Control Conference (ICC)</i>, Hyderabad, December 18 - December 20, 2019. <a href="http://chayanbhawal.github.io/files/2019BhaPalBelICC.pdf">[Link]</a></li>
-    <li>Chayan Bhawal and Debasattam Pal, On solvability of CGCARE for LQR problems with zero input-cost, <i>IEEE Conference on Decision and Control (CDC)</i>, Nice, France, December 11 - December 13, 2019. <a href="http://chayanbhawal.github.io/files/BhaPal19.pdf">[Link]</a></li>
-    <li>Ashish Kothyari, Chayan Bhawal, Madhu N Belur, and Debasattam Pal, Defective Hamiltonian matrix imaginary eigenvalues and losslessness, <i>Indian Control Conference (ICC)</i>, Delhi, January 9 - January 11, 2019. <a href="http://chayanbhawal.github.io/files/2019KotBhaBelPalICC.pdf">[Link]</a></li>
-    <li>Chayan Bhawal, Debasattam Pal, and Madhu N Belur, On solutions of bounded-real LMI for singularly bounded-real systems, <i>European Control Conference</i>, Limassol, Cyprus, June 12 - June 15, 2018. <a href="http://chayanbhawal.github.io/files/2018BhaPalBelECC.pdf">[Link]</a></li>
-    <li>Chayan Bhawal, Debasattam Pal, and Madhu N Belur, On the link between storage functions of allpass systems and Gramians, <i>IEEE Conference on Decision and Control (CDC)</i>, Melbourne, Australia, December 12 - December 15, 2017. <a href="http://chayanbhawal.github.io/files/2017BhaPalBelCDC.pdf">[Link]</a></li>
-    <li>Chayan Bhawal, Debasattam Pal, and Madhu N Belur, A 2D-DFT based method to compute the Bezoutian and a link to Lyapunov equations, <i>Indian Control Conference (ICC)</i>, Guwahati, India, January 4 - January 6, 2017. <a href="http://chayanbhawal.github.io/files/2017BhaPalBelICC.pdf">[Link]</a></li>
-    <li>Sandeep Kumar, Chayan Bhawal, Debasattam Pal, and Madhu N Belur, New results and algorithms for computing storage functions: The lossless/allpass cases, <i>European Control Conference (ECC)</i>, Aalborg, Denmark, June 29 - July 1, 2016. <a href="http://chayanbhawal.github.io/files/2016KumBhaPalBelECC.pdf">[Link]</a></li>
-</ul>
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
+    <nav>
+      <div class="nav-links" id="mainNavLinks">
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Student</a>
+        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+      </div>
+    </nav>
+  </div>
 
-<h2>Book Chapter</h2>
-<ul>
-    <li>Chayan Bhawal, Sandeep Kumar, Debasattam Pal, and Madhu N. Belur, New properties of ARE solutions for strictly dissipative and lossless systems, <i>Mathematical Control Theory II: Behavioral Systems and Robust Control</i>, Springer International Publishing, 2015. <a href="https://www.springer.com/in/book/9783319210025">[Link]</a></li>
-</ul>
+  <div class="center">
+    <h2>Journals (published/accepted)</h2>
+    <ul class="publications-list">
+      <li>
+        Imrul Qais, Chayan Bhawal, and Debasattam Pal, Singular LQR optimal control of DAEs: A feedback solution,
+        <em>Automatica</em>, vol. 173, 2025.
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0005109824005533" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Imrul Qais, Chayan Bhawal, and Debasattam Pal, Optimal singular LQR problem: A PD feedback solution,
+        <em>SIAM Journal on Control and Optimization (SICON)</em>, vol. 61, no. 4, pages 2655 - 2681, 2023.
+        <a href="https://epubs.siam.org/doi/10.1137/22M1496414" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Ashish Kothyari, Chayan Bhawal, Madhu N Belur, and Debasattam Pal, Imaginary axis eigenvalues of Hamiltonian matrix: controllability, defectiveness and the epsilon-characteristic,
+        <em>International Journal of Control</em>, vol. 96, no. 12, pages 2958 - 2975, 2022.
+        <a href="https://www.tandfonline.com/doi/full/10.1080/00207179.2022.2120081" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal, Debasattam Pal, and Madhu N Belur, Closed form solutions of singular KYP lemma: strongly passive systems, and fast lossless trajectories,
+        <em>International Journal of Control</em>, vol. 93, no. 5, pages 1204 - 1217, 2020 (Published online Jul 2018).
+        <a href="https://www.tandfonline.com/doi/full/10.1080/00207179.2018.1500039" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal and Debasattam Pal, Almost every single-input LQR optimal control problem admits a PD feedback solution,
+        <em>IEEE Control Systems Letters</em>, vol. 3, no. 2, pages 452 - 457, 2019.
+        <a href="https://ieeexplore.ieee.org/document/8637786" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal, Imrul Qais, and Debasattam Pal, Constrained generalized continuous algebraic Riccati equations (CGCAREs) are generically unsolvable,
+        <em>IEEE Control Systems Letters</em>, vol. 3, no. 1, 2019.
+        <a href="https://ieeexplore.ieee.org/document/8458230" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal, Debasattam Pal, Sandeep Kumar, and Madhu N Belur, New results and techniques for computation of stored energy in lossless/all-pass systems,
+        <em>IEEE Transactions on Circuits and Systems I: Regular Papers</em>, vol. 64, no. 1, pages 72-85, 2017.
+        <a href="https://ieeexplore.ieee.org/abstract/document/7588105" target="_blank">[Link]</a>
+      </li>
+    </ul>
 
-<h2>PhD Thesis</h2>
-<ul>
-    <li>Chayan Bhawal, Generalized Riccati theory: A Hamiltonian system approach, <i>Department of Electrical Engineering, Indian Institute of Technology Bombay</i>, 2019 <a href="mailto:your_email@example.com">[E-mail me for the thesis]</a></li>
-</ul>
-</div>
+    <h2>Conferences</h2>
+    <ul class="publications-list">
+      <li>
+        Paraj Ganchaudhuri and Chayan Bhawal, Least energy trajectory generation for quadrotors using rotor acceleration as control inputs,
+        <em>International Conference on Control, Decision and Information Technologies (CoDIT)</em>, Split, Croatia, July 15 - July 18, 2025.
+      </li>
+      <li>
+        Paraj Ganchaudhuri and Chayan Bhawal, Maneuver based dynamic power consumption model of a hover-linearized quadcopter,
+        <em>IEEE Guwahati Subsection Conference (GCON)</em>, NERIST, Arunachal Pradesh, June 18 - June 20, 2025.
+      </li>
+      <li>
+        Gangadari Varaprasad, Chayan Bhawal and Indrani Kar, A distributed algorithm for assigning UAVs to multiple heterogeneous positions of interest,
+        <em>Indian Control Conference (ICC)</em>, IISER Bhopal, December 09 - December 11, 2024.
+      </li>
+      <li>
+        Biswanath Paul, Parijat Bhowmick, and Chayan Bhawal, A dynamic consensus control scheme for heterogeneous DC/DC buck converter systems utilizing ‘mixed’ negative imaginary technique,
+        <em>IEEE Conference on Decision and Control (CDC)</em>, Milan, Italy, December 16 - December 19, 2024.
+      </li>
+      <li>
+        Paraj Ganchaudhuri and Chayan Bhawal, Power consumption of a quadrotor based on maneuvers,
+        <em>IEEE Guwahati Subsection Conference (GCON)</em>, Guwahati, India, June 23 - June 25, 2023.
+      </li>
+      <li>
+        Chayan Bhawal, Debasattam Pal, and Madhu N Belur, Lossless trajectories of singularly passive systems,
+        <em>Mathematical Theory of Networks and Systems (MTNS)</em>, Bayreuth, Germany, September 12 - September 16, 2022.
+      </li>
+      <li>
+        Imrul Qais, Chayan Bhawal, and Debasattam Pal, A Hamiltonian system based approach for the computation of the maximal rank-minimizing solution of the LMI arising from a singular LQR problem,
+        <em>European Control Conference (ECC)</em>, London, UK, July 12 - July 15, 2022.
+        <a href="http://chayanbhawal.github.io/files/2020QaiPBIFAC.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Imrul Qais, Debasattam Pal, and Chayan Bhawal, A geometric characterization of the slow space of the Hamiltonian system arising from the singular LQR problem,
+        <em>IFAC World Congress</em>, July 12 - July 17, 2020.
+        <a href="http://chayanbhawal.github.io/files/2020QaiPBIFAC.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal, Jan Heiland, and Peter Benner, PD controllers to solve single-input, index-1 DAE based LQR problems,
+        <em>European Control Conference (ECC)</em>, Saint Petersburg, Russia, May 12 ‑ May 15, 2020.
+        <a href="http://chayanbhawal.github.io/files/2020BhaHeiECC.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal, Debasattam Pal, and Madhu N. Belur, On circulant Lyapunov operators, two-variable polynomials, and DFT,
+        <em>Indian Control Conference (ICC)</em>, Hyderabad, December 18 - December 20, 2019.
+        <a href="http://chayanbhawal.github.io/files/2019BhaPalBelICC.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal and Debasattam Pal, On solvability of CGCARE for LQR problems with zero input-cost,
+        <em>IEEE Conference on Decision and Control (CDC)</em>, Nice, France, December 11 - December 13, 2019.
+        <a href="http://chayanbhawal.github.io/files/BhaPal19.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Ashish Kothyari, Chayan Bhawal, Madhu N Belur, and Debasattam Pal, Defective Hamiltonian matrix imaginary eigenvalues and losslessness,
+        <em>Indian Control Conference (ICC)</em>, Delhi, January 9 - January 11, 2019.
+        <a href="http://chayanbhawal.github.io/files/2019KotBhaBelPalICC.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal, Debasattam Pal, and Madhu N Belur, On solutions of bounded-real LMI for singularly bounded-real systems,
+        <em>European Control Conference</em>, Limassol, Cyprus, June 12 - June 15, 2018.
+        <a href="http://chayanbhawal.github.io/files/2018BhaPalBelECC.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal, Debasattam Pal, and Madhu N Belur, On the link between storage functions of allpass systems and Gramians,
+        <em>IEEE Conference on Decision and Control (CDC)</em>, Melbourne, Australia, December 12 - December 15, 2017.
+        <a href="http://chayanbhawal.github.io/files/2017BhaPalBelCDC.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Chayan Bhawal, Debasattam Pal, and Madhu N Belur, A 2D-DFT based method to compute the Bezoutian and a link to Lyapunov equations,
+        <em>Indian Control Conference (ICC)</em>, Guwahati, India, January 4 - January 6, 2017.
+        <a href="http://chayanbhawal.github.io/files/2017BhaPalBelICC.pdf" target="_blank">[Link]</a>
+      </li>
+      <li>
+        Sandeep Kumar, Chayan Bhawal, Debasattam Pal, and Madhu N Belur, New results and algorithms for computing storage functions: The lossless/allpass cases,
+        <em>European Control Conference (ECC)</em>, Aalborg, Denmark, June 29 - July 1, 2016.
+        <a href="http://chayanbhawal.github.io/files/2016KumBhaPalBelECC.pdf" target="_blank">[Link]</a>
+      </li>
+    </ul>
+
+    <h2>Book Chapter</h2>
+    <ul class="publications-list">
+      <li>
+        Chayan Bhawal, Sandeep Kumar, Debasattam Pal, and Madhu N. Belur, New properties of ARE solutions for strictly dissipative and lossless systems,
+        <em>Mathematical Control Theory II: Behavioral Systems and Robust Control</em>, Springer International Publishing, 2015.
+        <a href="https://www.springer.com/in/book/9783319210025" target="_blank">[Link]</a>
+      </li>
+    </ul>
+
+    <h2>PhD Thesis</h2>
+    <ul class="publications-list">
+      <li>
+        Chayan Bhawal, Generalized Riccati theory: A Hamiltonian system approach,
+        <em>Department of Electrical Engineering, Indian Institute of Technology Bombay</em>, 2019
+        <a href="mailto:bhawal@iitg.ac.in">[E-mail me for the thesis]</a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
