@@ -30,7 +30,7 @@
       color: var(--text-dark);
       line-height: 1.6;
       min-height: 100vh;
-      padding-bottom: 54px; /* spacing for bottom if needed */
+      padding-bottom: 54px; /* Space for possible fixed elements */
     }
 
     header {
@@ -111,6 +111,7 @@
       background-color: var(--text-light);
       border-radius: 10px;
       box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      overflow-x: auto; /* Enable horizontal scroll if needed */
     }
 
     table {
@@ -120,11 +121,14 @@
       font-size: 1rem;
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #dddddd;
       text-align: left;
       padding: 12px 15px;
-      white-space: nowrap;
+      white-space: normal; /* allow wrapping to prevent overflow */
+      word-wrap: break-word;
+      max-width: 350px; /* limit max width to keep table neat */
     }
 
     th {
@@ -148,6 +152,7 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
+      word-break: break-word;
     }
 
     a:hover {
@@ -190,27 +195,19 @@
         border-radius: 0;
       }
       .center {
-        margin: 50px auto;
-        padding: 20px;
-        max-width: 900px;
-        background-color: var(--text-light);
-        border-radius: 10px;
-        box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-        overflow-x: auto; /* allow horizontal scroll */
-        }
+        width: 95%;
+        margin: 30px auto;
+        padding: 15px;
+      }
       table {
         font-size: 0.9rem;
         display: block;
         overflow-x: auto;
       }
-      th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 12px 15px;
-        white-space: normal; /* changed from nowrap to normal */
-        word-wrap: break-word; /* allow breaking long words */
-        max-width: 300px; /* optional but helps limit very wide cells */
-        }
+      th,
+      td {
+        white-space: normal;
+      }
     }
   </style>
 </head>
@@ -375,6 +372,7 @@
     </table>
   </div>
 
+  
   <script>
     function toggleNav() {
       const nav = document.getElementById('mainNavLinks');
