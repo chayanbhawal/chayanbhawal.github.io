@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EE550 Linear System Theory - Jul 2025</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     :root {
@@ -36,7 +39,7 @@
       color: var(--text-light);
       padding: 1.5rem;
       text-align: center;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }
 
     header h1 {
@@ -46,17 +49,20 @@
     }
 
     /* Navigation */
+    .nav-container {
+      position: relative;
+      background: var(--text-light);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+    }
     nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      background: var(--text-light);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      align-items: center;
+      background: inherit;
+      padding: 0;
     }
-
     nav a {
       padding: 14px 20px;
       text-decoration: none;
@@ -64,11 +70,66 @@
       font-weight: 500;
       transition: all 0.3s;
     }
-
     nav a:hover {
       background: var(--primary);
       color: var(--text-light);
       border-radius: 4px;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Tabs */
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .tab-buttons button {
+      background: var(--secondary);
+      border: none;
+      padding: 12px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .tab-buttons button.active,
+    .tab-buttons button:hover {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     main {
@@ -82,10 +143,9 @@
       background: var(--text-light);
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s;
     }
-
     section:hover {
       transform: translateY(-3px);
     }
@@ -106,14 +166,15 @@
       background: #fff;
       border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     table thead {
       background: var(--secondary);
     }
 
-    th, td {
+    th,
+    td {
       padding: 12px;
       text-align: center;
       border-bottom: 1px solid #eee;
@@ -148,19 +209,52 @@
       background: #f2f4fd;
     }
 
-    @media (max-width: 768px) {
+    /* Responsive styles for nav and tables */
+    @media (max-width: 850px) {
       nav {
         flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        padding-top: 45px;
       }
-
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
+        text-align: left;
+        border-radius: 0;
+      }
       table {
         font-size: 0.85rem;
         display: block;
         overflow-x: auto;
       }
-
       header h1 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+      }
+      .tab-buttons button {
+        flex: 1 1 auto;
+        margin: 5px 2px;
+        min-width: 120px;
       }
     }
   </style>
@@ -170,27 +264,38 @@
     <h1>EE550: Linear System Theory (Jul 2025)</h1>
   </header>
 
-  <nav>
-    <a href="https://chayanbhawal.github.io/">Home</a>
-    <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
-    <a href="https://chayanbhawal.github.io/publications">Publications</a>
-    <a href="https://chayanbhawal.github.io/courses">Courses</a>
-    <a href="https://chayanbhawal.github.io/projects">Projects</a>
-    <a href="https://chayanbhawal.github.io/students">Students</a>
-    <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
-  </nav>
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">&#9776;</button>
+    <nav>
+      <div class="nav-links" id="mainNavLinks">
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Students</a>
+        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+      </div>
+    </nav>
+  </div>
 
   <main>
     <section>
       <p>
-        📘 Syllabus:  
-        <a href="https://iitg.ac.in/eee/curriculum/MTech/sca.html" target="_blank">
-          View Syllabus
-        </a>
+        📘 Syllabus:
+        <a href="https://iitg.ac.in/eee/curriculum/MTech/sca.html" target="_blank">View Syllabus</a>
       </p>
     </section>
 
-    <section>
+    <!-- Tab Buttons -->
+    <div class="tab-buttons">
+      <button class="active" onclick="openTab(event, 'lectures')">🎥 Video Lectures</button>
+      <button onclick="openTab(event, 'problems')">📂 Problem Sets</button>
+      <button onclick="openTab(event, 'weightage')">📊 Weightage</button>
+    </div>
+
+    <!-- Video Lectures Tab -->
+    <div id="lectures" class="tab-content active">
       <h2>🎥 Video Lectures</h2>
       <table>
         <thead>
@@ -204,52 +309,116 @@
         </thead>
         <tbody>
           <tr>
-            <td>06</td><td>Basis</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-06-Basis.mkv?csf=1&web=1&e=8Eaj19">Watch</a></td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture06-Basis.pdf?csf=1&web=1&e=WkFMTA">PDF</a></td>
+            <td>06</td>
+            <td>Basis</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-06-Basis.mkv?csf=1&web=1&e=8Eaj19"
+                >Watch</a
+              >
+            </td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture06-Basis.pdf?csf=1&web=1&e=WkFMTA"
+                >PDF</a
+              >
+            </td>
             <td>18-Aug-2025</td>
           </tr>
           <tr>
-            <td>05</td><td>Vector Space</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-05-Vector_Space.mkv?csf=1&web=1&e=Y8sXrf">Watch</a></td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture05-Vector_space.pdf?csf=1&web=1&e=wPTfiz">PDF</a></td>
+            <td>05</td>
+            <td>Vector Space</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-05-Vector_Space.mkv?csf=1&web=1&e=Y8sXrf"
+                >Watch</a
+              >
+            </td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture05-Vector_space.pdf?csf=1&web=1&e=wPTfiz"
+                >PDF</a
+              >
+            </td>
             <td>12-Aug-2025</td>
           </tr>
           <tr>
-            <td>04</td><td>Diagonalization Contd.</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-04-Diagonalization_contd.mkv?csf=1&web=1&e=Z0Ivxo">Watch</a></td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture04-Diagonalization_contd.pdf?csf=1&web=1&e=dKDcQB">PDF</a></td>
+            <td>04</td>
+            <td>Diagonalization Contd.</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-04-Diagonalization_contd.mkv?csf=1&web=1&e=Z0Ivxo"
+                >Watch</a
+              >
+            </td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture04-Diagonalization_contd.pdf?csf=1&web=1&e=dKDcQB"
+                >PDF</a
+              >
+            </td>
             <td>11-Aug-2025</td>
           </tr>
           <tr>
-            <td>03</td><td>Diagonalization</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-03-Diagonalization.mkv?csf=1&web=1&e=U3mYMG">Watch</a></td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture03-Diagonalization.pdf?csf=1&web=1&e=Bmz1dq">PDF</a></td>
+            <td>03</td>
+            <td>Diagonalization</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-03-Diagonalization.mkv?csf=1&web=1&e=U3mYMG"
+                >Watch</a
+              >
+            </td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture03-Diagonalization.pdf?csf=1&web=1&e=Bmz1dq"
+                >PDF</a
+              >
+            </td>
             <td>05-Aug-2025</td>
           </tr>
           <tr>
-            <td>02</td><td>System Response</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-02-System_Response.mkv?csf=1&web=1&e=5futAx">Watch</a></td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture02-System_Response.pdf?csf=1&web=1&e=exz7da">PDF</a></td>
+            <td>02</td>
+            <td>System Response</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-02-System_Response.mkv?csf=1&web=1&e=5futAx"
+                >Watch</a
+              >
+            </td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture02-System_Response.pdf?csf=1&web=1&e=exz7da"
+                >PDF</a
+              >
+            </td>
             <td>04-Aug-2025</td>
           </tr>
           <tr>
-            <td>01</td><td>Controller Design Recap</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-01-Controller_Design_Recap.mkv?csf=1&web=1&e=XvxDD3">Watch</a></td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture01-Controller_Design_Recap.pdf?csf=1&web=1&e=J6Q1Te">PDF</a></td>
+            <td>01</td>
+            <td>Controller Design Recap</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-01-Controller_Design_Recap.mkv?csf=1&web=1&e=XvxDD3"
+                >Watch</a
+              >
+            </td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture01-Controller_Design_Recap.pdf?csf=1&web=1&e=J6Q1Te"
+                >PDF</a
+              >
+            </td>
             <td>29-Jul-2025</td>
           </tr>
           <tr>
-            <td>00</td><td>Introduction</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-00-Introduction.mkv?csf=1&web=1&e=MvBjXW">Watch</a></td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture00-Introduction.pdf?csf=1&web=1&e=tk1v2f">PDF</a></td>
+            <td>00</td>
+            <td>Introduction</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-00-Introduction.mkv?csf=1&web=1&e=MvBjXW"
+                >Watch</a
+              >
+            </td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture00-Introduction.pdf?csf=1&web=1&e=tk1v2f"
+                >PDF</a
+              >
+            </td>
             <td>28-Jul-2025</td>
           </tr>
         </tbody>
       </table>
-    </section>
+    </div>
 
-    <section>
+    <!-- Problem Sets Tab -->
+    <div id="problems" class="tab-content">
       <h2>📂 Problem Sets</h2>
       <table>
         <thead>
@@ -262,20 +431,31 @@
         </thead>
         <tbody>
           <tr>
-            <td>02</td><td>Vector Spaces and Subspaces</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Problem%20Set/Problem-Set-02.pdf?csf=1&web=1&e=4TejBv">Download</a></td>
+            <td>02</td>
+            <td>Vector Spaces and Subspaces</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Problem%20Set/Problem-Set-02.pdf?csf=1&web=1&e=4TejBv"
+                >Download</a
+              >
+            </td>
             <td>14-Aug-2025</td>
           </tr>
           <tr>
-            <td>01</td><td>State-space Solution</td>
-            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Problem%20Set/Problem-Set-01.pdf?csf=1&web=1&e=6RcoaU">Download</a></td>
+            <td>01</td>
+            <td>State-space Solution</td>
+            <td>
+              <a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Problem%20Set/Problem-Set-01.pdf?csf=1&web=1&e=6RcoaU"
+                >Download</a
+              >
+            </td>
             <td>14-Aug-2025</td>
           </tr>
         </tbody>
       </table>
-    </section>
+    </div>
 
-    <section>
+    <!-- Weightage Tab -->
+    <div id="weightage" class="tab-content">
       <h2>📊 Weightage</h2>
       <table>
         <thead>
@@ -287,19 +467,63 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Quiz-1</td><td>05-Sep-2025</td><td>10%</td><td>Upcoming</td></tr>
-          <tr><td>Mid-Semester</td><td>15-Sep-2025</td><td>20%</td><td>Upcoming</td></tr>
-          <tr><td>Quiz-2</td><td>17-Oct-2025</td><td>20%</td><td>Upcoming</td></tr>
-          <tr><td>Quiz-3</td><td>14-Nov-2025</td><td>20%</td><td>Upcoming</td></tr>
-          <tr><td>End-Semester</td><td>17-Nov-2025</td><td>30%</td><td>Upcoming</td></tr>
+          <tr>
+            <td>Quiz-1</td>
+            <td>05-Sep-2025</td>
+            <td>10%</td>
+            <td>Upcoming</td>
+          </tr>
+          <tr>
+            <td>Mid-Semester</td>
+            <td>15-Sep-2025</td>
+            <td>20%</td>
+            <td>Upcoming</td>
+          </tr>
+          <tr>
+            <td>Quiz-2</td>
+            <td>17-Oct-2025</td>
+            <td>20%</td>
+            <td>Upcoming</td>
+          </tr>
+          <tr>
+            <td>Quiz-3</td>
+            <td>14-Nov-2025</td>
+            <td>20%</td>
+            <td>Upcoming</td>
+          </tr>
+          <tr>
+            <td>End-Semester</td>
+            <td>17-Nov-2025</td>
+            <td>30%</td>
+            <td>Upcoming</td>
+          </tr>
         </tbody>
       </table>
-    </section>
+    </div>
   </main>
 
   <footer>
-    ⚠️ Access to the links is restricted to students registered in the course.  
+    ⚠️ Access to the links is restricted to students registered in the course.
     For access requests, please email: <strong>bhawal[AT]iitg.ac.in</strong>
   </footer>
+
+  <script>
+    // Toggle navigation menu on mobile
+    function toggleNav() {
+      document.getElementById('mainNavLinks').classList.toggle('active');
+    }
+
+    // Tab switching function
+    function openTab(evt, tabId) {
+      document.querySelectorAll('.tab-content').forEach((tab) => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-buttons button').forEach((btn) => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
