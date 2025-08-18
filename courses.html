@@ -190,18 +190,27 @@
         border-radius: 0;
       }
       .center {
-        width: 95%;
-        margin: 30px auto;
-        padding: 15px;
-      }
+        margin: 50px auto;
+        padding: 20px;
+        max-width: 900px;
+        background-color: var(--text-light);
+        border-radius: 10px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+        overflow-x: auto; /* allow horizontal scroll */
+        }
       table {
         font-size: 0.9rem;
         display: block;
         overflow-x: auto;
       }
       th, td {
-        white-space: normal;
-      }
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 12px 15px;
+        white-space: normal; /* changed from nowrap to normal */
+        word-wrap: break-word; /* allow breaking long words */
+        max-width: 300px; /* optional but helps limit very wide cells */
+        }
     }
   </style>
 </head>
