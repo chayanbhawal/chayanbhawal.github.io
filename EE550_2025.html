@@ -1,126 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EE550 Linear System Theory Jul 2025</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EE550 Linear System Theory - Jul 2025</title>
+  <style>
+    /* General Styles */
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
     }
+
     header {
-        background-color: #0c1898;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+      background: #0c1898;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
     nav {
-        background-color: #f4f4f4;
-        overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #f4f4f4;
+      border-bottom: 2px solid #ddd;
     }
+
     nav a {
-        float: left;
-        display: block;
-        color: #333;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
+      padding: 12px 18px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: background 0.3s, color 0.3s;
     }
+
     nav a:hover {
-        background-color: #ddd;
+      background: #0c1898;
+      color: #fff;
     }
-    .container {
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
+
+    main {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
     }
-    .about-me {
-        flex: 1;
-        padding: 0 20px;
+
+    section {
+      margin-bottom: 40px;
     }
-    .about-me h2 {
-        color: #333;
+
+    h2 {
+      margin-bottom: 15px;
+      color: #0c1898;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
     }
-    .about-me p {
-        line-height: 1.6;
-    }
-    .picture {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .picture img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-    .research-interests {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .research-interests h2 {
-        color: #333;
-    }
-    .research-interests ul {
-        list-style-type: square;
-        padding-left: 20px;
-    }
-    .center {
-    margin: auto;
-    width: 80%;
-    padding: 20px;
-    }
+
+    /* Table Styles */
     table {
-    border-collapse: collapse;
-    width: 100%;
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      background: #fff;
     }
+
     th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
     }
+
     th {
-    background-color: #f2f2f2;
+      background: #f2f2f2;
+      font-weight: bold;
     }
+
     tr:nth-child(even) {
-    background-color: #f2f2f2;
+      background: #f9f9f9;
     }
-    </style>
+
+    a {
+      color: #0c1898;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 15px;
+      border-top: 1px solid #ddd;
+      background: #f4f4f4;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      table {
+        font-size: 0.85rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>EE550 Linear System Theory Jul 2025</h1>
-    </header>
-    <nav>
-        <a href="https://chayanbhawal.github.io/">Home</a>
-        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
-        <a href="https://chayanbhawal.github.io/publications">Publications</a>
-        <a href="https://chayanbhawal.github.io/courses">Courses</a>
-        <a href="https://chayanbhawal.github.io/projects">Projects</a>
-        <a href="https://chayanbhawal.github.io/students">Student</a>
-        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
-    </nav>
-    <div class="center">
-<br> Syllabus: <a href="https://iitg.ac.in/eee/curriculum/MTech/sca.html">Link</a> 
+  <header>
+    <h1>EE550: Linear System Theory (Jul 2025)</h1>
+  </header>
 
-<h2>Video Lectures</h2>
+  <nav>
+    <a href="https://chayanbhawal.github.io/">Home</a>
+    <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+    <a href="https://chayanbhawal.github.io/publications">Publications</a>
+    <a href="https://chayanbhawal.github.io/courses">Courses</a>
+    <a href="https://chayanbhawal.github.io/projects">Projects</a>
+    <a href="https://chayanbhawal.github.io/students">Students</a>
+    <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+  </nav>
 
-<table>
-<thead>
-<tr>
-    <th><center>Lecture</center></th>
-    <th><center>Topic</center></th>
-    <th><center>Video Download Link</center></th>
-    <th><center>Lecture Notes</center></th>
-    <th><center>Date</center></th>	  
- </tr>
-</thead>
-<tbody>	
-<tr>
+  <main>
+    <section>
+      <p>
+        Syllabus:  
+        <a href="https://iitg.ac.in/eee/curriculum/MTech/sca.html" target="_blank">
+          Click here
+        </a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Video Lectures</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Lecture</th>
+            <th>Topic</th>
+            <th>Video</th>
+            <th>Notes</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr>
     <td><center>06</center></td>
     <td><center>Basis</center></td>
     <td><center><a href="https://iitgoffice.sharepoint.com/:v:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Video/EE550-Lecture-06-Basis.mkv?csf=1&web=1&e=8Eaj19">Link</a></center></td>
@@ -169,83 +211,89 @@
     <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Class%20Materials/EE550-Lecture00-Introduction.pdf?csf=1&web=1&e=tk1v2f">Link</a></center></td>
     <td><center>28-Jul-2025</center></td>
 </tr>
-</tbody>
-</table>
+        </tbody>
+      </table>
+    </section>
 
-<h2>Problem Sets</h2>
+    <section>
+      <h2>Problem Sets</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Sl. No.</th>
+            <th>Problem Set</th>
+            <th>Link</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>02</td>
+            <td>Vector Spaces and Subspaces</td>
+            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Problem%20Set/Problem-Set-02.pdf?csf=1&web=1&e=4TejBv">Link</a></td>
+            <td>14-Aug-2025</td>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>State-space Solution</td>
+            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Problem%20Set/Problem-Set-01.pdf?csf=1&web=1&e=6RcoaU">Link</a></td>
+            <td>14-Aug-2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-<table>
-<thead>
-  <tr>
-    <th><center>Sl. No.</center></th>
-	<th><center>Problem Set</center></th>
-    <th><center>Set Link</center></th>
-    <th><center>Date</center></th>	  
- </tr>
-</thead>
-<tbody>
-<tr>
-    <td><center>02</center></td>
-	<td><center>Vector spaces and subspaces</center></td>
-    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Problem%20Set/Problem-Set-02.pdf?csf=1&web=1&e=4TejBv">Link</a></center></center></td>
-    <td><center>14-08-2025</center></td>
-</tr>
-<tr>
-    <<td><center>01</center></td>
-	<td><center>State-space solution</center></td>
-    <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_EE550_July-Nov_2025/Shared%20Documents/General/Problem%20Set/Problem-Set-01.pdf?csf=1&web=1&e=6RcoaU">Link</a></center></center></td>
-    <td><center>14-08-2025</center></td>
-</tr>
-</tbody>
-</table>
+    <section>
+      <h2>Weightage</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Exam</th>
+            <th>Expected Date</th>
+            <th>Weightage</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Quiz-1</td>
+            <td>05-Sep-2025</td>
+            <td>10%</td>
+            <td>Upcoming</td>
+          </tr>
+          <tr>
+            <td>Mid-Semester</td>
+            <td>15-Sep-2025</td>
+            <td>20%</td>
+            <td>Upcoming</td>
+          </tr>
+          <tr>
+            <td>Quiz-2</td>
+            <td>17-Oct-2025</td>
+            <td>20%</td>
+            <td>Upcoming</td>
+          </tr>
+          <tr>
+            <td>Quiz-3</td>
+            <td>14-Nov-2025</td>
+            <td>20%</td>
+            <td>Upcoming</td>
+          </tr>
+          <tr>
+            <td>End-Semester</td>
+            <td>17-Nov-2025</td>
+            <td>30%</td>
+            <td>Upcoming</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 
-<h2>Weightage</h2>
-
-<table>
-<thead>
-  <tr>
-    <th></th>
-    <th><center>Expected Date</center></th>
-    <th><center>Weightage</center></th>
-    <th><center>Status/Solution</center></th>
-  </tr>
-</thead>
-<tbody>
-   <tr>
-    <td>Quiz-1</td>
-    <td><center>05 September</center></td>
-    <td><center>10%</center></td>
-    <td><center>Upcoming</center></td>
-  </tr>
-  <tr>
-    <td>Mid-Semester</td>
-    <td><center>15 September</center></td>
-    <td><center>20%</center></td>
-    <td><center>Upcoming</center></td>
-  </tr>
-  <tr>
-    <td>Quiz-2</td>
-    <td><center>17 October</center></td>
-    <td><center>20%</center></td>
-    <td><center>Upcoming</center></td>
-
-  </tr>
-  <tr>
-    <td>Quiz-3</td>
-    <td><center>14 November</center></td>
-    <td><center>20%</center></td>
-    <td><center>Upcoming</center></td>
-  </tr>
-  <tr>
-    <td>End-Semester</td>
-    <td><center>17 November</center></td>
-    <td><center>30%</center></td>
-      <td><center>Upcoming</center></td>
-  </tr>
-</tbody>
-</table>
-<br> Access to the links have been provided only to students registered in the course. 
-If you are not registered and want to access the links, then mail me (bhawal[AT]iitg.ac.in).
-</div>
+  <footer>
+    Access to the links is restricted to students registered in the course.  
+    If you are not registered and require access, please write to me at:  
+    <strong>bhawal[AT]iitg.ac.in</strong>
+  </footer>
 </body>
 </html>
