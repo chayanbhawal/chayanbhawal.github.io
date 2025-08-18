@@ -302,46 +302,47 @@
 </div>
 
 <style>
-.notification-bar {
-  width: 100%;
-  background: linear-gradient(90deg, var(--primary, #0c1898), #3d74e6);
-  color: #fff;
-  font-family: 'Roboto', Arial, sans-serif;
-  font-size: 1rem;
-  padding: 14px 0 12px 0;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.12);
-  overflow: hidden;
-}
-.notify-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  margin-left: 32px;
-  margin-right: 10px;
-  color: #ffecb3;
-  white-space: nowrap;
-}
-.notify-ticker {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 0;
-  animation: notifier-scroll 22s linear infinite;
-}
-@keyframes notifier-scroll {
-  0%   { transform: translate3d(100%,0,0);}
-  100% { transform: translate3d(-100%,0,0);}
-}
-@media (max-width: 700px) {
-  .notification-bar { font-size: 0.89rem; }
-  .notify-title { margin-left: 10px;}
-}
-body { padding-bottom: 54px;} /* Prevent bar overlapping on content bottom */
+  .notification-bar {
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary, #0c1898), #3d74e6);
+    color: #fff;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1rem;
+    padding: 14px 0 12px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+  .notify-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin-left: 32px;
+    margin-right: 10px;
+    color: #ffecb3;
+    white-space: nowrap;
+    flex-shrink: 0; /* prevent shrinking */
+  }
+  .notify-ticker {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 1 1 auto; /* take remaining space */
+    animation: notifier-scroll 22s linear infinite;
+  }
+  @keyframes notifier-scroll {
+    0%   { transform: translate3d(100%,0,0);}
+    100% { transform: translate3d(-100%,0,0);}
+  }
+  @media (max-width: 700px) {
+    .notification-bar { font-size: 0.89rem; }
+    .notify-title { margin-left: 10px;}
+  }
+  body { padding-bottom: 54px; } /* Prevent overlapping content */
 </style>
 
  <div class="notification-bar">
