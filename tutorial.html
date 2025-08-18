@@ -1,114 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorials</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tutorials</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #f4f4f4;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 54px;
     }
-    .container {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        width: 80%;
-        max-width: 800px;
-        margin: 50px auto; /* Centering the container */
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
+
     header {
-        background-color: #0c1898;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
     }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1.2px;
+    }
+
+    /* Navigation */
+    .nav-container {
+      position: relative;
+      background: var(--secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 20;
+    }
+
     nav {
-        background-color: #f4f4f4;
-        overflow: hidden;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      background: inherit;
+      padding: 0;
+      position: relative;
     }
+
     nav a {
-        float: left;
-        display: block;
-        color: #333;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
-        justify-content: center;
-        align-items: center;
+      flex: none;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     nav a:hover {
-        background-color: #ddd;
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
     }
-    .about-me {
-        flex: 1;
-        padding: 0 20px;
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
     }
-    .about-me h2 {
-        color: #333;
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
     }
-    .about-me p {
-        line-height: 1.6;
-    }
-    .picture {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .picture img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-    .research-interests {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .research-interests h2 {
-        color: #333;
-    }
-    .research-interests ul {
-        list-style-type: square;
-        padding-left: 20px;
-    }
+
+    /* Content container */
     .center {
-    margin: auto;
-    width: 80%;
-    padding: 20px;
+      margin: 50px auto;
+      padding: 20px 30px;
+      max-width: 800px;
+      background-color: var(--text-light);
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      line-height: 1.5;
     }
+
     ul {
-    list-style-type: none;
-    padding: 0;
+      list-style: none;
+      padding-left: 0;
     }
 
-    /* Style for list items */
-    li {
-    background-color: #f4f4f4;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    ul li {
+      background-color: #f9faff;
+      padding: 14px 18px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Hover effect */
-    li:hover {
-    background-color: #66d2de;
+    ul li:hover {
+      background-color: #66d2de;
+      color: #fff;
     }
-</style>
+
+    ul li a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      word-break: break-word;
+    }
+
+    ul li:hover a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 45px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
+        text-align: left;
+        border-radius: 0;
+      }
+      .center {
+        width: 95%;
+        margin: 30px auto;
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Tutorials</h1>
-    </header>
+  <header>
+    <h1>Tutorials</h1>
+  </header>
+
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
     <nav>
+      <div class="nav-links" id="mainNavLinks">
         <a href="https://chayanbhawal.github.io/">Home</a>
         <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
         <a href="https://chayanbhawal.github.io/publications">Publications</a>
@@ -116,14 +206,30 @@
         <a href="https://chayanbhawal.github.io/projects">Projects</a>
         <a href="https://chayanbhawal.github.io/students">Student</a>
         <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+      </div>
     </nav>
-    <div class="center">
+  </div>
+
+  <div class="center">
     <ul>
-        <li> <a href="https://chayanbhawal.github.io/tutorials_scilab_beginners">FOSSEE Scilab Tutorial for beginners</a></li>
-        <li> <a href="https://chayanbhawal.github.io/tutorials_scilab_interm">Data fitting, Optimization, and ODEs with Scilab</a></li>
+      <li><a href="https://chayanbhawal.github.io/tutorials_scilab_beginners" target="_blank" rel="noopener noreferrer">FOSSEE Scilab Tutorial for beginners</a></li>
+      <li><a href="https://chayanbhawal.github.io/tutorials_scilab_interm" target="_blank" rel="noopener noreferrer">Data fitting, Optimization, and ODEs with Scilab</a></li>
     </ul>
-    </div>
+  </div>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('active');
+    }
+
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
-
-
