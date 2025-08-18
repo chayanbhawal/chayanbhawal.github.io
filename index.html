@@ -1,130 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chayan Bhawal Homepage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        header {
-            background-color: #0c1898;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav {
-            background-color: #f4f4f4;
-            overflow: hidden;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-        }
-        .container {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        .about-me {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .about-me h2 {
-            color: #333;
-        }
-        .about-me p {
-            line-height: 1.6;
-        }
-        .picture {
-            flex: 1;
-            padding: 0 15px;
-        }
-        .picture img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        .research-interests {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .research-interests h2 {
-            color: #333;
-        }
-        .research-interests ul {
-            list-style-type: square;
-            padding-left: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chayan Bhawal Homepage</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+        --primary: #0c1898;
+        --secondary: #e5ebff;
+        --accent: #ff9800;
+        --text-dark: #333;
+        --text-light: #fff;
+        --bg: #f9f9fc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1.2px;
+      margin: 0;
+    }
+
+    /* Responsive Navigation (Hamburger) */
+    .nav-container {
+      position: relative;
+      background: var(--text-light);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 20;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      background: inherit;
+      padding: 0;
+      position: relative;
+    }
+    nav a {
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      background: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Main Content */
+    .main-container {
+      max-width: 1150px;
+      margin: 30px auto;
+      padding: 0 18px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .picture-section, .about-me-section, .research-section {
+      background: var(--text-light);
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+      padding: 25px 20px 25px 20px;
+      flex: 1 1 320px;
+      min-width: 270px;
+      margin-bottom: 30px;
+    }
+    .picture-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .picture-section img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--secondary);
+      background: #eee;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+    .about-me-section p, .research-section p {
+      margin: 0 0 6px 0;
+    }
+    .about-me-section a, .research-section a {
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .about-me-section a:hover, .research-section a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .research-section ul {
+      margin-left: 16px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    .research-section > ul,
+    .research-section ul ul {
+      list-style: disc inside;
+    }
+    .research-section ul ul {
+      list-style-type: circle;
+      margin-left: 24px;
+    }
+
+    .research-section li {
+      margin-bottom: 6px;
+    }
+    .research-section p {
+      margin-top: 14px;
+    }
+
+    @media (max-width: 950px) {
+      .main-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+      .picture-section, .about-me-section, .research-section {
+        min-width: unset;
+      }
+    }
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 45px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute;
+        left: 0; right: 0; top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
+        text-align: left;
+        border-radius: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-<header>
+  <header>
     <h1>Dr. Chayan Bhawal Homepage</h1>
-</header>
+  </header>
 
-<nav>
-    <a href="https://chayanbhawal.github.io/">Home</a>
-    <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
-    <a href="https://chayanbhawal.github.io/publications">Publications</a>
-    <a href="https://chayanbhawal.github.io/courses">Courses</a>
-    <a href="https://chayanbhawal.github.io/projects">Projects</a>
-    <a href="https://chayanbhawal.github.io/students">Student</a>
-    <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
-</nav>
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
+    <nav>
+      <div class="nav-links" id="mainNavLinks">
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Students</a>
+        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+      </div>
+    </nav>
+  </div>
 
-<div class="container">
-    <div class="picture">
-        <img src="chayan.jpg" alt="Chayan Bhawal" width="300" height="300">
+  <div class="main-container">
+    <div class="picture-section">
+      <img src="chayan.jpg" alt="Chayan Bhawal" width="250" height="250" />
     </div>
-    <div class="about-me">
-        <h2>Affiliation</h2>
-        <p>
-            Assistant Professor || Associate Faculty,<br>
-            Department of Electronics & Electrical Engineering || Centre for Intelligent Cyber-Physical Systems,<br>
-            Indian Institute of Technology Guwahati,<br>
-            Room No. 213, New Extension Block,<br>
-            Guwahati - 781039,<br>
-            Email - bhawal[at]iitg.ac.in, <br>
-            Phone - +91 361 258 2511.<br>
-            <a href="https://orcid.org/0000-0003-3477-3725">ORCID</a> :: 
-            <a href="https://scholar.google.com.au/citations?user=d7eR_LkAAAAJ&hl=en">Google Scholar</a><br> 
-        </p>
+    <div class="about-me-section">
+      <h2>Affiliation</h2>
+      <p>
+        Assistant Professor || Associate Faculty,<br>
+        Department of Electronics & Electrical Engineering || Centre for Intelligent Cyber-Physical Systems,<br>
+        Indian Institute of Technology Guwahati,<br>
+        Room No. 213, New Extension Block,<br>
+        Guwahati - 781039,<br>
+        Email - bhawal[at]iitg.ac.in,<br>
+        Phone - +91 361 258 2511.<br>
+        <a href="https://orcid.org/0000-0003-3477-3725" target="_blank">ORCID</a> ::
+        <a href="https://scholar.google.com.au/citations?user=d7eR_LkAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      </p>
     </div>
-    <div class="research-interests">
-        <h2>Research Interests</h2>
-        <ul>
-            <li>Control in Robotics</li>
-            <ul>
-                <li>Unmanned Aerial Vehicles (Quadrotors)</li>
-                <li>Unmanned Ground Vehicles</li>
-                <li>Unmanned Underwater/Surface Vehicles</li>
-                <li>Robotic Arm</li>
-            </ul>
-            <li>System Theory </li>
-            <ul>
-                <li>Optimal Control</li>
-                <li>Linear/Non-linear system theory</li>
-                <li>Model order reduction</li>
-            </ul>
-            <li>Model free, data driven control</li>
-        </ul>
-        <p>I am in the look out for students with an interest aligned with my research interests.</p>
+    <div class="research-section">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>
+          Control in Robotics
+          <ul>
+            <li>Unmanned Aerial Vehicles (Quadrotors)</li>
+            <li>Unmanned Ground Vehicles</li>
+            <li>Unmanned Underwater/Surface Vehicles</li>
+            <li>Robotic Arm</li>
+          </ul>
+        </li>
+        <li>
+          System Theory
+          <ul>
+            <li>Optimal Control</li>
+            <li>Linear/Non-linear system theory</li>
+            <li>Model order reduction</li>
+          </ul>
+        </li>
+        <li>Model free, data driven control</li>
+      </ul>
+      <p>
+        I am in the look out for students with an interest aligned with my research interests.
+      </p>
     </div>
+  </div>
+  <script>
+    function toggleNav() {
+      document.getElementById("mainNavLinks").classList.toggle("active");
+    }
+    // Optional: close nav on outside click for good UX
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
+
+  <div class="notification-bar">
+  <span class="notify-title">Recent Highlights:</span>
+  <span class="notify-ticker">
+    PhD position available! &nbsp;|&nbsp;
+    IEEE Transaction paper accepted, 2025 &nbsp;|&nbsp;
+    Keynote speaker at ACODS 2025 &nbsp;|&nbsp;
+    New course: Optimal Control Theory &nbsp;|&nbsp;
+    Openings for project students!
+  </span>
 </div>
+
+<style>
+.notification-bar {
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary, #0c1898), #3d74e6);
+  color: #fff;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1rem;
+  padding: 14px 0 12px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+.notify-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-left: 32px;
+  margin-right: 10px;
+  color: #ffecb3;
+  white-space: nowrap;
+}
+.notify-ticker {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 0;
+  animation: notifier-scroll 22s linear infinite;
+}
+@keyframes notifier-scroll {
+  0%   { transform: translate3d(100%,0,0);}
+  100% { transform: translate3d(-100%,0,0);}
+}
+@media (max-width: 700px) {
+  .notification-bar { font-size: 0.89rem; }
+  .notify-title { margin-left: 10px;}
+}
+body { padding-bottom: 54px;} /* Prevent bar overlapping on content bottom */
+</style>
+
+ <div class="notification-bar">
+    <span class="notify-title">Recent Highlights:</span>
+    <span class="notify-ticker">
+      Notification-1! &nbsp;|&nbsp;
+      Notification-2! &nbsp;|&nbsp;
+      Notification-3! &nbsp;|&nbsp;
+      Notification-4.
+    </span>
+  </div>
 </body>
 </html>
