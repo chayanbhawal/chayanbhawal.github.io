@@ -1,332 +1,233 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EE351 Control and Robotics Lab Jul 2025</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EE351 Control and Robotics Lab - Jul 2025</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #e5ebff;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
+
     header {
-        background-color: #0c1898;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Navigation */
     nav {
-        background-color: #f4f4f4;
-        overflow: hidden;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: var(--text-light);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0; z-index: 10;
     }
     nav a {
-        float: left;
-        display: block;
-        color: #333;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      transition: all 0.3s;
     }
     nav a:hover {
-        background-color: #ddd;
+      background: var(--primary); color: var(--text-light); border-radius: 4px;
     }
-    .container {
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
+
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 15px;
     }
-    .about-me {
-        flex: 1;
-        padding: 0 20px;
+
+    section {
+      margin-bottom: 40px;
+      background: var(--text-light);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
     }
-    .about-me h2 {
-        color: #333;
+    section:hover { transform: translateY(-3px); }
+
+    h2 {
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
     }
-    .about-me p {
-        line-height: 1.6;
-    }
-    .picture {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .picture img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-    .research-interests {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .research-interests h2 {
-        color: #333;
-    }
-    .research-interests ul {
-        list-style-type: square;
-        padding-left: 20px;
-    }
-    .center {
-    margin: auto;
-    width: 80%;
-    padding: 20px;
-    }
+
     table {
-    border-collapse: collapse;
-    width: 100%;
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
+
+    table thead { background: var(--secondary); }
     th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
     }
-    th {
-    background-color: #f2f2f2;
+    th { font-weight: 600; }
+    tr:hover { background: #f1f5ff; }
+
+    a { color: var(--primary); font-weight: 500; text-decoration: none; }
+    a:hover { color: var(--accent); text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+      background: #f2f4fd;
     }
-    tr:nth-child(even) {
-    background-color: #f2f2f2;
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; }
+      table { font-size: 0.85rem; display: block; overflow-x: auto; }
+      header h1 { font-size: 1.4rem; }
     }
-    </style>
+  </style>
 </head>
 <body>
-    <header>
-        <h1>EE351 Control and Robotics Lab Jul 2025</h1>
-    </header>
-    <nav>
-        <a href="https://chayanbhawal.github.io/">Home</a>
-        <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
-        <a href="https://chayanbhawal.github.io/publications">Publications</a>
-        <a href="https://chayanbhawal.github.io/courses">Courses</a>
-        <a href="https://chayanbhawal.github.io/projects">Projects</a>
-        <a href="https://chayanbhawal.github.io/students">Student</a>
-        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
-    </nav>
-    <div class="center">
-        <p>General Instructions: <a href="https://iitgoffice-my.sharepoint.com/:w:/g/personal/bhawal_iitg_ac_in/Ecj0gGEOEIFEl8bv0n4EEk4B4YjvC8Kd1Rxtef4OJ9PwAA?e=341xc1">Link</a></p>
+  <header>
+    <h1>EE351: Control and Robotics Lab (Jul 2025)</h1>
+  </header>
 
-        <h2>Modules</h2>
-        <table>
+  <nav>
+    <a href="https://chayanbhawal.github.io/">Home</a>
+    <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
+    <a href="https://chayanbhawal.github.io/publications">Publications</a>
+    <a href="https://chayanbhawal.github.io/courses">Courses</a>
+    <a href="https://chayanbhawal.github.io/projects">Projects</a>
+    <a href="https://chayanbhawal.github.io/students">Students</a>
+    <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+  </nav>
+
+  <main>
+    <section>
+      <p>
+        📘 General Instructions: 
+        <a href="https://iitgoffice-my.sharepoint.com/:w:/g/personal/bhawal_iitg_ac_in/Ecj0gGEOEIFEl8bv0n4EEk4B4YjvC8Kd1Rxtef4OJ9PwAA?e=341xc1" target="_blank">
+          Download
+        </a>
+      </p>
+    </section>
+
+    <section>
+      <h2>📂 Modules</h2>
+      <table>
         <thead>
-        <tr>
-            <th><center>Sl.No.</center></th>
-            <th><center>Module Name</center></th>
-            <th><center>Download Link</center></th>
-            <th><center>Date</center></th>	  
-        </tr>
+          <tr><th>Sl.No.</th><th>Module Name</th><th>Download</th><th>Date</th></tr>
         </thead>
         <tbody>
-		<tr>
-            <td><center>03A</center></td>
-            <td><center>Speed control of DC motor using PID</center></td>
-            <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_Grp_EE351_2025/Shared%20Documents/General/Modules/Module-03A.pdf?csf=1&web=1&e=onY2pI">Link</a></center></td>
-            <td><center>18-08-2025</center></td>
-        </tr>
-        <tr>
-            <td><center>02</center></td>
-            <td><center>A basic touchless dustbin using DC motor</center></td>
-            <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_Grp_EE351_2025/Shared%20Documents/General/Modules/Module-02.pdf?csf=1&web=1&e=PcJqr1">Link</a></center></td>
-            <td><center>09-08-2025</center></td>
-        </tr>
-        <tr>
-            <td><center>01</center></td>
-            <td><center>A basic touchless dustbin</center></td>
-            <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_Grp_EE351_2025/Shared%20Documents/General/Modules/Module-01.pdf?csf=1&web=1&e=irEk2S">Link</a></center></td>
-            <td><center>03-08-2025</center></td>
-        </tr>
-        <tr>
-            <td><center>00</center></td>
-            <td><center>Introduction to Arduino-UNO Programming</center></td>
-            <td><center><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_Grp_EE351_2025/Shared%20Documents/General/Modules/Module-00.pdf?csf=1&web=1&e=f1fzTq">Link</a></center></td>
-            <td><center>25-07-2025</center></td>
-        </tr>
+          <tr><td>03A</td><td>Speed control of DC motor using PID</td>
+            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_Grp_EE351_2025/Shared%20Documents/General/Modules/Module-03A.pdf?csf=1&web=1&e=onY2pI">PDF</a></td><td>18-08-2025</td></tr>
+          <tr><td>02</td><td>A basic touchless dustbin using DC motor</td>
+            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_Grp_EE351_2025/Shared%20Documents/General/Modules/Module-02.pdf?csf=1&web=1&e=PcJqr1">PDF</a></td><td>09-08-2025</td></tr>
+          <tr><td>01</td><td>A basic touchless dustbin</td>
+            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_Grp_EE351_2025/Shared%20Documents/General/Modules/Module-01.pdf?csf=1&web=1&e=irEk2S">PDF</a></td><td>03-08-2025</td></tr>
+          <tr><td>00</td><td>Introduction to Arduino-UNO Programming</td>
+            <td><a href="https://iitgoffice.sharepoint.com/:b:/r/sites/Grp_Grp_EE351_2025/Shared%20Documents/General/Modules/Module-00.pdf?csf=1&web=1&e=f1fzTq">PDF</a></td><td>25-07-2025</td></tr>
         </tbody>
-        </table>
+      </table>
+    </section>
 
-
-    <h2>Division Details</h2>
-
-    <table>
+    <section>
+      <h2>👥 Division Details</h2>
+      <table>
         <thead>
-            <tr>
-                <th><center>Division</center></th>
-                <th><center>Day</center></th>
-                <th><center>Faculty-in-charge</center></th>
-                <th><center>Staff-in-charge</center></th>
-                <th><center>Teaching Assistants</center></th>
-            </tr>
+          <tr><th>Division</th><th>Day</th><th>Faculty-in-charge</th><th>Staff-in-charge</th><th>Teaching Assistants</th></tr>
         </thead>
         <tbody>
-            <tr>
-                <td><center>III</center></td>
-                <td><center>Mon</center></td>
-                <td><center>HN + S. Das</center></td>
-                <td><center>S Sonowal</center></td>
-                <td><center>Sanasam, Aditya, Vikas, Pramod, Akhilesh</center></td>
-            </tr>
-            <tr>
-                <td><center>I</center></td>
-                <td><center>Tues</center></td>
-                <td><center>IK</center></td>
-                <td><center>J Rabha</center></td>
-                <td><center>Varaprasad, Sabarinath, Jogesh, Kumud, Nilanjana</center></td>
-            </tr>
-            <tr>
-                <td><center>II</center></td>
-                <td><center>Wed</center></td>
-                <td><center>CB</center></td>
-                <td><center>S Boro</center></td>
-                <td><center>Biswanath, Pambali, Kishan, Vinay, Vishal</center></td>
-            </tr>
+          <tr><td>III</td><td>Mon</td><td>HN + S. Das</td><td>S Sonowal</td><td>Sanasam, Aditya, Vikas, Pramod, Akhilesh</td></tr>
+          <tr><td>I</td><td>Tues</td><td>IK</td><td>J Rabha</td><td>Varaprasad, Sabarinath, Jogesh, Kumud, Nilanjana</td></tr>
+          <tr><td>II</td><td>Wed</td><td>CB</td><td>S Boro</td><td>Biswanath, Pambali, Kishan, Vinay, Vishal</td></tr>
         </tbody>
-    </table>
-            
-    
+      </table>
+    </section>
 
-    <h2>Class Dates for Divisions</h2>
-<table>
-  <colgroup>
-    <col style="width: 15%;"><!-- Div‑1 -->
-    <col style="width: 15%;"><!-- Div‑2 -->
-    <col style="width: 15%;"><!-- Div‑3 -->
-    <col style="width: 10%;"><!-- Remarks / Modules (smaller) -->
-  </colgroup>
-  <thead>
-    <tr>
-      <th><center>Div‑1</center></th>
-      <th><center>Div‑2</center></th>
-      <th><center>Div‑3</center></th>
-      <th><center>Remarks / Modules</center></th>
-    </tr>
-  </thead>
-  <tbody>
-        <tr>
-            <td><center>28‑Jul</center></td>
-            <td><center>29‑Jul</center></td>
-            <td><center>30‑Jul</center></td>
-            <td><center>0</center></td>
-        </tr>
-        <tr>
-            <td><center>04‑Aug</center></td>
-            <td><center>05‑Aug</center></td>
-            <td><center>06‑Aug</center></td>
-            <td><center>1</center></td>
-        </tr>
-        <tr>
-            <td><center>11‑Aug</center></td>
-            <td><center>12‑Aug</center></td>
-            <td><center>13‑Aug</center></td>
-            <td><center>1</center></td>
-        </tr>
-        <tr>
-            <td><center>18‑Aug</center></td>
-            <td><center>19‑Aug</center></td>
-            <td><center>20‑Aug</center></td>
-            <td><center>2</center></td>
-        </tr>
-        <tr>
-            <td><center>25‑Aug</center></td>
-            <td><center>26‑Aug</center></td>
-            <td><center>03‑Sep</center></td>
-            <td><center>2</center></td>
-        </tr>
-        <tr>
-            <td><center>01‑Sep</center></td>
-            <td><center>02‑Sep</center></td>
-            <td><center>10‑Sep</center></td>
-            <td><center>3</center></td>
-        </tr>
-        <tr>
-            <td><center>08‑Sep</center></td>
-            <td><center>09‑Sep</center></td>
-            <td><center>24‑Sep</center></td>
-            <td><center>3</center></td>
-        </tr>
-        <tr>
-            <td><center>22‑Sep</center></td>
-            <td><center>23‑Sep</center></td>
-            <td><center>03‑Oct</center></td>
-            <td><center>4</center></td>
-        </tr>
-        <tr>
-            <td><center>29‑Sep</center></td>
-            <td><center>07‑Oct</center></td>
-            <td><center>08‑Oct</center></td>
-            <td><center>4</center></td>
-        </tr>
-        <tr>
-            <td><center>06‑Oct</center></td>
-            <td><center>14‑Oct</center></td>
-            <td><center>15‑Oct</center></td>
-            <td><center>4</center></td>
-        </tr>
-        <tr>
-            <td><center>13‑Oct</center></td>
-            <td><center>21‑Oct</center></td>
-            <td><center>22‑Oct</center></td>
-            <td><center>5</center></td>
-        </tr>
-        <tr>
-            <td><center>27‑Oct</center></td>
-            <td><center>28‑Oct</center></td>
-            <td><center>29‑Oct</center></td>
-            <td><center>5</center></td>
-        </tr>
-         <tr>
-            <td><center>03‑Nov</center></td>
-            <td><center>04‑Nov</center></td>
-            <td><center></center></td>
-            <td><center>Make-up Lab</center></td>
-        </tr>
-        <tr>
-            <td><center>10‑Nov</center></td>
-            <td><center>11‑Nov</center></td>
-            <td><center>12‑Nov</center></td>
-            <td><center>End-Semester Exam</center></td>
-        </tr>
-    </tbody>
-</table>
-
-
-    <h2>Evaluation Criteria</h2>
-    <table>
+    <section>
+      <h2>📅 Class Dates for Divisions</h2>
+      <table>
         <thead>
-            <tr>
-                <th><center>Evaluation</center></th>
-                <th><center>Percentage</center></th>
-                <th><center>Remarks</center></th>
-            </tr>
+          <tr><th>Div-1</th><th>Div-2</th><th>Div-3</th><th>Remarks / Modules</th></tr>
         </thead>
         <tbody>
-            <tr>
-                <td><center>Viva and Lab Performance</center></td>
-                <td><center>40%</center></td>
-                <td><center>End of each class evaluation will be done</center></td>
-            </tr>
-            <tr>
-                <td><center>Module Completion</center></td>
-                <td><center>5%</center></td>
-                <td><center>On completion of each module, you get 5 marks</center></td>
-            </tr>
-            <tr>
-                <td><center>Reports</center></td>
-                <td><center>5%</center></td>
-                <td><center>Each report carries 10 marks</center></td>
-            </tr>
-            <tr>
-                <td><center>Attendance</center></td>
-                <td><center>10%</center></td>
-                <td><center>0 attendance if not showed up to lab by 9:10 am</center></td>
-            </tr>
-            <tr>
-                <td><center>End-Semester Performance</center></td>
-                <td><center>40%</center></td>
-                <td><center>Practical exam</center></td>
-            </tr>
+          <tr><td>28-Jul</td><td>29-Jul</td><td>30-Jul</td><td>0</td></tr>
+          <tr><td>04-Aug</td><td>05-Aug</td><td>06-Aug</td><td>1</td></tr>
+          <tr><td>11-Aug</td><td>12-Aug</td><td>13-Aug</td><td>1</td></tr>
+          <tr><td>18-Aug</td><td>19-Aug</td><td>20-Aug</td><td>2</td></tr>
+          <tr><td>25-Aug</td><td>26-Aug</td><td>03-Sep</td><td>2</td></tr>
+          <tr><td>01-Sep</td><td>02-Sep</td><td>10-Sep</td><td>3</td></tr>
+          <tr><td>08-Sep</td><td>09-Sep</td><td>24-Sep</td><td>3</td></tr>
+          <tr><td>22-Sep</td><td>23-Sep</td><td>03-Oct</td><td>4</td></tr>
+          <tr><td>29-Sep</td><td>07-Oct</td><td>08-Oct</td><td>4</td></tr>
+          <tr><td>06-Oct</td><td>14-Oct</td><td>15-Oct</td><td>4</td></tr>
+          <tr><td>13-Oct</td><td>21-Oct</td><td>22-Oct</td><td>5</td></tr>
+          <tr><td>27-Oct</td><td>28-Oct</td><td>29-Oct</td><td>5</td></tr>
+          <tr><td>03-Nov</td><td>04-Nov</td><td></td><td>Make-up Lab</td></tr>
+          <tr><td>10-Nov</td><td>11-Nov</td><td>12-Nov</td><td>End-Semester Exam</td></tr>
         </tbody>
-    </table>
-</div>
+      </table>
+    </section>
+
+    <section>
+      <h2>📊 Evaluation Criteria</h2>
+      <table>
+        <thead>
+          <tr><th>Evaluation</th><th>Percentage</th><th>Remarks</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Viva and Lab Performance</td><td>40%</td><td>End of each class evaluation will be done</td></tr>
+          <tr><td>Module Completion</td><td>5%</td><td>On completion of each module, you get 5 marks</td></tr>
+          <tr><td>Reports</td><td>5%</td><td>Each report carries 10 marks</td></tr>
+          <tr><td>Attendance</td><td>10%</td><td>No attendance if not in lab by 9:10 am</td></tr>
+          <tr><td>End-Semester Performance</td><td>40%</td><td>Practical exam</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    ⚠️ Information and download links above are restricted to students registered in the course.  
+  </footer>
 </body>
 </html>
