@@ -1,163 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bio-Sketch</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-  }
-  header {
-        background-color: #0c1898;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bio-Sketch</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #f4f4f4;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f5f5f5;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 50px; /* spacing for bottom */
+    }
+
+    header {
+      background-color: var(--primary);
+      color: var(--text-light);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 1.2px;
+    }
+
+    /* Responsive Navigation (Hamburger) */
+    .nav-container {
+      position: relative;
+      background-color: var(--secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 20;
+    }
+
     nav {
-        background-color: #f4f4f4;
-        overflow: hidden;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      background: inherit;
+      padding: 0;
+      position: relative;
     }
+
     nav a {
-        float: left;
-        display: block;
-        color: #333;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
+      flex: none;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-align: center;
     }
+
     nav a:hover {
-        background-color: #ddd;
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
     }
-  .container {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 80%;
-    max-width: 800px;
-    margin: 50px auto; /* Centering the container */
-  }
 
-  h2 {
-    color: #333;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
+    }
 
-  h3 {
-    margin-top: 20px;
-    color: #333;
-  }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
 
-  .work-item {
-    margin-bottom: 20px;
-  }
+    /* Container */
+    .container {
+      background-color: var(--text-light);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 30px 25px;
+      margin: 50px auto;
+      width: 90%;
+      max-width: 800px;
+    }
 
-  .work-item h4, .education-item h4, .reviewer-item h4 {
-    margin-top: 0;
-  }
+    h2 {
+      color: var(--primary);
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  .work-item p, .education-item p, .reviewer-item p {
-    margin: 5px 0;
-  }
+    h3 {
+      margin-top: 20px;
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+    }
 
-  .work-item a {
-    color: #007bff;
-    text-decoration: none;
-  }
+    .work-item {
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
 
-  .work-item a:hover {
-    text-decoration: underline;
-  }
-</style>
+    .work-item h4,
+    .education-item h4,
+    .reviewer-item h4 {
+      margin-top: 0;
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .work-item p,
+    .education-item p,
+    .reviewer-item p {
+      margin: 6px 0 0 0;
+      line-height: 1.45;
+    }
+
+    .work-item a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .work-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 45px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
+        text-align: left;
+        border-radius: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Education and Work experience</h1>
-    </header>
+  <header>
+    <h1>Education and Work Experience</h1>
+  </header>
+
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
     <nav>
+      <div class="nav-links" id="mainNavLinks">
         <a href="https://chayanbhawal.github.io/">Home</a>
         <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
         <a href="https://chayanbhawal.github.io/publications">Publications</a>
         <a href="https://chayanbhawal.github.io/courses">Courses</a>
         <a href="https://chayanbhawal.github.io/projects">Projects</a>
-        <a href="https://chayanbhawal.github.io/students">Student</a>
+        <a href="https://chayanbhawal.github.io/students">Students</a>
+      </div>
     </nav>
-<div class="container">
-  <h2>Academia</h2>
-
-  <div class="work-item">
-    <h4>Jan 2020 - Present: <strong>Assistant Professor</strong></h4>
-    <p>Department of Electronics and Electrical Engineering, <br>
-    Indian Institute of Technology Guwahati. <br>
-    <em>Area of work: Differential algebraic systems, Optimal control, Multi-agent systems</em></p>
   </div>
 
- <div class="work-item">
-    <h4>Jan 2024 - Present: <strong>Associate Faculty</strong></h4>
-    <p>Centre for Intelligent Cyber Physical Systems, <br>
-    Indian Institute of Technology Guwahati. <br>
-    <em>Area of work: Underwater vehicles</em></p>
-  </div>
-
-  <div class="work-item">
-    <h4>Jun 2019 - Dec 2019: <strong>Postdoctoral Research Fellow</strong></h4>
-    <p>Computational Methods in Systems and Control Theory, <br>
-        Max Planck Institute for Dynamics of Complex Technical Systems, Magdeburg, Germany.  <br>
-    <em>Area of work: Differential algebraic systems, Optimal control, Model-order reduction.</em></p>
-  </div>
-
-  <div class="work-item">
-    <h4>Mar 2011 - May 2011: <strong>Visiting Lecturer</strong></h4>
-    <p>University Visvesvaraya College of Engineering, Bangalore, India. <br>
-    <em>Course taught: Embedded Systems.</em></p>
-  </div>
-
-  <div class="work-item">
-    <h4>Oct 2010 - Jun 2013: <strong>Assistant Professor</strong></h4>
-    <p>NETES Institute of Technology & Science, Mirza, Assam. <br>
-    <em>Courses taught: Network Theory, Control Theory, Microprocessor and Microcontrollers, Electronic Devices, Advanced Embedded Systems, Electromagnetic Field Theory, Antenna and Wave Propagation.</em></p>
-  </div>
-
-
-  <h2>Industry</h2>
-
-  <div class="work-item">
-    <h4>Jul 2008 - Sep 2010: <strong>Operation and Maintenance Engineer</strong></h4>
-    <p>Vodafone Spacetal Limited, Assam Circle. <br>
-    <em>Area of work: Operation, Maintenance and Troubleshooting on the Abis interface to ensure high GOS.</em></p>
-  </div>
-
-  <h2>Education</h2>
-
-  <div class="work-item">
-    <h4>Jun 2013 - Mar 2019: <strong>Ph.D. in Electrical Engineering</strong></h4>
-    <p>Department of Electrical Engineering, <a href="https://www.iitb.ac.in">Indian Institute of Technology Bombay</a>.</p>
-    <p></p>
+  <div class="container">
+    <h2>Academia</h2>
+    <div class="work-item">
+      <h4>Jan 2020 - Present: <strong>Assistant Professor</strong></h4>
+      <p>
+        Department of Electronics and Electrical Engineering,<br />
+        Indian Institute of Technology Guwahati.<br />
+        <em>Area of work: Differential algebraic systems, Optimal control, Multi-agent systems</em>
+      </p>
     </div>
-  
-  <div class="work-item">
-    <h4>Jul 2004 - Jun 2008: <strong>B.E. in Electronics and Telecommunication Engineering</strong></h4>
-    <p>Department of Electronics and Telecommunication Engineering, <a href="http://www.aec.ac.in/">Assam Engineering College</a>.</p>
+
+    <div class="work-item">
+      <h4>Jan 2024 - Present: <strong>Associate Faculty</strong></h4>
+      <p>
+        Centre for Intelligent Cyber Physical Systems,<br />
+        Indian Institute of Technology Guwahati.<br />
+        <em>Area of work: Underwater vehicles</em>
+      </p>
+    </div>
+
+    <div class="work-item">
+      <h4>Jun 2019 - Dec 2019: <strong>Postdoctoral Research Fellow</strong></h4>
+      <p>
+        Computational Methods in Systems and Control Theory,<br />
+        Max Planck Institute for Dynamics of Complex Technical Systems, Magdeburg, Germany.<br />
+        <em>Area of work: Differential algebraic systems, Optimal control, Model-order reduction.</em>
+      </p>
+    </div>
+
+    <div class="work-item">
+      <h4>Mar 2011 - May 2011: <strong>Visiting Lecturer</strong></h4>
+      <p>
+        University Visvesvaraya College of Engineering, Bangalore, India.<br />
+        <em>Course taught: Embedded Systems.</em>
+      </p>
+    </div>
+
+    <div class="work-item">
+      <h4>Oct 2010 - Jun 2013: <strong>Assistant Professor</strong></h4>
+      <p>
+        NETES Institute of Technology &amp; Science, Mirza, Assam.<br />
+        <em>Courses taught: Network Theory, Control Theory, Microprocessor and Microcontrollers, Electronic Devices, Advanced Embedded Systems, Electromagnetic Field Theory, Antenna and Wave Propagation.</em>
+      </p>
+    </div>
+
+    <h2>Industry</h2>
+    <div class="work-item">
+      <h4>Jul 2008 - Sep 2010: <strong>Operation and Maintenance Engineer</strong></h4>
+      <p>
+        Vodafone Spacetal Limited, Assam Circle.<br />
+        <em>Area of work: Operation, Maintenance and Troubleshooting on the Abis interface to ensure high GOS.</em>
+      </p>
+    </div>
+
+    <h2>Education</h2>
+    <div class="work-item">
+      <h4>Jun 2013 - Mar 2019: <strong>Ph.D. in Electrical Engineering</strong></h4>
+      <p>
+        Department of Electrical Engineering, <a href="https://www.iitb.ac.in" target="_blank">Indian Institute of Technology Bombay</a>.
+      </p>
+    </div>
+    <div class="work-item">
+      <h4>Jul 2004 - Jun 2008: <strong>B.E. in Electronics and Telecommunication Engineering</strong></h4>
+      <p>
+        Department of Electronics and Telecommunication Engineering, <a href="http://www.aec.ac.in/" target="_blank">Assam Engineering College</a>.
+      </p>
+    </div>
+
+    <h2>Reviewer</h2>
+    <div class="work-item">
+      <h4>Journals:</h4>
+      <p>IEEE Transactions of Automatic Control, IEEE Transactions of Circuits and Systems: Regular Papers, Asian Journal of Control, and Robotica.</p>
+    </div>
+    <div class="work-item">
+      <h4>Conferences:</h4>
+      <p>European Control Conference (ECC), Indian Control Conference (ICC), and Advances in Control &amp; Optimization of Dynamical Systems (ACODS).</p>
+    </div>
   </div>
 
-  <h2>Reviewer</h2>
-
-  <div class="work-item">
-    <h4>Journals:</h4>
-    <p>IEEE Transactions of Automatic Control, IEEE Transactions of Circuits and Systems: Regular Papers, Asian Journal of Control, and Robotica. </p>
-  </div>
-
-  <div class="work-item">
-    <h4>Conferences:</h4>
-    <p>European Control Conference (ECC), Indian Control Conference (ICC), and Advances in Control & Optimization of Dynamical Systems (ACODS).</p>
-  </div>
-</div>
-
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('active');
+    }
+    // Close nav if clicked outside menu
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
