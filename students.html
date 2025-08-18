@@ -1,101 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Students</title>
-        <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        header {
-            background-color: #0c1898;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav {
-            background-color: #f4f4f4;
-            overflow: hidden;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-        }
-        .container {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        .about-me {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .about-me h2 {
-            color: #333;
-        }
-        .about-me p {
-            line-height: 1.6;
-        }
-        .picture {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .picture img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        .research-interests {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .research-interests h2 {
-            color: #333;
-        }
-        .research-interests ul {
-            list-style-type: square;
-            padding-left: 20px;
-        }
-        .center {
-        margin: auto;
-        width: 90%;
-        padding: 20px;
-        }
-        table {
-        border-collapse: collapse;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Students</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #f4f4f4;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 54px; 
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1.2px;
+    }
+
+    /* Navigation */
+    .nav-container {
+      position: relative;
+      background: var(--secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 20;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      background: inherit;
+      padding: 0;
+      position: relative;
+    }
+
+    nav a {
+      flex: none;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Center content */
+    .center {
+      margin: 50px auto;
+      padding: 25px 30px;
+      max-width: 900px;
+      background-color: var(--text-light);
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      overflow-x: auto;
+    }
+
+    /* Table styles */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      white-space: normal;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 12px 15px;
+      white-space: normal;
+      word-wrap: break-word;
+      max-width: 200px;
+    }
+
+    th {
+      background-color: var(--secondary);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9faff;
+    }
+
+    tr:hover {
+      background-color: #66d2de;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      word-break: break-word;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 45px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
         width: 100%;
-        }
-        th, td {
-        border: 1px solid #dddddd;
+        background-color: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
         text-align: left;
-        padding: 8px;
-        }
-        th {
-        background-color: #f2f2f2;
-        }
-        tr:nth-child(even) {
-        background-color: #f2f2f2;
-        }
-        </style>
-    </head>
+        border-radius: 0;
+      }
+      .center {
+        width: 95%;
+        margin: 30px auto;
+        padding: 15px;
+      }
+      table {
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+      }
+      th, td {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+
 <body>
-    <header>
-        <h1>Students</h1>
-    </header>
+  <header>
+    <h1>Students</h1>
+  </header>
+
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
     <nav>
+      <div class="nav-links" id="mainNavLinks">
         <a href="https://chayanbhawal.github.io/">Home</a>
         <a href="https://chayanbhawal.github.io/biosketch">Bio</a>
         <a href="https://chayanbhawal.github.io/publications">Publications</a>
@@ -103,224 +232,194 @@
         <a href="https://chayanbhawal.github.io/projects">Projects</a>
         <a href="https://chayanbhawal.github.io/students">Student</a>
         <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+      </div>
     </nav>
-    <div class="center">
+  </div>
 
+  <div class="center">
     <h2>PhD Students</h2>
-<table>
-    <thead>
-      <tr>
-        <th><center>Year</center></th>
-        <th><center>Name</center></th>
-        <th><center>Broad Topics</center></th>
-        <th><center>Other supervisor</center></th>
-        <th><center>Current Affiliation<br>PhD Status</center></th>
-      </tr>
-    </thead>
-    <tbody>
+    <table>
+      <thead>
         <tr>
-            <td class="block" style="width:10%"><center>Jan 2024</center></td>
-            <td class="block" style="width:20%"><center>Malemnganba Sanasam</center></td>
-            <td class="block" style="width:30%"><center>Robotic arm synchorinization on moving platform</center></td>
-            <td class="block" style="width:20%"><center><a href="https://www.iitg.ac.in/chitra/">Prof. C. Mahanta</a></center></td>
-            <td class="block" style="width:20%"><center>Ongoing</center></td>
-          </tr>
+          <th>Year</th>
+          <th>Name</th>
+          <th>Broad Topics</th>
+          <th>Other Supervisor</th>
+          <th>Current Affiliation / PhD Status</th>
+        </tr>
+      </thead>
+      <tbody>
         <tr>
-            <td class="block" style="width:10%"><center>Jan 2022</center></td>
-            <td class="block" style="width:20%"><center>Biswanath Paul</center></td>
-            <td><center> Co-operative control of NI based multi-agent systems</center></td>
-            <td><center><a href="https://www.iitg.ac.in/eee/parijat_bhowmick.html">Dr. P. Bhowmick</a></center></td>
-            <td><center>Ongoing</center></td>
+          <td>Jan 2024</td>
+          <td>Malemnganba Sanasam</td>
+          <td>Robotic arm synchronization on moving platform</td>
+          <td><a href="https://www.iitg.ac.in/chitra/">Prof. C. Mahanta</a></td>
+          <td>Ongoing</td>
         </tr>
         <tr>
-            <td class="block" style="width:10%"><center>Jun 2021</center></td>
-            <td class="block" style="width:20%"><center>Gangadari Varaprasad</center></td>
-            <td><center>Distribution of work in a multi-agent set-up</center></td>
-            <td><center><a href="https://www.iitg.ac.in/indranik/">Dr. I. Kar</a></center></td>
-            <td><center>Ongoing</center></td>
+          <td>Jan 2022</td>
+          <td>Biswanath Paul</td>
+          <td>Co-operative control of NI based multi-agent systems with application to power electronics</td>
+          <td><a href="https://www.iitg.ac.in/eee/parijat_bhowmick.html">Dr. P. Bhowmick</a></td>
+          <td>Ongoing</td>
         </tr>
         <tr>
-            <td class="block" style="width:10%"><center>Jun 2020</center></td>
-            <td class="block" style="width:20%"><center>Paraj Ganchauduri</center></td>
-            <td><center>Path Planning of a swarm of UAVs with Minimal Energy Consumption</center></td>
-            <td><center></center></td>
-            <td><center>Ongoing</center></td>
+          <td>Jun 2021</td>
+          <td>Gangadari Varaprasad</td>
+          <td>Distribution of work in a multi-agent set-up</td>
+          <td><a href="https://www.iitg.ac.in/indranik/">Dr. I. Kar</a></td>
+          <td>Ongoing</td>
         </tr>
         <tr>
-            <td class="block" style="width:10%"><center>Jan 2020</center></td>
-            <td class="block" style="width:20%"><center>Saikat Gope</center></td>
-            <td><center>Chaos-based Post-Quantum Cryptosystem</center></td>
-            <td><center><a href="https://www.iitg.ac.in/eee/srinivasan.html#srinivasanStart" target="_blank" rel="noopener noreferrer">Dr. S. Krishnaswamy</a></center></td>
-            <td><center>Ongoing</center></td>
+          <td>Jun 2020</td>
+          <td>Paraj Ganchauduri</td>
+          <td>Path Planning of a swarm of UAVs with Minimal Energy Consumption</td>
+          <td></td>
+          <td>Ongoing</td>
         </tr>
-    </tbody>
+        <tr>
+          <td>Jan 2020</td>
+          <td>Saikat Gope</td>
+          <td>Chaos-based Post-Quantum Cryptosystem</td>
+          <td><a href="https://www.iitg.ac.in/eee/srinivasan.html#srinivasanStart" target="_blank" rel="noopener noreferrer">Dr. S. Krishnaswamy</a></td>
+          <td>Ongoing</td>
+        </tr>
+      </tbody>
     </table>
-    
-    
+
     <h2>MTech Students</h2>
     <table>
-    <thead>
-      <tr>
-        <th><center>Year</center></th>
-        <th><center>Name</center></th>
-        <th><center>Broad Topic</center></th>
-        <th><center>Other supervisor</center></th>
-        <th><center>Current Affiliation<br>MTech Status</center></th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td class="block" style="width:10%"><center>2023-24</center></td>
-        <td class="block" style="width:20%"><center>Vishal Deka</center></td>
-        <td class="block" style="width:30%"><center> Structural design and PID control of a custom 3D-printed underwater vehicle.</center></td>
-        <td class="block" style="width:20%"><center></center></td>
-        <td class="block" style="width:20%"><center>Ongoing</center></td>
-    </tr>
-    <tr>
-        <td class="block" style="width:10%"><center>2023-24</center></td>
-        <td class="block" style="width:20%"><center>Prasad Puligadda</center></td>
-        <td class="block" style="width:30%"><center>Development and simulation of a 3D-printed underwater autonomous navigation system.</center></td>
-        <td class="block" style="width:20%"><center></center></td>
-        <td class="block" style="width:20%"><center>Ongoing</center></td>
-    </tr>
-    <tr>
-        <td class="block" style="width:10%"><center>2023-24</center></td>
-        <td class="block" style="width:20%"><center>Arya Mallick</center></td>
-        <td class="block" style="width:30%"><center>MPC controller tuning approach for least-energy quadrotor 3D missions.</center></td>
-        <td class="block" style="width:20%"><center></center></td>
-        <td class="block" style="width:20%"><center>Ongoing</center></td>
-    </tr>
-    <tr>
-        <td class="block" style="width:10%"><center>2023-24</center></td>
-        <td class="block" style="width:20%"><center>Jithu J</center></td>
-        <td><center>Real-time algorithm development for underwater bot detection and localization.</center></td>
-        <td><center></center></td>
-        <td><center>Ongoing</center></td>
-    </tr>
-    <tr>
-        <td class="block" style="width:10%"><center>2023-24</center></td>
-        <td class="block" style="width:20%"><center>Meesala Ganesh</center></td>
-        <td><center>Modeling for controller design of an autonomous boat.</center></td>
-        <td><center><a href="https://www.iitg.ac.in/iitg_faculty_details?fac=eDBxS2hZb3JjQXJGTTZXRC82V0RjUT09">Prof. P. Barooah</a></center></td>
-        <td><center>Ongoing</center></td>
-    </tr>
-     <tr>
-        <td class="block" style="width:10%"><center>2022-23</center></td>
-        <td class="block" style="width:20%"><center>Suvadeep Mandal</center></td>
-        <td><center>Design of a rendezvous control scheme for a group of networked two-wheeled mobile robots with non-holonomic constraints.</center></td>
-        <td><center><a href="https://www.iitg.ac.in/indranik/">Dr. I. Kar</a></center></td>
-        <td><center>Exide Energy Solution Ltd., Bangalore</center></td>
-      </tr>
-      <tr>
-        <td class="block" style="width:10%"><center>2022-23</center></td>
-        <td class="block" style="width:20%"><center>Ankit Vaishnav</center></td>
-        <td><center>Design of a vision-based collision avoidance control strategy for a fleet of networked quadrotors.</center></td>
-        <td><center><a href="https://www.iitg.ac.in/indranik/">Dr. I. Kar</a></center></td>
-        <td><center>Mercedes-Benz RnD Ltd.</center></td>
-      </tr>
-     <tr>
-        <td class="block" style="width:10%"><center>2022-23</center></td>
-        <td class="block" style="width:20%"><center>Sumit Narendra Zoting</center></td>
-        <td><center>Design of Data-Driven Controller for Rotary Inverted Pendulum</center></td>
-        <td><center><a href="https://www.iitg.ac.in/eee/parijat_bhowmick.html">Dr. P. Bhowmick</a></center></td>
-        <td><center>Mercedes-Benz RnD Ltd.</center></td>
-      </tr>
-     <tr>
-        <td class="block" style="width:10%"><center>2022-23</center></td>
-        <td class="block" style="width:20%"><center>Mohd Ahkamuddin Siddiqui</center></td>
-        <td><center>A passivity-based formation control scheme for networked UGVs with obstacle and collision avoidance.
-        </center></td>
-        <td><center><a href="https://www.iitg.ac.in/eee/parijat_bhowmick.html">Dr. P. Bhowmick</a></center></td>
-        <td><center>Daimler Truck Innovation Center India (DTICI)</center></td>
-      </tr>
-     <tr>
-        <td class="block" style="width:10%"><center>2022-23</center></td>
-        <td class="block" style="width:20%"><center>Sushovan Chaki</center></td>
-        <td><center>LQR control of index-1 DAE systems</center></td>
-        <td><center></center></td>
-        <td><center>Mercedes-Benz RnD Ltd., Bengaluru</center></td>
-      </tr>
+      <thead>
         <tr>
-        <td class="block" style="width:10%"><center>2021-22</center></td>
-        <td class="block" style="width:20%"><center>Priyaranjan Kumar</center></td>
-        <td><center>Vision based control of an UGV</center></td>
-        <td><center></center></td>
-        <td><center>Siemens-Gamesa, Bengaluru</center></td>
-      </tr>
-      <tr>
-        <td class="block" style="width:10%"><center>2021-22</center></td>
-        <td class="block" style="width:20%"><center>Kurugodu Chaithanya Kumar</center></td>
-        <td><center>Simulation and Implementation of Coverage Planning Algorithm using UAV</center></td>
-        <td><center></center></td>
-        <td><center>Wabtec, Bengaluru</center></td>
-      </tr>
-       <tr>
-        <td class="block" style="width:10%"><center>2020-21</center></td>
-        <td class="block" style="width:20%"><center>Timjim K Momin</center></td>
-        <td><center>Vision based control of UGVs</center></td>
-        <td><center></center></td>
-        <td><center>Entrepreneur and Politician</center></td>
-       </tr>
-      <tr>
-        <td class="block" style="width:10%"><center>2020-21</center></td>
-        <td class="block" style="width:20%"><center>N. Nikhil</center></td>
-        <td><center>Algorithms of weakly unobservable and strongly reachable subspaces</center></td>
-        <td><center></center></td>
-        <td><center>Wabtec, Bengaluru</center></td>
-      </tr>
-      <tr>
-        <td class="block" style="width:10%"><center>2020-21</center></td>
-        <td class="block" style="width:20%"><center>Meet Ashokbhai Patel</center></td>
-        <td><center>On algorithms of model order reduction</center></td>
-        <td><center></center></td>
-        <td><center>TCS (Innovation Lab), Bengaluru</center></td>
-      </tr>	
-    </tbody>
+          <th>Year</th>
+          <th>Name</th>
+          <th>Broad Topic</th>
+          <th>Other Supervisor</th>
+          <th>Current Affiliation / MTech Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2023-24</td>
+          <td>Vishal Deka</td>
+          <td>Structural design and PID control of a custom 3D-printed underwater vehicle.</td>
+          <td></td>
+          <td>Ongoing</td>
+        </tr>
+        <tr>
+          <td>2023-24</td>
+          <td>Prasad Puligadda</td>
+          <td>Development and simulation of a 3D-printed autonomous underwater navigation system.</td>
+          <td></td>
+          <td>Ongoing</td>
+        </tr>
+        <tr>
+          <td>2023-24</td>
+          <td>Arya Mallick</td>
+          <td>MPC controller tuning approach for least-energy quadrotor 3D missions.</td>
+          <td></td>
+          <td>Ongoing</td>
+        </tr>
+        <tr>
+          <td>2023-24</td>
+          <td>Jithu J</td>
+          <td>Real-time algorithm development for underwater bot detection and localization.</td>
+          <td></td>
+          <td>Ongoing</td>
+        </tr>
+        <tr>
+          <td>2023-24</td>
+          <td>Meesala Ganesh</td>
+          <td>Modeling for controller design of an autonomous boat.</td>
+          <td><a href="https://www.iitg.ac.in/iitg_faculty_details?fac=eDBxS2hZb3JjQXJGTTZXRC82V0RjUT09">Prof. P. Barooah</a></td>
+          <td>Ongoing</td>
+        </tr>
+        <tr>
+          <td>2022-23</td>
+          <td>Suvadeep Mandal</td>
+          <td>Design of a rendezvous control scheme for a group of networked two-wheeled mobile robots with non-holonomic constraints.</td>
+          <td><a href="https://www.iitg.ac.in/indranik/">Dr. I. Kar</a></td>
+          <td>Exide Energy Solution Ltd., Bangalore</td>
+        </tr>
+        <tr>
+          <td>2022-23</td>
+          <td>Ankit Vaishnav</td>
+          <td>Design of a vision-based collision avoidance control strategy for a fleet of networked quadrotors.</td>
+          <td><a href="https://www.iitg.ac.in/indranik/">Dr. I. Kar</a></td>
+          <td>Mercedes-Benz RnD Ltd.</td>
+        </tr>
+        <tr>
+          <td>2022-23</td>
+          <td>Sumit Narendra Zoting</td>
+          <td>Design of Data-Driven Controller for Rotary Inverted Pendulum</td>
+          <td><a href="https://www.iitg.ac.in/eee/parijat_bhowmick.html">Dr. P. Bhowmick</a></td>
+          <td>Mercedes-Benz RnD Ltd.</td>
+        </tr>
+        <tr>
+          <td>2022-23</td>
+          <td>Mohd Ahkamuddin Siddiqui</td>
+          <td>A passivity-based formation control scheme for networked UGVs with obstacle and collision avoidance.</td>
+          <td><a href="https://www.iitg.ac.in/eee/parijat_bhowmick.html">Dr. P. Bhowmick</a></td>
+          <td>Daimler Truck Innovation Center India (DTICI)</td>
+        </tr>
+        <tr>
+          <td>2022-23</td>
+          <td>Sushovan Chaki</td>
+          <td>LQR control of index-1 DAE systems</td>
+          <td></td>
+          <td>Mercedes-Benz RnD Ltd., Bengaluru</td>
+        </tr>
+        <tr>
+          <td>2021-22</td>
+          <td>Priyaranjan Kumar</td>
+          <td>Vision based control of an UGV</td>
+          <td></td>
+          <td>Siemens-Gamesa, Bengaluru</td>
+        </tr>
+        <tr>
+          <td>2021-22</td>
+          <td>Kurugodu Chaithanya Kumar</td>
+          <td>Simulation and Implementation of Coverage Planning Algorithm using UAV</td>
+          <td></td>
+          <td>Wabtec, Bengaluru</td>
+        </tr>
+        <tr>
+          <td>2020-21</td>
+          <td>Timjim K Momin</td>
+          <td>Vision based control of UGVs</td>
+          <td></td>
+          <td>Entrepreneur and Politician</td>
+        </tr>
+        <tr>
+          <td>2020-21</td>
+          <td>N. Nikhil</td>
+          <td>Algorithms of weakly unobservable and strongly reachable subspaces</td>
+          <td></td>
+          <td>Wabtec, Bengaluru</td>
+        </tr>
+        <tr>
+          <td>2020-21</td>
+          <td>Meet Ashokbhai Patel</td>
+          <td>On algorithms of model order reduction</td>
+          <td></td>
+          <td>TCS (Innovation Lab), Bengaluru</td>
+        </tr>
+      </tbody>
     </table>
-    
-    <h2>BTech Students</h2>
-    <table>
-    <thead>
-      <tr>
-        <th><center>Year</center></th>
-        <th><center>Name</center></th>
-        <th><center>Broad Topic/Projects</center></th>
-        <th><center>Other supervisor</center></th>
-        <th><center>Current Affiliation<br>BTech Status</center></th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td class="block" style="width:10%"><center>2023-24</center></td>
-        <td class="block" style="width:20%"><center>Akash Chowdhury</center></td>
-        <td class="block" style="width:30%"><center>ACAP Markers: A new fiducial marker for reliable detection under
-partial occlusion for swarm of quadrotors</center></td>    
-        <td><center></center></td>
-        <td><center>Associate Software Engineer at Qualcomm</center></td>
-      </tr>
-        <tr>
-        <td class="block" style="width:10%"><center>2021-22</center></td>
-        <td class="block" style="width:20%"><center>Aijnkya Bhandare</center></td>
-        <td class="block" style="width:30%"><center>Motion Planning For Coordinated Movement Of UAVs and UGVs</center></td>
-        <td><center></center></td>
-        <td><center>Software Developer at Zomato, Gurgaon</center></td>
-      </tr>
-       <tr>
-        <td class="block" style="width:10%"><center>2020-21</center></td>
-        <td class="block" style="width:20%"><center>K.M.Sudarshan</center></td>
-        <td class="block" style="width:30%"><center>Vision based control of multi-agent systems</center></td>
-        <td><center></center></td>
-        <td><center>Data Operation Engineering Analyst at Blackrock, Gurgaon</center></td>
-      </tr>
-       <tr>
-        <td class="block" style="width:10%"><center>2020-21</center></td>
-        <td class="block" style="width:20%"><center>R.Vinay Kumar</center></td>
-        <td class="block" style="width:30%"><center>Vision based control of multi-agent systems</center></td>
-        <td><center></center></td>
-        <td><center>Pursuing MS in Data Science and Analytics at Georgia State University</center></td>
-      </tr>
-    </tbody>
-    </table>
-</div>
+  </div>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
