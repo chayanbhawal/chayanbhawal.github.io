@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EE250 Scilab Tutorial - Jan 2025</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scilab Tutorial</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
   <style>
-    /* General Reset */
+    :root {
+      --primary: #0c1898;
+      --secondary: #f4f4f4;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -13,135 +25,244 @@
     }
 
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      line-height: 1.7;
-      color: #333;
-      background-color: #fafafa;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 54px;
     }
 
     header {
-      background: linear-gradient(90deg, #0c1898, #1e2bbf);
-      color: #fff;
-      padding: 20px;
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 2rem 1rem 1.5rem 1rem;
       text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
     }
 
     header h1 {
-      font-size: 2rem;
-      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1.2px;
+      margin-bottom: 0.3rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.1rem;
+      color: #cfd7ff;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Responsive Navigation */
+    .nav-container {
+      position: relative;
+      background: var(--secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 20;
     }
 
     nav {
-      background: #f4f4f4;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+      position: relative;
+      background: inherit;
     }
 
     nav a {
-      float: left;
-      display: block;
-      color: #333;
-      text-align: center;
+      flex: none;
       padding: 14px 20px;
       text-decoration: none;
-      transition: background 0.3s ease, color 0.3s ease;
+      color: var(--primary);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     nav a:hover {
-      background-color: #0c1898;
-      color: #fff;
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
     }
 
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Card Style Content */
     .center {
-      margin: auto;
+      margin: 50px auto;
+      padding: 25px 30px;
       max-width: 900px;
-      background: #fff;
-      padding: 30px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background-color: var(--text-light);
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     .center h4 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+      margin-top: 0;
       font-style: italic;
-      color: #444;
-      margin-bottom: 15px;
     }
 
     .center a {
-      color: #0c1898;
+      color: var(--primary);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s;
     }
-
     .center a:hover {
+      color: var(--accent);
       text-decoration: underline;
     }
 
-    ul {
-      margin-left: 20px;
-      margin-top: 10px;
+    .key-points {
+      margin-top: 18px;
+      padding-left: 22px;
+    }
+    .key-points li {
+      background:#f9faff;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      color: #273469;
     }
 
-    ul li {
-      margin-bottom: 8px;
+    .duration {
+      font-weight: bold;
+      margin-top: 18px;
+      display: inline-block;
+      color: #484848;
+      background: #f0f4fa;
+      border-radius: 5px;
+      padding: 4px 10px;
     }
 
-    footer {
-      background: #0c1898;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+    /* Responsive */
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 45px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
+        text-align: left;
+        border-radius: 0;
+      }
+      .center {
+        margin: 40px auto;
+        width: 95%;
+        padding: 17px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Scilab Tutorial</h1>
-    <p>EE250 - Jan 2025</p>
+    <p>Prepared by Dr. Chayan Bhawal, IIT Guwahati &amp; Prof. P Sunthar, IIT Bombay</p>
   </header>
 
-  <nav>
-    <a href="https://chayanbhawal.github.io/">Home</a>
-    <a href="https://chayanbhawal.github.io/biosketch">Experience</a>
-    <a href="https://chayanbhawal.github.io/publications">Publications</a>
-    <a href="https://chayanbhawal.github.io/courses">Courses</a>
-    <a href="https://chayanbhawal.github.io/projects">Projects</a>
-    <a href="https://chayanbhawal.github.io/students">Students</a>
-    <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
-  </nav>
-
-  <div class="center">
-    <h4>Prepared by Dr. Chayan Bhawal, IIT Guwahati and Prof. P Sunthar, IIT Bombay</h4>
-
-    <p>These tutorials are designed for absolute beginners to quickly understand and 
-    carry out frequently used tasks with <a href="https://www.scilab.org">Scilab</a>. 
-    They are particularly helpful for teachers and students in STEM fields.</p>
-
-    <p>The tutorials were developed by the 
-      <a href="https://fossee.in">FOSSEE Team</a> at 
-      <a href="http://www.iitb.ac.in">IIT Bombay</a>. 
-      You can access the files here: 
-      <a href="https://github.com/FOSSEE/scilab-tutorials">Tutorial Codes</a> 
-      and view the companion slides 
-      <a href="https://drive.google.com/open?id=1PMu__9KHSy1CaeCSzE0xRxskEKQRxA9s">here</a>.
-    </p>
-
-    <h3>On successful completion, you will be able to:</h3>
-    <ul>
-      <li>Perform elementary matrix operations</li>
-      <li>Create scientific plots of publication quality</li>
-      <li>Solve algebraic and differential equations</li>
-    </ul>
-
-    <p><strong>Estimated completion time:</strong> 6–8 hours</p>
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
+    <nav>
+      <div class="nav-links" id="mainNavLinks">
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Experience</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Student</a>
+        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+      </div>
+    </nav>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Scilab Tutorial – Prepared by IIT Guwahati & IIT Bombay</p>
-  </footer>
+  <div class="center">
+    <h4>For STEM teachers and students – from the <a href="https://fossee.in" target="_blank">FOSSEE Team</a>, IIT Bombay</h4>
+    <p>
+      These tutorials help you quickly learn and perform essential tasks in <a href="https://www.scilab.org" target="_blank">Scilab</a>. They are especially valuable for anyone new to scientific and engineering computing.
+    </p>
+    <p>
+      The code files are available at:
+      <a href="https://github.com/FOSSEE/scilab-tutorials" target="_blank">FOSSEE Scilab Tutorial Codes</a>.
+      Use these alongside the slides: 
+      <a href="https://drive.google.com/open?id=1PMu__9KHSy1CaeCSzE0xRxskEKQRxA9s" target="_blank">Tutorial Slides</a>.
+    </p>
+    <div class="duration">Estimated time to complete: 6–8 hours</div>
+    <h2 style="margin-top: 2em;">What you will learn</h2>
+    <ul class="key-points">
+      <li>Carry out elementary matrix operations</li>
+      <li>Create scientific plots (publication quality)</li>
+      <li>Solve simple algebraic and differential equations</li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
