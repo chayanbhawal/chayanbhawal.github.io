@@ -327,13 +327,13 @@
     min-width: 0;
   }
 
-  .notify-ticker {
-    display: inline-block;
-    white-space: nowrap;
-    padding-left: 100%;
-    animation: ticker-scroll 30s linear infinite;
-    will-change: transform;
-  }
+.notify-ticker {
+  display: inline-block;
+  white-space: normal;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  min-height: 1.2em;
+}
 
   .notify-ticker-wrapper:hover .notify-ticker {
     animation-play-state: paused;
@@ -358,17 +358,38 @@
     }
   }
 </style>
-
 <div class="notification-bar" role="region" aria-label="Recent Highlights">
   <span class="notify-title">Recent Highlights:</span>
   <div class="notify-ticker-wrapper" aria-live="polite" aria-atomic="true" tabindex="0">
-    <span class="notify-ticker">
-      Delivered invited lecture on Drones @ FDP Advances in Control Engineering - EICT, NIT Patna &nbsp;|&nbsp;
-      Delivered invited lecture on Quadrotors @ KIIT Bhubaneswar &nbsp;|&nbsp;
-      Paper accepted and presented at CoDIT 2025, Split, Croatia &nbsp;|&nbsp;
-      Paper accepted and presented at GCON 2025, NERIST, Arunachal Pradesh
-    </span>
+    <span class="notify-ticker" id="notifyTicker"></span>
   </div>
 </div>
+
+<script>
+const messages = [
+  "Delivered invited lecture on Drones @ FDP Advances in Control Engineering - EICT, NIT Patna",
+  "Delivered invited lecture on Quadrotors @ KIIT Bhubaneswar",
+  "Paper accepted and presented at CoDIT 2025, Split, Croatia",
+  "Paper accepted and presented at GCON 2025, NERIST, Arunachal Pradesh"
+];
+
+let messageIndex = 0;
+const ticker = document.getElementById('notifyTicker');
+
+function showMessage() {
+  ticker.style.opacity = 0; // fade out
+  setTimeout(() => {
+    ticker.textContent = messages[messageIndex];
+    ticker.style.opacity = 1; // fade in
+    messageIndex = (messageIndex + 1) % messages.length;
+  }, 1000); // matches CSS transition duration
+}
+
+// initial show
+showMessage();
+
+// cycle messages every 5 seconds
+setInterval(showMessage, 5000);
+</script>
 </body>
 </html>
