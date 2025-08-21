@@ -1,132 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EE250 Jan 2025</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EE250 Scilab Tutorial - Jan 2025</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background-color: #fafafa;
     }
+
     header {
-        background-color: #0c1898;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+      background: linear-gradient(90deg, #0c1898, #1e2bbf);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
     }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
     nav {
-        background-color: #f4f4f4;
-        overflow: hidden;
+      background: #f4f4f4;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #ddd;
     }
+
     nav a {
-        float: left;
-        display: block;
-        color: #333;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
+      float: left;
+      display: block;
+      color: #333;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease;
     }
+
     nav a:hover {
-        background-color: #ddd;
+      background-color: #0c1898;
+      color: #fff;
     }
-    .container {
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
-    .about-me {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .about-me h2 {
-        color: #333;
-    }
-    .about-me p {
-        line-height: 1.6;
-    }
-    .picture {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .picture img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-    .research-interests {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .research-interests h2 {
-        color: #333;
-    }
-    .research-interests ul {
-        list-style-type: square;
-        padding-left: 20px;
-    }
+
     .center {
-    margin: auto;
-    width: 80%;
-    padding: 20px;
+      margin: auto;
+      max-width: 900px;
+      background: #fff;
+      padding: 30px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    table {
-    border-collapse: collapse;
-    width: 100%;
+
+    .center h4 {
+      font-style: italic;
+      color: #444;
+      margin-bottom: 15px;
     }
-    th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+
+    .center a {
+      color: #0c1898;
+      text-decoration: none;
+      font-weight: bold;
     }
-    th {
-    background-color: #f2f2f2;
+
+    .center a:hover {
+      text-decoration: underline;
     }
-    tr:nth-child(even) {
-    background-color: #f2f2f2;
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
     }
-    </style>
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background: #0c1898;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Scilab Tutorial</h1>
-    </header>
-    <nav>
-        <a href="https://chayanbhawal.github.io/">Home</a>
-        <a href="https://chayanbhawal.github.io/biosketch">Experience</a>
-        <a href="https://chayanbhawal.github.io/publications">Publications</a>
-        <a href="https://chayanbhawal.github.io/courses">Courses</a>
-        <a href="https://chayanbhawal.github.io/projects">Projects</a>
-        <a href="https://chayanbhawal.github.io/students">Student</a>
-        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
-    </nav>
-    <div class="center">
-        <h4>Prepared by Dr. Chayan Bhawal, IIT Guwahati and Prof. P Sunthar, IIT Bombay</h4>
+  <header>
+    <h1>Scilab Tutorial</h1>
+    <p>EE250 - Jan 2025</p>
+  </header>
 
+  <nav>
+    <a href="https://chayanbhawal.github.io/">Home</a>
+    <a href="https://chayanbhawal.github.io/biosketch">Experience</a>
+    <a href="https://chayanbhawal.github.io/publications">Publications</a>
+    <a href="https://chayanbhawal.github.io/courses">Courses</a>
+    <a href="https://chayanbhawal.github.io/projects">Projects</a>
+    <a href="https://chayanbhawal.github.io/students">Students</a>
+    <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+  </nav>
 
-        <br>These tutorials are meant for any beginner to quickly understand and 
-        carry out some frequently employed tasks with <a href="https://www.scilab.org">Scilab</a>.
-        They are aimed at teachers and students in STEM (Science, Technology,
-        Engineering, and Mathematics).
+  <div class="center">
+    <h4>Prepared by Dr. Chayan Bhawal, IIT Guwahati and Prof. P Sunthar, IIT Bombay</h4>
 
-        <br>
-        <br>These tutorial files have been prepared by the <a href="https://fossee.in">FOSSEE Team</a> of <a href="http://www.iitb.ac.in">IIT Bombay</a>. The tutorial files 
-        can be found here: <a href="https://github.com/FOSSEE/scilab-tutorials">FOSSEE Scilab Tutorial Codes</a>. These files 
-        are to be used in conjuction with the tutorial slides which can be viewed
-        here: <a href="https://drive.google.com/open?id=1PMu__9KHSy1CaeCSzE0xRxskEKQRxA9s">FOSSEE Scilab Tutorial Slides</a>.
-        <br>
-        <br>On successful completion of the tutorials you should be able to
-        <ul>
-            <li> carry out elementary matrix operations</li>
-            <li> create scientific plots (of publication quality)</li>
-            <li> solve simple algebraic and differential equations</li>
-        </ul>
-        Expected time to complete the tutorials: Six to Eight hours
-    </div>
-    </body>
+    <p>These tutorials are designed for absolute beginners to quickly understand and 
+    carry out frequently used tasks with <a href="https://www.scilab.org">Scilab</a>. 
+    They are particularly helpful for teachers and students in STEM fields.</p>
+
+    <p>The tutorials were developed by the 
+      <a href="https://fossee.in">FOSSEE Team</a> at 
+      <a href="http://www.iitb.ac.in">IIT Bombay</a>. 
+      You can access the files here: 
+      <a href="https://github.com/FOSSEE/scilab-tutorials">Tutorial Codes</a> 
+      and view the companion slides 
+      <a href="https://drive.google.com/open?id=1PMu__9KHSy1CaeCSzE0xRxskEKQRxA9s">here</a>.
+    </p>
+
+    <h3>On successful completion, you will be able to:</h3>
+    <ul>
+      <li>Perform elementary matrix operations</li>
+      <li>Create scientific plots of publication quality</li>
+      <li>Solve algebraic and differential equations</li>
+    </ul>
+
+    <p><strong>Estimated completion time:</strong> 6–8 hours</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Scilab Tutorial – Prepared by IIT Guwahati & IIT Bombay</p>
+  </footer>
+</body>
 </html>
-
