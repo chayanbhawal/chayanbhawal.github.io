@@ -1,101 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EE250 Jan 2025</title>
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EE250 Scilab Tutorial – Content & Downloads</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #f4f4f4;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+      --table-header: #f2f2f2;
+      --table-row-alt: #f9faff;
     }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding-bottom: 54px;
+    }
+
     header {
-        background-color: #0c1898;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1.2px;
+      margin-bottom: 0.3rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #cfd7ff;
+      font-family: 'Roboto', sans-serif;
+      margin-top: 0.1rem;
+    }
+
+    /* Navigation */
+    .nav-container {
+      position: relative;
+      background: var(--secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 20;
     }
     nav {
-        background-color: #f4f4f4;
-        overflow: hidden;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+      position: relative;
+      background: inherit;
     }
     nav a {
-        float: left;
-        display: block;
-        color: #333;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
+      flex: none;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
     }
     nav a:hover {
-        background-color: #ddd;
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
     }
-    .container {
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
     }
-    .about-me {
-        flex: 1;
-        padding: 0 20px;
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
     }
-    .about-me h2 {
-        color: #333;
-    }
-    .about-me p {
-        line-height: 1.6;
-    }
-    .picture {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .picture img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-    .research-interests {
-        flex: 1;
-        padding: 0 20px;
-    }
-    .research-interests h2 {
-        color: #333;
-    }
-    .research-interests ul {
-        list-style-type: square;
-        padding-left: 20px;
-    }
+
+    /* Card-style container */
     .center {
-    margin: auto;
-    width: 80%;
-    padding: 20px;
+      margin: 50px auto;
+      padding: 25px 30px;
+      max-width: 950px;
+      background-color: var(--text-light);
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      line-height: 1.7;
     }
-    table {
-    border-collapse: collapse;
-    width: 100%;
+
+    .center h4 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+      margin-top: 0;
+      font-style: italic;
     }
-    th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+
+    .center a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
     }
-    th {
-    background-color: #f2f2f2;
+    .center a:hover {
+      color: var(--accent);
+      text-decoration: underline;
     }
-    tr:nth-child(even) {
-    background-color: #f2f2f2;
+    .center table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0 10px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      background: var(--text-light);
+      font-size: 1rem;
     }
-    </style>
+    .center th, .center td {
+      border: 1px solid #e2e2e2;
+      text-align: left;
+      padding: 10px 8px;
+      font-size: 1rem;
+    }
+    .center th {
+      background: var(--table-header);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem;
+      color: var(--primary);
+      border-bottom: 2px solid #cdd3fc;
+    }
+    .center td {
+      background: var(--text-light);
+      vertical-align: middle;
+    }
+    .center tr:nth-child(even) td {
+      background: var(--table-row-alt);
+    }
+    .center td,
+    .center th {
+      text-align: center;
+    }
+    .center td:first-child, .center th:first-child {
+      text-align: left;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .duration {
+      font-weight: bold;
+      margin-top: 18px;
+      display: inline-block;
+      color: #484848;
+      background: #f0f4fa;
+      border-radius: 5px;
+      padding: 4px 10px;
+    }
+    @media (max-width: 950px) {
+      .center { width: 98%; padding: 14px; margin: 40px auto; }
+      .center table,
+      .center th,
+      .center td { font-size: 0.98rem; }
+    }
+    @media (max-width: 780px) {
+      .center { font-size: 0.98rem; }
+      .center table, .center th, .center td { font-size: 0.96rem; }
+    }
+    @media (max-width: 700px) {
+      nav { flex-direction: column; align-items: flex-start; padding-top: 45px; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute;
+        left: 0; right: 0; top: 45px; z-index: 20;
+      }
+      .nav-links.active { display: flex; }
+      .nav-toggle { display: block; }
+      nav a { width: 100%; padding: 14px 24px; text-align: left; border-radius: 0; }
+    }
+    @media (max-width: 520px) {
+      header h1 { font-size: 1.3rem; }
+      .center th, .center td { padding: 7px 4px; }
+      .duration { padding: 3px 5px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Scilab Tutorial</h1>
-    </header>
+  <header>
+    <h1>Scilab Tutorial – Topic Downloads</h1>
+    <p>Prepared by Chayan Bhawal, IIT Guwahati</p>
+  </header>
+
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
     <nav>
+      <div class="nav-links" id="mainNavLinks">
         <a href="https://chayanbhawal.github.io/">Home</a>
         <a href="https://chayanbhawal.github.io/biosketch">Experience</a>
         <a href="https://chayanbhawal.github.io/publications">Publications</a>
@@ -103,55 +232,69 @@
         <a href="https://chayanbhawal.github.io/projects">Projects</a>
         <a href="https://chayanbhawal.github.io/students">Student</a>
         <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+      </div>
     </nav>
-    <div class="center">
+  </div>
 
-<br>Prepared by Chayan Bhawal, IIT Guwahati
-<br>
-<br>Target audience:  STEM
-<br>
-<br> Download the complete content from the links below to get started. The top-right corner 
-of the slides will guide you to the codes that are being explained in the slides. Execute those 
-files to understand the slides better. 
-<table>
-<thead>
-  <tr>
-    	<th>Topic</th>
-	<th><center>Presentation</center></th>
-    <th><center>Complete folder</center></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>Basic statistics with Scilab</td>
-<td><center><a href="https://drive.google.com/file/d/1Mr5wHY1cXi6R7IoS0NP2uxcROJKUf0Z5/view?usp=sharing">Link</a></center></td>
-<td><center><a href="https://drive.google.com/drive/folders/1Loy5IezJINuoa_wd8vDtvi43xkTBmvxx?usp=sharing">Link</a></center></td>
-</tr>
-<tr>
-<td>Use of polynomials with Scilab</td>
-<td><center><a href="https://drive.google.com/file/d/1P7YKPO5C9DZY0I9buSUfzjPiUsHhab0i/view?usp=sharing">Link</a></center></td>
-<td><center><a href="https://drive.google.com/drive/folders/1Loy5IezJINuoa_wd8vDtvi43xkTBmvxx?usp=sharing">Link</a></center></td>
-</tr>
-<tr>
-<td>Curve fitting with Scilab</td>
-<td><center><a href="https://drive.google.com/file/d/1ofL6w9gWWaUDyByZoQMYdh-W3e-SfLLi/view?usp=sharing">Link</a></center></td>
-<td><center><a href="https://drive.google.com/drive/folders/1EN5B4QOele0jwLp1GSfFD4BUeN-_ggzB?usp=sharing">Link</a></center></td>
-</tr>
-<tr>
-<td>Optimization with Scilab</td>
-<td><center><a href="https://drive.google.com/file/d/1N5GRKXt6Z-PzSzxEtWZhMSl_FbX-9N8N/view?usp=sharing">Link</a></center></td>
-<td><center><a href="https://drive.google.com/drive/folders/1zCgviQP8WV0b4LsYPSFTOrm_20E1mQys?usp=sharing">Link</a></center></td>
-</tr>
-<tr>
-<td>Using Scilab to solve ODEs and simulate linear systems</td>
-<td><center><a href="https://drive.google.com/file/d/1Qifol1sjmeFU3g7K8eoJjKn72BJ9LiH-/view?usp=sharing">Link</a></center></td>
-<td><center><a href="https://drive.google.com/drive/folders/1aNLdbnOfkolg0RqM67faN6KHhd9uAYN3?usp=sharing">Link</a></center></td>
-</tr>
-</tbody>
-</table>
+  <div class="center">
+    <h4>Target audience: STEM faculty &amp; students</h4>
+    <p>
+      Download the complete content for each topic using the links below.
+      The top-right corner of each slide will guide you to the codes being explained.
+      Execute those files as you learn for maximum benefit.
+    </p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Presentation</th>
+          <th>Complete Folder</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Basic statistics with Scilab</td>
+          <td><a href="https://drive.google.com/file/d/1Mr5wHY1cXi6R7IoS0NP2uxcROJKUf0Z5/view?usp=sharing" target="_blank">Link</a></td>
+          <td><a href="https://drive.google.com/drive/folders/1Loy5IezJINuoa_wd8vDtvi43xkTBmvxx?usp=sharing" target="_blank">Link</a></td>
+        </tr>
+        <tr>
+          <td>Use of polynomials with Scilab</td>
+          <td><a href="https://drive.google.com/file/d/1P7YKPO5C9DZY0I9buSUfzjPiUsHhab0i/view?usp=sharing" target="_blank">Link</a></td>
+          <td><a href="https://drive.google.com/drive/folders/1Loy5IezJINuoa_wd8vDtvi43xkTBmvxx?usp=sharing" target="_blank">Link</a></td>
+        </tr>
+        <tr>
+          <td>Curve fitting with Scilab</td>
+          <td><a href="https://drive.google.com/file/d/1ofL6w9gWWaUDyByZoQMYdh-W3e-SfLLi/view?usp=sharing" target="_blank">Link</a></td>
+          <td><a href="https://drive.google.com/drive/folders/1EN5B4QOele0jwLp1GSfFD4BUeN-_ggzB?usp=sharing" target="_blank">Link</a></td>
+        </tr>
+        <tr>
+          <td>Optimization with Scilab</td>
+          <td><a href="https://drive.google.com/file/d/1N5GRKXt6Z-PzSzxEtWZhMSl_FbX-9N8N/view?usp=sharing" target="_blank">Link</a></td>
+          <td><a href="https://drive.google.com/drive/folders/1zCgviQP8WV0b4LsYPSFTOrm_20E1mQys?usp=sharing" target="_blank">Link</a></td>
+        </tr>
+        <tr>
+          <td>Using Scilab to solve ODEs and simulate linear systems</td>
+          <td><a href="https://drive.google.com/file/d/1Qifol1sjmeFU3g7K8eoJjKn72BJ9LiH-/view?usp=sharing" target="_blank">Link</a></td>
+          <td><a href="https://drive.google.com/drive/folders/1aNLdbnOfkolg0RqM67faN6KHhd9uAYN3?usp=sharing" target="_blank">Link</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="duration">Estimated time to complete: 6–8 hours</div>
+  </div>
 
-<br>Expected time to complete the tutorials: Six to Eight hours
-
-</div>
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
