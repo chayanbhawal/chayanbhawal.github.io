@@ -1,8 +1,7 @@
 //*********************************************************************************************************************//
 // Authors: Imrul Qais (TU Delft), Chayan Bhawal (IIT Guwahati), and Debasattam Pal (IIT Bombay).
 //
-// Citation: Imrul Qais, Chayan Bhawal, and Debasattam Pal, "Singular LQR optimal control of DAEs: A feedback solution", Under Review, 2023.
-//
+// Citation: Imrul Qais, Chayan Bhawal, and Debasattam Pal, "Singular LQR optimal control of DAEs: A feedback solution", Automatica, vol. 173, 2025.
 // Funding Agency for the software package: Science and Engineering Research Board (SERB), Govt. of India 
 // Project ID: SRG/2021/000721
 // Project Duration: 31-12-2021 to 30-12-2023
