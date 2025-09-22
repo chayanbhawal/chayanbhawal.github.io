@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photo Gallery – Example</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #f4f4f4;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+      --card-bg: #fff;
+      --gallery-gap: 30px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+      padding-bottom: 54px;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.11);
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1.2px;
+      margin-bottom: 0.3rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #cfd7ff;
+      font-family: 'Roboto', sans-serif;
+      margin-top: 0.1rem;
+    }
+
+    /* Navigation styles identical to your code */
+    .nav-container {
+      position: relative;
+      background: var(--secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 20;
+    }
+    nav { display: flex; justify-content: center; flex-wrap: wrap; align-items: center; padding: 0; background: inherit; }
+    nav a {
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    /* Card-style gallery layout */
+    .center {
+      margin: 48px auto 32px auto;
+      padding: 25px 30px;
+      max-width: 1050px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+    .center h4 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 18px;
+      font-size: 1.14rem;
+      font-style: italic;
+    }
+
+    /* Responsive Image Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--gallery-gap);
+      margin-top: 36px;
+    }
+    .gallery-item {
+      background: var(--secondary);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(12,24,152,0.11);
+    }
+    .gallery-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #eee;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    .gallery-caption {
+      padding: 14px 12px 12px 12px;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      color: var(--primary);
+      text-align: center;
+      flex: 1 1 auto;
+    }
+    .gallery-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .gallery-links a {
+      font-size: 0.97rem;
+      background: var(--primary);
+      color: #fff!important;
+      padding: 4px 14px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s;
+      font-weight: 500;
+    }
+    .gallery-links a:hover {
+      background: var(--accent);
+      color: #333!important;
+    }
+
+    @media (max-width: 700px) {
+      .center { padding: 12px 5px; }
+      .gallery-grid { gap: 16px; }
+      nav { flex-direction: column; align-items: flex-start; padding-top: 45px; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--text-light);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        position: absolute; left: 0; right: 0; top: 45px; z-index: 20;
+      }
+      .nav-links.active { display: flex; }
+      .nav-toggle { display: block; }
+      nav a { width: 100%; padding: 14px 24px; text-align: left; border-radius: 0; }
+    }
+  </style>
+</head>
+
+<script>
+function enlargeImg(img) {
+  var modal = document.getElementById('imgModal');
+  var modalImg = document.getElementById('modalImg');
+  var captionText = document.getElementById('modalCaption');
+  modal.style.display = 'flex';
+  modalImg.src = img.src;
+}
+// Use event delegation for reliability
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('modalClose').onclick = function() {
+    document.getElementById('imgModal').style.display = 'none';
+  };
+  // Also allow clicking the modal background (not the image itself) to close
+  document.getElementById('imgModal').onclick = function(e) {
+    if (e.target === this) this.style.display = 'none';
+  };
+});
+</script>
+
+<body>
+  <header>
+    <h1>Photo Gallery</h1>
+  </header>
+
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
+    <nav>
+      <div class="nav-links" id="mainNavLinks">
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Experience</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Student</a>
+        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+        <a href="https://chayanbhawal.github.io/Picture_Gallery">Gallery</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="center">
+    <div class="gallery-grid">
+      <!-- Repeat this .gallery-item for each image -->
+      <div class="gallery-item">
+        <img src="Pics/Workshop_Pic01.jpg"
+        class="gallery-image"
+        alt="Drone Workshop at CoRE Lab, EEE Dept., IIT Guwahati (11-09-2025)"
+        onclick="enlargeImg(this)"
+        style="cursor:zoom-in;" />
+        <div class="gallery-caption">Drone Workshop at CoRE Lab, EEE Dept., IIT Guwahati (11-09-2025)</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Pics/Workshop_School.jpg"
+        class="gallery-image"
+        alt="Workshop on Robotics for school students (18-07-2025)"
+        onclick="enlargeImg(this)"
+        style="cursor:zoom-in;" />
+        <div class="gallery-caption">Workshop on Robotics for school students at CoRE Lab, EEE Dept., IIT Guwahati (18-07-2025)</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Pics/Lecture_KIIT.jpg"
+        class="gallery-image"
+        alt="Lecture on drones at KIIT Bhubaneswar (24-06-2025)"
+        onclick="enlargeImg(this)"
+        style="cursor:zoom-in;" />
+        <div class="gallery-caption">Lecture on quadrotors at KIIT Bhubaneswar (24-06-2025)</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Pics/Lecture_IITB.jpg"
+        class="gallery-image"
+        alt="Back at EE IITB as faculty, sharing research with faculties, mentors and old labmates (16-04-2025)"
+        onclick="enlargeImg(this)"
+        style="cursor:zoom-in;" />
+        <div class="gallery-caption">Back at EE IITB as faculty, sharing my work with faculties, mentors and old labmates (16-04-2025)</div>
+      </div>
+       <div class="gallery-item">
+        <img src="Pics/CDC2025.jpg"
+        class="gallery-image"
+        alt="IITB labmates, past and present, together at CDC 2024, Milan. (16-12-2024)"
+        onclick="enlargeImg(this)"
+        style="cursor:zoom-in;" />
+        <div class="gallery-caption">IITB labmates, past & present, together at CDC 2024, Milan (16-12-2024)</div>
+      </div>
+       <div class="gallery-item">
+        <img src="Pics/Lecture_IIEST.jpg"
+        class="gallery-image"
+        alt="Lecture on drones at IIEST  (24-06-2024)"
+        onclick="enlargeImg(this)"
+        style="cursor:zoom-in;" />
+        <div class="gallery-caption">Lecture on quadrotor tuning at IIEST Shibpur (05-12-2024)</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Pics/Lecture_IES_IEEE.jpg"
+        class="gallery-image"
+        alt="IEEE IES Technical Talk (03-12-2024)"
+        onclick="enlargeImg(this)"
+        style="cursor:zoom-in;" />
+        <div class="gallery-caption">IEEE IES Technical Talk, IIT Guwahati (03-12-2024)</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="imgModal" style="display:none;position:fixed;z-index:99;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.74);align-items:center;justify-content:center;">
+  <span id="modalClose" style="position:absolute;top:28px;right:38px;font-size:2.5rem;color:white;cursor:pointer;font-family:sans-serif;">&times;</span>
+  <img id="modalImg" src="" alt="Enlarged" style="max-width:90vw;max-height:80vh;border-radius:12px;box-shadow:0 2px 24px #0008;display:block;margin:auto;">
+  </div>
+</div>
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('mainNavLinks');
+      const btn = document.querySelector('.nav-toggle');
+      if (nav && btn && !nav.contains(e.target) && e.target !== btn) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
