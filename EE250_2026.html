@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EE250 Control Systems | January 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0c1898;
+            --primary-dark: #080f5e;
+            --accent-color: #2196F3;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav {
+            background-color: #fff;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            display: block;
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .syllabus-link {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .syllabus-link p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .syllabus-link a {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .syllabus-link a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-top: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tbody tr {
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background-color: var(--bg-light);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .link-button {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .link-button:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-pending {
+            background-color: #fff3e0;
+            color: #f57c00;
+        }
+
+        .footer-note {
+            background-color: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .footer-note p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-note a {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, .footer-note {
+                display: none;
+            }
+            
+            header {
+                background: var(--primary-color);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EE250 Control Systems</h1>
+        <p>January - May 2026 </p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="https://chayanbhawal.github.io/">Home</a></li>
+            <li><a href="https://chayanbhawal.github.io/biosketch">Experience</a></li>
+            <li><a href="https://chayanbhawal.github.io/publications">Publications</a></li>
+            <li><a href="https://chayanbhawal.github.io/courses">Courses</a></li>
+            <li><a href="https://chayanbhawal.github.io/projects">Projects</a></li>
+            <li><a href="https://chayanbhawal.github.io/students">Students</a></li>
+            <li><a href="https://chayanbhawal.github.io/tutorial">Tutorial</a></li>
+            <li><a href="https://chayanbhawal.github.io/Picture_Gallery">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="syllabus-link">
+            <p><strong>Course Syllabus:</strong> <a href="https://iitg.ac.in/acad/CourseStructure/Btech2018/EE/EE250.htm" target="_blank">View Official Syllabus</a></p>
+        </div>
+
+        <!-- Video Lectures Section -->
+        <section class="section">
+            <h2>Video Lectures</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lecture</th>
+                            <th>Topic</th>
+                            <th>Video</th>
+                            <th>Notes</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>00</strong></td>
+                            <td>Introduction</td>
+                            <td>Watch</td>
+                            <td>Download</td>
+                            <td>Upcoming</td>
+                        </tr>
+                      </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tutorial Sets Section -->
+        <section class="section">
+            <h2>Tutorial Sets</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tutorial</th>
+                            <th>Download</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tutorial 01</strong></td>
+                            <td>Download PDF</td>
+                            <td>Upcoming</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Problem Sets Section -->
+        <section class="section">
+            <h2>Problem Sets</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem Set</th>
+                            <th>Questions</th>
+                            <th>Solutions</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Problem Set 01</strong></td>
+                            <td>Download</td>
+                            <td>View Solutions</td>
+                            <td>Upcoming</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Assessment Weightage Section -->
+        <section class="section">
+    <h2>Assessment & Weightage</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Assessment</th>
+                    <th>Expected Date</th>
+                    <th>Weightage</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tutorial</strong></td>
+                    <td>Every Tuesday</td>
+                    <td>10%</td>
+                    <td>Upcoming</td>
+                </tr>
+                <tr>
+                    <td><strong>Quiz 1</strong></td>
+                    <td>11-Feb-2026</td>
+                    <td>10%</td>
+                    <td>Upcoming</td>
+                </tr>
+                <tr>
+                    <td><strong>Mid Semester</strong></td>
+                    <td>02-Mar-2026</td>
+                    <td>20%</td>
+                    <td>Upcoming</td>
+                </tr>
+                <tr>
+                    <td><strong>Quiz 2</strong></td>
+                    <td>08-Apr-2026</td>
+                    <td>25%</td>
+                    <td>Upcoming</td>
+                </tr>
+                <tr>
+                    <td><strong>End Semester</strong></td>
+                    <td>04-May-2026</td>
+                    <td>35%</td>
+                    <td>Upcoming</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+        <div class="footer-note">
+            <p>Access to the course materials is provided to registered students. If you are not registered and would like access, please contact <a href="mailto:bhawal@iitg.ac.in">bhawal@iitg.ac.in</a></p>
+        </div>
+    </div>
+</body>
+</html>
