@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EE5500 Linear System Theory - Jul 2026</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #e5ebff;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Navigation */
+    .nav-container {
+      position: relative;
+      background: var(--text-light);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      background: inherit;
+      padding: 0;
+    }
+    nav a {
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      background: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 21;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Tabs */
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .tab-buttons button {
+      background: var(--secondary);
+      border: none;
+      padding: 12px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .tab-buttons button.active,
+    .tab-buttons button:hover {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: var(--text-light);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s;
+    }
+    section:hover {
+      transform: translateY(-3px);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    table thead {
+      background: var(--secondary);
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: #f1f5ff;
+    }
+
+    a {
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+      background: #f2f4fd;
+    }
+
+    /* Responsive styles for nav and tables */
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        padding-top: 45px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--text-light);
+        margin-top: 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45px;
+        z-index: 20;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      nav a {
+        width: 100%;
+        padding: 14px 24px;
+        text-align: left;
+        border-radius: 0;
+      }
+      table {
+        font-size: 0.85rem;
+        display: block;
+        overflow-x: auto;
+      }
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .tab-buttons button {
+        flex: 1 1 auto;
+        margin: 5px 2px;
+        min-width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EE550: Linear System Theory (Jul 2025)</h1>
+  </header>
+
+  <div class="nav-container">
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">&#9776;</button>
+    <nav>
+      <div class="nav-links" id="mainNavLinks">
+        <a href="https://chayanbhawal.github.io/">Home</a>
+        <a href="https://chayanbhawal.github.io/biosketch">Experience</a>
+        <a href="https://chayanbhawal.github.io/publications">Publications</a>
+        <a href="https://chayanbhawal.github.io/courses">Courses</a>
+        <a href="https://chayanbhawal.github.io/projects">Projects</a>
+        <a href="https://chayanbhawal.github.io/students">Students</a>
+        <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+        <a href="https://chayanbhawal.github.io/Picture_Gallery">Gallery</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <section>
+      <p>
+        📘 Syllabus:
+        <a href="https://iitg.ac.in/eee/curriculum/MTech/sca.html" target="_blank">View Syllabus</a>
+      </p>
+    </section>
+
+    <!-- Tab Buttons -->
+    <div class="tab-buttons">
+      <button class="active" onclick="openTab(event, 'lectures')">🎥 Video Lectures</button>
+      <button onclick="openTab(event, 'problems')">📂 Problem Sets</button>
+      <button onclick="openTab(event, 'weightage')">📊 Weightage</button>
+    </div>
+
+    <!-- Video Lectures Tab -->
+    <div id="lectures" class="tab-content active">
+      <h2>🎥 Video Lectures</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Lecture</th>
+            <th>Topic</th>
+            <th>Video</th>
+            <th>Notes</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>00</td>
+            <td>Introduction</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Problem Sets Tab -->
+    <div id="problems" class="tab-content">
+      <h2>📂 Problem Sets</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Sl. No.</th>
+            <th>Title</th>
+            <th>Link</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Weightage Tab -->
+    <div id="weightage" class="tab-content">
+      <h2>📊 Weightage</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Exam</th>
+            <th>Expected Date</th>
+            <th>Weightage</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Quiz-1</td>
+            <td>25-Aug-2026</td>
+            <td>15%</td>
+              <td>              </td>
+          </tr>
+          <tr>
+            <td>Mid-Semester</td>
+            <td>18-Sep-2025</td>
+            <td>15%</td>
+              <td>
+              </td>
+          </tr>
+          <tr>
+            <td>Quiz-2</td>
+            <td>13-Oct-2025</td>
+            <td>20%</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Quiz-3</td>
+            <td>03-Nov-2025</td>
+            <td>20%</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>End-Semester</td>
+            <td>19-Nov-2026</td>
+            <td>30%</td>
+            <td>Completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    ⚠️ Access to the links is restricted to students registered in the course.
+    For access requests, please email: <strong>bhawal[AT]iitg.ac.in</strong>
+  </footer>
+
+  <script>
+    // Toggle navigation menu on mobile
+    function toggleNav() {
+      document.getElementById('mainNavLinks').classList.toggle('active');
+    }
+
+    // Tab switching function
+    function openTab(evt, tabId) {
+      document.querySelectorAll('.tab-content').forEach((tab) => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-buttons button').forEach((btn) => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
