@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EE3003L Control and Robotics Lab - Jul 2026</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0c1898;
+      --secondary: #e5ebff;
+      --accent: #ff9800;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg: #f9f9fc;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), #1a33d2);
+      color: var(--text-light);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: var(--text-light);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      background: var(--primary);
+      color: var(--text-light);
+      border-radius: 4px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    /* Tabs */
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tab-buttons button {
+      background: var(--secondary);
+      border: none;
+      padding: 12px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .tab-buttons button.active,
+    .tab-buttons button:hover {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;} to {opacity: 1;}
+    }
+
+    section {
+      background: var(--text-light);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    table thead { background: var(--secondary); }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    th { font-weight: 600; }
+    tr:hover { background: #f1f5ff; }
+
+    a { color: var(--primary); font-weight: 500; text-decoration: none; }
+    a:hover { color: var(--accent); text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+      background: #f2f4fd;
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; }
+      table { font-size: 0.85rem; display: block; overflow-x: auto; }
+      header h1 { font-size: 1.4rem; }
+      .tab-buttons { flex-wrap: wrap; }
+    }
+
+    /* Add responsive/hamburger nav styling */
+  .nav-container {
+    position: relative;
+    background: var(--text-light, #fff);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: inherit;
+    padding: 0;
+  }
+  nav a {
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--primary, #0c1898);
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  nav a:hover {
+    background: var(--primary, #0c1898);
+    color: var(--text-light, #fff);
+    border-radius: 4px;
+  }
+
+  /* Hamburger button */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--primary, #0c1898);
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 21;
+  }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Responsive styling for mobile */
+  @media (max-width: 850px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background: var(--text-light, #fff);
+      margin-top: 45px;
+      border-top: 1px solid #eee;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      position: absolute;
+      left: 0; right: 0; top: 0;
+      z-index: 20;
+    }
+    .nav-links.active {
+      display: flex;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    nav a {
+      width: 100%;
+      padding: 14px 0 14px 24px;
+      text-align: left;
+      border-radius: 0;
+    }
+  }
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <h1>EE351: Control and Robotics Lab (Jul 2025)</h1>
+  </header>
+    <div class="nav-container">
+        <button class="nav-toggle" aria-label="Open navigation" onclick="toggleNav()">&#9776;</button>
+        <nav>
+            <div class="nav-links" id="mainNavLinks">
+            <a href="https://chayanbhawal.github.io/">Home</a>
+            <a href="https://chayanbhawal.github.io/biosketch">Experience</a>
+            <a href="https://chayanbhawal.github.io/publications">Publications</a>
+            <a href="https://chayanbhawal.github.io/courses">Courses</a>
+            <a href="https://chayanbhawal.github.io/projects">Projects</a>
+            <a href="https://chayanbhawal.github.io/students">Students</a>
+            <a href="https://chayanbhawal.github.io/tutorial">Tutorial</a>
+            <a href="https://chayanbhawal.github.io/Picture_Gallery">Gallery</a>
+            </div>
+        </nav>
+    </div>
+  <main>
+    <section>
+      <p>
+        📘 General Instructions: 
+        <a href="https://iitgoffice-my.sharepoint.com/:w:/g/personal/bhawal_iitg_ac_in/IQDwl4lfeTneR51RNznQ5_4uAUXSwdzCw1hQIuJDkl1p3a8?e=OBBiKF" target="_blank">
+          Download
+        </a>
+      </p>
+    </section>
+
+    <!-- Tab Buttons -->
+    <div class="tab-buttons">
+      <button class="active" onclick="openTab(event, 'modules')">📂 Modules</button>
+      <button onclick="openTab(event, 'divisions')">👥 Divisions</button>
+      <button onclick="openTab(event, 'dates')">📅 Class Dates</button>
+      <button onclick="openTab(event, 'evaluation')">📊 Evaluation</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="modules" class="tab-content active">
+      <h2>📂 Modules</h2>
+      <table>
+        <thead><tr><th>Sl.No.</th><th>Module Name</th><th>Download</th><th>Date</th></tr></thead>
+        <tbody>
+          <tr><td>00</td><td>Introduction to Arduino-UNO Programming</td>
+            <td><a href="https://iitgoffice-my.sharepoint.com/:b:/g/personal/bhawal_iitg_ac_in/IQCZpIpUmBdjTbM5c8CjMmaYAUbmpskf3oJSQcGXVKWaxgA?e=OydUHN">PDF</a></td><td>29-07-2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="divisions" class="tab-content">
+      <h2>👥 Division Details</h2>
+      <table>
+        <thead><tr><th>Division</th><th>Day</th><th>Faculty-in-charge</th><th>Staff-in-charge</th><th>Teaching Assistants</th></tr></thead>
+        <tbody>
+          <tr><td>II</td><td>Mon</td><td>HN</td><td>J Rabha</td><td>Shrutosom, Mainak, Lister, Aryan</td></tr>
+          <tr><td>III</td><td>Tues</td><td>IK</td><td>S Boro</td><td>Subhadeep, Narendra, Aritra, Vikas</td></tr>
+          <tr><td>I</td><td>Wed</td><td>CB</td><td>S Sonowal</td><td>Varaprasad, Latif, Kashinath, Ashutosh</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="dates" class="tab-content">
+  <h2>📅 Class Dates for Divisions</h2>
+  
+  <h3>Lab Schedule</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Division</th>
+        <th>II</th>
+        <th>III</th>
+        <th>I</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Lab Session - I</td>
+        <td>03-Aug</td>
+        <td>04-Aug</td>
+        <td>05-Aug</td>
+      </tr>
+      <tr>
+        <td>Lab Session - II</td>
+        <td>10-Aug</td>
+        <td>11-Aug</td>
+        <td>12-Aug</td>
+      </tr>
+      <tr>
+        <td>Lab Session - III</td>
+        <td>17-Aug</td>
+        <td>18-Aug</td>
+        <td>19-Aug</td>
+      </tr>
+      <tr>
+        <td>Lab Session - IV</td>
+        <td>24-Aug</td>
+        <td>25-Aug</td>
+        <td>27-Aug</td>
+      </tr>
+      <tr>
+        <td>Lab Session - V</td>
+        <td>31-Aug</td>
+        <td>01-Sep</td>
+        <td>02-Sep</td>
+      </tr>
+      <tr>
+        <td>Lab Session - VI</td>
+        <td>07-Sep</td>
+        <td>08-Sep</td>
+        <td>09-Sep</td>
+      </tr>
+      <tr>
+        <td>Lab Session - VII</td>
+        <td>21-Sep</td>
+        <td>22-Sep</td>
+        <td>23-Sep</td>
+      </tr>
+      <tr>
+        <td>Lab Session - VIII</td>
+        <td>28-Sep</td>
+        <td>29-Sep</td>
+        <td>30-Sep</td>
+      </tr>
+      <tr>
+        <td>Lab Session - IX</td>
+        <td>05-Oct</td>
+        <td>06-Oct</td>
+        <td>07-Oct</td>
+      </tr>
+      <tr>
+        <td>Lab Session - X</td>
+        <td>12-Oct</td>
+        <td>13-Oct</td>
+        <td>14-Oct</td>
+      </tr>
+      <tr>
+        <td>Lab Session – XI</td>
+        <td>26-Oct</td>
+        <td>27-Oct</td>
+        <td>28-Oct</td>
+      </tr>
+      <tr>
+        <td>END SEMESTER EXAM</td>
+        <td>02-Nov</td>
+        <td>03-Nov</td>
+        <td>04-Nov</td>
+      </tr>
+      <tr>
+        <td>Lab Project Demonstration Date</td>
+        <td>10-Nov</td>
+        <td>11-Nov</td>
+        <td>10-Nov</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Special Sessions & Make-up Labs</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date &amp; Time</th>
+        <th>Venue / Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Introductory Class</td>
+        <td>29-Jul (9:00 AM)</td>
+        <td>Venue – 5G1</td>
+      </tr>
+      <tr>
+        <td>Make-up Lab (Slot 1)</td>
+        <td>15-Oct (3:00 PM – 5:00 PM)</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Make-up Lab (Slot 2)</td>
+        <td>21-Oct (9:00 AM – 12:00 PM)</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Make-up Lab (Slot 3)</td>
+        <td>22-Oct (3:00 PM – 5:00 PM)</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <div id="evaluation" class="tab-content">
+  <h2>📊 Evaluation Criteria</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Evaluation</th>
+        <th>Percentage</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Viva and Lab Performance</td>
+        <td>30%</td>
+        <td>End of each class evaluation will be done</td>
+      </tr>
+      <tr>
+        <td>Module Completion</td>
+        <td>05%</td>
+        <td>On completion of each module, you get 5 marks</td>
+      </tr>
+      <tr>
+        <td>Reports</td>
+        <td>05%</td>
+        <td>Each report carries 10 marks</td>
+      </tr>
+      <tr>
+        <td>Attendance</td>
+        <td>10%</td>
+        <td>0 attendance if not showed up to lab by 9:10 am</td>
+      </tr>
+      <tr>
+        <td>End-Semester Performance</td>
+        <td>40%</td>
+        <td>Practical exam</td>
+      </tr>
+      <tr>
+        <td>Lab Project Completion</td>
+        <td>10%</td>
+        <td>On successful completion of project</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </main>
+
+  <footer>
+    ⚠️ Information and download links above are restricted to students registered in the course.
+  </footer>
+
+  <script>
+    function openTab(evt, tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(c => c.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.tab-buttons button');
+      buttons.forEach(b => b.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+
+  <script>
+  function toggleNav() {
+    document.getElementById("mainNavLinks").classList.toggle("active");
+  }
+  // Optional: Close menu if user taps elsewhere, for good UX
+  document.addEventListener('click', function (e) {
+    const nav = document.getElementById("mainNavLinks");
+    const btn = document.querySelector('.nav-toggle');
+    if (!nav.contains(e.target) && e.target !== btn) {
+      nav.classList.remove('active');
+    }
+  });
+</script>
+</body>
+</html>
